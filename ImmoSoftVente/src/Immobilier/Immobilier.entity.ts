@@ -1,12 +1,14 @@
 import {
   Column,
   Entity,
+  JoinTable,
   ManyToOne,
   OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Agence } from '../Agence/Agence.entity';
+import { Dependances } from '../Dependances/Dependances.entity';
 import { DetailsUsers } from '../DetailsUsers/DetailsUsers.entity';
 import { Localisation } from '../Localisation/Localisation.entity';
 import { Image } from './Image.entity';
@@ -16,6 +18,10 @@ export class Immobilier {
   @ManyToOne(type => Agence, agence => agence.immobilier)
   agence: Agence;
 
+  @OneToMany(type => Dependances, dependances => dependances.immobilier)
+  @JoinTable()
+  dependances: Dependances[];
+
   @Column({ name: 'description', type: 'text' })
   public description: string;
 
@@ -23,16 +29,16 @@ export class Immobilier {
   detailsUsers: DetailsUsers;
 
   @Column({ name: 'etage', type: 'int' })
-  public etage: string;
+  public etage: number;
 
   @Column({ name: 'frais_agence', type: 'int' })
-  public frais_agence: string;
+  public frais_agence: number;
+
+  @PrimaryGeneratedColumn('uuid', { name: 'immobilier_id' })
+  public id: number;
 
   @OneToMany(type => Image, image => image.immobilier)
   image: Image[];
-
-  @PrimaryGeneratedColumn('uuid', { name: 'immo_id' })
-  public immoId: string;
 
   @Column({ name: 'libelle', type: 'varchar' })
   public libelle: string;
@@ -41,17 +47,20 @@ export class Immobilier {
   localisation: Localisation;
 
   @Column({ name: 'nombre_pièces', type: 'int' })
-  public nombre_pièces: string;
+  public nombre_pièces: number;
 
   @Column({ name: 'prix_demande', type: 'int' })
-  public prix_demande: string;
+  public prix_demande: number;
 
   @Column({ name: 'prix_mini', type: 'int' })
-  public prix_mini: string;
+  public prix_mini: number;
 
   @Column({ name: 'superficie', type: 'float' })
-  public superficie: string;
+  public superficie: number;
+
+  @Column({ name: 'type', type: 'varchar' })
+  public type: string;
 
   @Column({ name: 'vendu', type: 'int' })
-  public vendu: string;
+  public vendu: number;
 }

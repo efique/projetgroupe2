@@ -2,13 +2,13 @@ import bodyParser from 'body-parser';
 import chalk from 'chalk';
 import express from 'express';
 
-import { CourseController } from './course/course.controller';
+// import { CourseController } from './course/course.controller';
 import logger from './logger.tools';
-import { NoteController } from './note/note.controller';
-import { RoomController } from './room/room.controller';
+// import { NoteController } from './note/note.controller';
+// import { RoomController } from './room/room.controller';
 import { setupDb } from './setup-db';
-import { SubjectController } from './subject/subject.controller';
-import { UserController } from './user/user.controller';
+// import { SubjectController } from './subject/subject.controller';
+// import { UserController } from './user/user.controller';
 
 async function bootstrap() {
   // create db connection
@@ -34,20 +34,20 @@ async function bootstrap() {
   });
 
   // use custom controller on '/course' pattern
-  const coursesRoutes = await new CourseController().getRoutes();
-  app.use('/course', coursesRoutes);
+  // const coursesRoutes = await new CourseController().getRoutes();
+  // app.use('/course', coursesRoutes);
 
-  const userRoutes = await new UserController().getRoutes();
-  app.use('/user', userRoutes);
+  // const userRoutes = await new UserController().getRoutes();
+  // app.use('/user', userRoutes);
 
-  const noteRoutes = await new NoteController().getRoutes();
-  app.use('/note', noteRoutes);
+  // const noteRoutes = await new NoteController().getRoutes();
+  // app.use('/note', noteRoutes);
 
-  const roomRoutes = await new RoomController().getRoutes();
-  app.use('/room', roomRoutes);
+  // const roomRoutes = await new RoomController().getRoutes();
+  // app.use('/room', roomRoutes);
 
-  const subjectRoutes = await new SubjectController().getRoutes();
-  app.use('/subject', subjectRoutes);
+  // const subjectRoutes = await new SubjectController().getRoutes();
+  // app.use('/subject', subjectRoutes);
 
   // define application port
   app.listen(3015);

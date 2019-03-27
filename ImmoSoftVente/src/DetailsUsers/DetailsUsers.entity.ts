@@ -13,12 +13,13 @@ import { Users } from '../Users/Users.entity';
 @Entity({ name: 'detailsUsers' })
 export class DetailsUsers {
   @PrimaryGeneratedColumn('uuid', { name: 'detailsUsers_id' })
-  public DetailsUsersId: string;
+  public id: number;
 
   @OneToMany(type => Immobilier, immobilier => immobilier.detailsUsers)
   immobilier: Immobilier[];
 
   @OneToOne(type => Localisation)
+  @JoinColumn()
   localisation: Localisation;
 
   @Column({ name: 'nom', type: 'varchar' })

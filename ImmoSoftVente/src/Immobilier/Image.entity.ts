@@ -7,7 +7,7 @@ export class Image {
   public description: string;
 
   @PrimaryGeneratedColumn('uuid', { name: 'image_id' })
-  public imageId: string;
+  public id: number;
 
   @ManyToOne(type => Immobilier, immobilier => immobilier.image)
   immobilier: Immobilier;
