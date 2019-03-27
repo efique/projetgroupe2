@@ -3,8 +3,8 @@ import chalk from 'chalk';
 import express from 'express';
 
 // import { CourseController } from './course/course.controller';
-// import { SubjectController } from './subject/subject.controller';
 import { AgenceController } from './Agence/Agence.controller';
+import { LocalisationController } from './Localisation/Localisation.controller';
 import logger from './logger.tools';
 // import { NoteController } from './note/note.controller';
 // import { RoomController } from './room/room.controller';
@@ -46,8 +46,8 @@ async function bootstrap() {
   // const roomRoutes = await new RoomController().getRoutes();
   // app.use('/room', roomRoutes);
 
-  // const subjectRoutes = await new SubjectController().getRoutes();
-  // app.use('/subject', subjectRoutes);
+  const localisationRoutes = await new LocalisationController().getRoutes();
+  app.use('/localisation', localisationRoutes);
 
   // define application port
   app.listen(3015);

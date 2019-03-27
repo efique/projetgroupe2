@@ -1,62 +1,67 @@
 import { getCustomRepository } from 'typeorm';
 
-import { Agence } from '../Agence/Agence.entity';
-import { AgenceRepository } from '../Agence/Agence.repository';
+import { Annonce } from '../Annonce/Annonce.entity';
+import { AnnonceRepository } from '../Annonce/Annonce.repository';
 
-export class AgenceService {
+export class AnnonceService {
   /**
    * SINGLETON PATTERN
    * @see https://en.wikipedia.org/wiki/Singleton_pattern
    */
   public static getInstance() {
     if (!this.instance) {
-      this.instance = new AgenceService();
+      this.instance = new AnnonceService();
     }
     return this.instance;
   }
 
   constructor() {
-    this.agenceRepository = getCustomRepository(AgenceRepository);
+    this.annonceRepository = getCustomRepository(AnnonceRepository);
   }
-  private static instance: AgenceService;
+  private static instance: AnnonceService;
 
-  private agenceRepository: AgenceRepository;
+  private annonceRepository: AnnonceRepository;
 
   /**
-   * Insert a agence in Db
+   * Insert a annonce in Db
    *
-   * @param agence
-   * @returns Resolves with Agence inserted
+   * @param annonce
+   * @returns Resolves with Annonce inserted
    */
-  public async create(agence: any) {
-    const agenceToInsert: Partial<Agence> = {
-      ...agence,
+  public async create(annonce: any) {
+    const annonceToInsert: Partial<Annonce> = {
+      ...annonce,
     };
-    return this.agenceRepository.save(agenceToInsert);
+    return this.annonceRepository.save(annonceToInsert);
   }
 
-  public async delete(agenceId: string) {
-    return this.agenceRepository.delete(agenceId);
+  public async delete(annonceId: string) {
+    return this.annonceRepository.delete(annonceId);
   }
 
-  public async getAgence(agenceId: string) {
-    return this.agenceRepository.findOne(agenceId);
+  public async getAnnonce(annonceId: string) {
+    return this.annonceRepository.findOne(annonceId);
+  }
+
+  public async getAnnonceId(id: string) {
+    const annonce = await this.annonceRepository.findOneOrFail(id);
+    return annonce.id;
   }
 
   /**
-   * Retrieve all agences from Db
+   * Retrieve all annonces from Db
    *
-   * @returns Resolves with the list of all agences in Db
+   * @returns Resolves with the list of all annonces in Db
    */
   public async getAll() {
-    return this.agenceRepository.find();
+    return this.annonceRepository.find();
   }
 
-  public async update(body: Partial<Agence>, agenceId: string) {
-    const agenceToUpdate = await this.agenceRepository.findOne(agenceId);
-    if (!agenceToUpdate) {
+  public async update(body: Partial<Annonce>, annonceId: string) {
+    const annonceToUpdate = await this.annonceRepository.findOne(annonceId);
+    if (!annonceToUpdate) {
       'Cet id n\'existe pas';
     }
-    return this.agenceRepository.save({ ...agenceToUpdate, ...body });
+    return this.annonceRepository.save({ ...annonceToUpdate, ...body });
   }
 }

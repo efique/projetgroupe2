@@ -15,12 +15,12 @@ export class DependancesController {
   /**
    * Define and return the router of DependancesController.
    *
-   * @returns Resolves with the router and its routes
+   * @returns Resolves with the router and its roulltes
    */
   async getRoutes() {
     const routes: IRouteInterface[] = [
       { path: '/', method: 'post', actions: [this.create] },
-      { path: '/update/:DependancesId', method: 'put', actions: [this.update] },
+      { path: '/update/:id', method: 'put', actions: [this.update] },
       {
         path: '/:DependancesId',
         method: 'get',
@@ -56,13 +56,6 @@ export class DependancesController {
   private async delete(req: Request, res: Response) {
     res.json({ results: await this.DependancesService().delete(req.params) });
   }
-
-  private async getDependances(req: Request, res: Response) {
-    res.json({
-      results: await this.DependancesService().getDependances(req.params),
-    });
-  }
-
   /**
    * Return a list of all Dependancess from Db
    *
@@ -72,6 +65,12 @@ export class DependancesController {
    */
   private async getAll(req: Request, res: Response) {
     res.json({ results: await this.DependancesService().getAll() });
+  }
+
+  private async getDependances(req: Request, res: Response) {
+    res.json({
+      results: await this.DependancesService().getdependances(req.params),
+    });
   }
 
   private async update(req: Request, res: Response) {

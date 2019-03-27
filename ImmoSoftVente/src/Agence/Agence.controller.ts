@@ -22,6 +22,16 @@ export class AgenceController {
       { path: '/', method: 'post', actions: [this.create] },
       { path: '/update/:agenceId', method: 'put', actions: [this.update] },
       { path: '/:agenceId', method: 'get', actions: [this.getAgence] },
+      {
+        path: '/id/:agenceId',
+        method: 'get',
+        actions: [this.getAgenceId],
+      },
+      {
+        path: '/telephone/:agenceId',
+        method: 'get',
+        actions: [this.getAgenceTelephone],
+      },
       { path: '/', method: 'get', actions: [this.getAll] },
       { path: '/delete/:agenceId', method: 'delete', actions: [this.delete] },
     ];
@@ -51,6 +61,18 @@ export class AgenceController {
 
   private async getAgence(req: Request, res: Response) {
     res.json({ results: await this.agenceService().getAgence(req.params) });
+  }
+
+  private async getAgenceId(req: Request, res: Response) {
+    res.json({
+      results: await this.agenceService().getAgenceId(req.params),
+    });
+  }
+
+  private async getAgenceTelephone(req: Request, res: Response) {
+    res.json({
+      results: await this.agenceService().getAgenceTelephone(req.params),
+    });
   }
 
   /**

@@ -39,8 +39,19 @@ export class AgenceService {
     return this.agenceRepository.delete(agenceId);
   }
 
-  public async getAgence(agenceId: string) {
-    return this.agenceRepository.findOne(agenceId);
+  public async getAgence(id: string) {
+    const agence = await this.agenceRepository.findOneOrFail(id);
+    return agence;
+  }
+
+  public async getAgenceId(id: string) {
+    const agence = await this.agenceRepository.findOneOrFail(id);
+    return agence.id;
+  }
+
+  public async getAgenceTelephone(id: string) {
+    const agence = await this.agenceRepository.findOneOrFail(id);
+    return agence.telephone;
   }
 
   /**

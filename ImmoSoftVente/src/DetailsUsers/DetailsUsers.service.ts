@@ -56,9 +56,7 @@ export class DependancesService {
   }
 
   public async update(body: Partial<Dependances>, dependancesId: string) {
-    const dependancesToUpdate = await this.dependancesRepository.findOne(
-      dependancesId,
-    );
+    const dependancesToUpdate = await this.dependancesRepository.findOne(dependancesId);
     if (!dependancesToUpdate) {
       'Cet id n\'existe pas';
     }

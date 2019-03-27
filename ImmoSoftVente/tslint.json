@@ -33,9 +33,9 @@
     "no-trailing-whitespace": [true, "ignore-comments", "ignore-jsdoc"],
     "no-consecutive-blank-lines": [true],
     "max-line-length": [true, 150],
-    "object-literal-sort-keys": true,
+    "object-literal-sort-keys": false,
     "member-ordering": [
-      true,
+      false,
       {
         "order": [
           "public-static-field",

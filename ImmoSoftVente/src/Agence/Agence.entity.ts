@@ -20,7 +20,7 @@ export class Agence {
 
   @OneToOne(type => Localisation)
   @JoinColumn()
-  Localisation: Localisation;
+  localisation: Localisation;
 
   @Column({ name: 'telephone', type: 'varchar' })
   public telephone: string;
