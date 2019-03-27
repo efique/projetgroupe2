@@ -26,9 +26,9 @@ export class Users {
   @OneToOne(type => DetailsUsers)
   detailsUsers: DetailsUsers;
 
-  @ManyToMany(type => Favoris, favoris => favoris.users)
+  @ManyToMany(type => Favoris, favoris => favoris.users, { nullable: true })
   @JoinTable()
-  favoris: Favoris[];
+  favoris?: Favoris[];
 
   @PrimaryGeneratedColumn('uuid', { name: 'users_id' })
   public id: number;

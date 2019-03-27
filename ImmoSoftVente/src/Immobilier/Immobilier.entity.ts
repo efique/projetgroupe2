@@ -7,9 +7,11 @@ import {
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+
 import { Agence } from '../Agence/Agence.entity';
 import { Dependances } from '../Dependances/Dependances.entity';
 import { DetailsUsers } from '../DetailsUsers/DetailsUsers.entity';
+import { ImmobilierEnum } from '../enum/Immobilier.enum';
 import { Localisation } from '../Localisation/Localisation.entity';
 import { Image } from './Image.entity';
 
@@ -18,9 +20,11 @@ export class Immobilier {
   @ManyToOne(type => Agence, agence => agence.immobilier)
   agence: Agence;
 
-  @OneToMany(type => Dependances, dependances => dependances.immobilier)
+  @OneToMany(type => Dependances, dependances => dependances.immobilier, {
+    nullable: true,
+  })
   @JoinTable()
-  dependances: Dependances[];
+  dependances?: Dependances[];
 
   @Column({ name: 'description', type: 'text' })
   public description: string;
@@ -37,11 +41,11 @@ export class Immobilier {
   @PrimaryGeneratedColumn('uuid', { name: 'immobilier_id' })
   public id: number;
 
-  @OneToMany(type => Image, image => image.immobilier)
-  image: Image[];
+  @OneToMany(type => Image, image => image.immobilier, { nullable: true })
+  image?: Image[];
 
-  @Column({ name: 'libelle', type: 'varchar' })
-  public libelle: string;
+  @Column({ name: 'libelle', type: 'enum', enum: ImmobilierEnum })
+  public libelle: ImmobilierEnum;
 
   @OneToOne(type => Localisation)
   localisation: Localisation;

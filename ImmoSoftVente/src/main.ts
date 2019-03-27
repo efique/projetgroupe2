@@ -3,12 +3,12 @@ import chalk from 'chalk';
 import express from 'express';
 
 // import { CourseController } from './course/course.controller';
+// import { SubjectController } from './subject/subject.controller';
+import { AgenceController } from './Agence/Agence.controller';
 import logger from './logger.tools';
 // import { NoteController } from './note/note.controller';
 // import { RoomController } from './room/room.controller';
 import { setupDb } from './setup-db';
-// import { SubjectController } from './subject/subject.controller';
-// import { UserController } from './user/user.controller';
 
 async function bootstrap() {
   // create db connection
@@ -37,8 +37,8 @@ async function bootstrap() {
   // const coursesRoutes = await new CourseController().getRoutes();
   // app.use('/course', coursesRoutes);
 
-  // const userRoutes = await new UserController().getRoutes();
-  // app.use('/user', userRoutes);
+  const agenceRoutes = await new AgenceController().getRoutes();
+  app.use('/agence', agenceRoutes);
 
   // const noteRoutes = await new NoteController().getRoutes();
   // app.use('/note', noteRoutes);

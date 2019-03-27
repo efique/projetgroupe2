@@ -11,8 +11,8 @@ import { Users } from '../Users/Users.entity';
 
 @Entity({ name: 'annonce' })
 export class Annonce {
-  @OneToMany(type => Favoris, favoris => favoris.annonce)
-  favoris: Favoris[];
+  @OneToMany(type => Favoris, favoris => favoris.annonce, { nullable: true })
+  favoris?: Favoris[];
 
   @PrimaryGeneratedColumn('uuid', { name: 'role_id' })
   public id: number;
@@ -23,8 +23,9 @@ export class Annonce {
   @OneToMany(
     type => PropositionAchat,
     propositionAchat => propositionAchat.annonce,
+    { nullable: true },
   )
-  propositionAchat: PropositionAchat[];
+  propositionAchat?: PropositionAchat[];
 
   @ManyToOne(type => Users, users => users.annonce)
   users: Users;

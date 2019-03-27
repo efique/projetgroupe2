@@ -15,8 +15,10 @@ export class DetailsUsers {
   @PrimaryGeneratedColumn('uuid', { name: 'detailsUsers_id' })
   public id: number;
 
-  @OneToMany(type => Immobilier, immobilier => immobilier.detailsUsers)
-  immobilier: Immobilier[];
+  @OneToMany(type => Immobilier, immobilier => immobilier.detailsUsers, {
+    nullable: true,
+  })
+  immobilier?: Immobilier[];
 
   @OneToOne(type => Localisation)
   @JoinColumn()
