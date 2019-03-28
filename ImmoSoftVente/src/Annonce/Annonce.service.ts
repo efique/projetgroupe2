@@ -43,11 +43,6 @@ export class AnnonceService {
     return this.annonceRepository.findOne(annonceId);
   }
 
-  public async getAnnonceId(id: string) {
-    const annonce = await this.annonceRepository.findOneOrFail(id);
-    return annonce.id;
-  }
-
   /**
    * Retrieve all annonces from Db
    *

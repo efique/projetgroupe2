@@ -54,12 +54,6 @@ export class AnnonceController {
     res.json({ results: await this.annonceService().getAnnonce(req.params) });
   }
 
-  private async getAnnonceId(req: Request, res: Response) {
-    res.json({
-      results: await this.annonceService().getAnnonceId(req.params),
-    });
-  }
-
   /**
    * Return a list of all annonces from Db
    *

@@ -1,10 +1,10 @@
 import { getCustomRepository } from 'typeorm';
 
-import { Dependances } from '../Dependances/Dependances.entity';
-import { DependancesRepository } from '../Dependances/Dependances.repository';
+import { DetailsUsers } from '../DetailsUsers/DetailsUsers.entity';
+import { DetailsUsersRepository } from '../DetailsUsers/DetailsUsers.repository';
 
-export class DependancesService {
-  getdependances(params: any): any {
+export class DetailsUsersService {
+  getdetailsUsers(params: any): any {
     throw new Error('Method not implemented.');
   }
   /**
@@ -13,53 +13,58 @@ export class DependancesService {
    */
   public static getInstance() {
     if (!this.instance) {
-      this.instance = new DependancesService();
+      this.instance = new DetailsUsersService();
     }
     return this.instance;
   }
 
   constructor() {
-    this.dependancesRepository = getCustomRepository(DependancesRepository);
+    this.detailsUsersRepository = getCustomRepository(DetailsUsersRepository);
   }
-  private static instance: DependancesService;
+  private static instance: DetailsUsersService;
 
-  private dependancesRepository: DependancesRepository;
+  private detailsUsersRepository: DetailsUsersRepository;
 
   /**
-   * Insert a Dependances in Db
+   * Insert a DetailsUsers in Db
    *
-   * @param dependances
-   * @returns Resolves with Dependances inserted
+   * @param detailsUsers
+   * @returns Resolves with DetailsUsers inserted
    */
   public async create(agence: any) {
-    const dependancesToInsert: Partial<Dependances> = {
+    const detailsUsersToInsert: Partial<DetailsUsers> = {
       ...agence,
     };
-    return this.dependancesRepository.save(dependancesToInsert);
+    return this.detailsUsersRepository.save(detailsUsersToInsert);
   }
 
-  public async delete(dependancesId: string) {
-    return this.dependancesRepository.delete(dependancesId);
+  public async delete(detailsUsersId: string) {
+    return this.detailsUsersRepository.delete(detailsUsersId);
   }
 
-  public async getAgence(dependancesId: string) {
-    return this.dependancesRepository.findOne(dependancesId);
+  public async getAgence(detailsUsersId: string) {
+    return this.detailsUsersRepository.findOne(detailsUsersId);
   }
 
   /**
-   * Retrieve all dependances from Db
+   * Retrieve all detailsUsers from Db
    *
-   * @returns Resolves with the list of all dependances in Db
+   * @returns Resolves with the list of all detailsUsers in Db
    */
   public async getAll() {
-    return this.dependancesRepository.find();
+    return this.detailsUsersRepository.find();
   }
 
-  public async update(body: Partial<Dependances>, dependancesId: string) {
-    const dependancesToUpdate = await this.dependancesRepository.findOne(dependancesId);
-    if (!dependancesToUpdate) {
+  public async update(body: Partial<DetailsUsers>, detailsUsersId: string) {
+    const detailsUsersToUpdate = await this.detailsUsersRepository.findOne(
+      detailsUsersId,
+    );
+    if (!detailsUsersToUpdate) {
       'Cet id n\'existe pas';
     }
-    return this.dependancesRepository.save({ ...dependancesToUpdate, ...body });
+    return this.detailsUsersRepository.save({
+      ...detailsUsersToUpdate,
+      ...body,
+    });
   }
 }
