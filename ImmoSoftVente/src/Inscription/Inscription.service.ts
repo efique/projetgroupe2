@@ -18,15 +18,16 @@ export class InscriptionService {
   }
 
   constructor() {
-    this.inscriptionRepository = getCustomRepository(InscriptionRepository);
+    this.usersRepository = getCustomRepository(UsersRepository);
   }
+
   private static instance: InscriptionService;
 
-  private inscriptionRepository: InscriptionRepository;
+  private usersRepository: UsersRepository;
 
   public async getInscription(id: string) {
-    const inscription = await this.inscriptionRepository.findOneOrFail(id);
-    return inscription;
+    const users = await this.usersRepository.findOneOrFail(id);
+    return users;
   }
 
   /**
@@ -35,7 +36,7 @@ export class InscriptionService {
    * @returns Resolves with the list of all inscriptions in Db
    */
   public async getAll() {
-    return this.inscriptionRepository.find();
+    return this.usersRepository.find();
   }
 
   /**
@@ -45,9 +46,9 @@ export class InscriptionService {
    * @returns Resolves with Inscription inserted
    */
   public async create(inscription: any) {
-    const inscriptionToInsert: Partial<Inscription> = {
+    const usersToInsert: Partial<Users> = {
       ...inscription,
     };
-    return this.inscriptionRepository.save(inscriptionToInsert);
+    return this.usersRepository.save(usersToInsert);
   }
 }
