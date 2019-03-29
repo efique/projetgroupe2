@@ -31,9 +31,9 @@ export class DetailsUsersService {
    * @param detailsUsers
    * @returns Resolves with DetailsUsers inserted
    */
-  public async create(agence: any) {
+  public async create(detailsUsers: any) {
     const detailsUsersToInsert: Partial<DetailsUsers> = {
-      ...agence,
+      ...detailsUsers,
     };
     return this.detailsUsersRepository.save(detailsUsersToInsert);
   }
