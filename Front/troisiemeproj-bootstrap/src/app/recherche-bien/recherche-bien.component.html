@@ -1,0 +1,31 @@
+<div class="recherche-bien">
+  
+  <h2>Recherche-bien works!</h2>
+ 
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+    <label>
+      Type de bien: <input type="text" [formControl]="type_bien">
+    </label>
+
+    <div formGroupName="localisation">
+      <label>
+      Ville: <input type="text" formControlName="ville">
+      </label>
+    </div>
+    
+    <label>
+      Nombre de pièces: <input type="number" [formControl]="nombre_pieces">
+    </label>
+
+    <label>
+      Superficie: <input type="number" [formControl]="superficie">
+    </label>
+
+    <label>
+      Prix: <input type="number" placeholder="Prix min" [formControl]="prix_minimum">
+            <input type="number" placeholder="Prix max" [formControl]="prix_maximum">
+    </label>
+
+    <button type="submit" [disabled]="!searchForm.valid">Rechercher</button>
+  </form>
+</div>

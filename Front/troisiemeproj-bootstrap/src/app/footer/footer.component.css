@@ -1,0 +1,26 @@
+ footer{
+    background-color: #ebe6ff;
+    border-top: 4px solid rgba(255, 255, 255, 0.5);
+    /*height: 6vh;*/
+}
+
+/*
+footer span:first-of-type{
+    float: left;
+    margin: 10px 10px;
+}
+
+.conditions{
+    float: right;
+    margin: 10px 10px;
+}
+
+.conditions*/ a{
+    text-decoration: none;
+    color: black;
+    padding: 0px 20px;
+}/*
+
+.conditions a:hover{
+    color: #1e008c;
+} */
