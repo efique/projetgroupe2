@@ -1,0 +1,40 @@
+div.lien-vendre-accueil{
+    /* border: 1px solid orangered; */
+    position: relative;
+    top: 8vh;
+    left: 28vw;
+    width: 18vw;
+    height: 48vh;
+    background-color: #ebe6ff;
+    padding: 2.8vh;
+    box-shadow: 6px 6px 2px 1px rgba(20, 0, 102, 0.2);
+    font-size: 1.1em;
+    display: inline-block;
+    text-align: center;
+}
+
+h2{
+    text-align: center;
+    /* margin-top: 2vh;
+    margin-bottom: 4vh; */
+}
+
+p{
+    margin: 5vh 0;
+    font-size: 1.3em;
+}
+
+button {
+    background-color: #2700b3;
+    color: white;
+    padding: 10px 15px;
+    margin: 2vh 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #1e008c;
+}
