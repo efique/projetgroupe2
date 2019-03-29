@@ -1,21 +1,32 @@
 import {
   Column,
   Entity,
-  JoinColumn,
-  OneToOne,
+  ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+import { Favoris } from '../Favoris/Favoris.entity';
+import { PropositionAchat } from '../Proposition_achat/Proposition_achat.entity';
 import { Users } from '../Users/Users.entity';
 
-@Entity({ name: 'role' })
-export class Role {
+@Entity({ name: 'annonce' })
+export class Annonce {
+  @OneToMany(type => Favoris, favoris => favoris.annonce, { nullable: true })
+  favoris?: Favoris[];
+
+  @PrimaryGeneratedColumn('uuid', { name: 'role_id' })
+  public id: number;
+
   @Column({ name: 'libelle', type: 'varchar' })
   public libelle: string;
 
-  @PrimaryGeneratedColumn('uuid', { name: 'role_id' })
-  public roleId: string;
+  @OneToMany(
+    type => PropositionAchat,
+    propositionAchat => propositionAchat.annonce,
+    { nullable: true },
+  )
+  propositionAchat?: PropositionAchat[];
 
-  @OneToOne(type => Users)
-  @JoinColumn()
+  @ManyToOne(type => Users, users => users.annonce)
   users: Users;
 }

@@ -1,21 +1,15 @@
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  OneToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { RoleEnum } from '../Enum/Role.enum';
 import { Users } from '../Users/Users.entity';
 
 @Entity({ name: 'role' })
 export class Role {
-  @Column({ name: 'libelle', type: 'varchar' })
-  public libelle: string;
-
   @PrimaryGeneratedColumn('uuid', { name: 'role_id' })
-  public roleId: string;
+  public id: number;
+
+  @Column({ name: 'libelle', type: 'enum', enum: RoleEnum })
+  public libelle: RoleEnum;
 
   @OneToOne(type => Users)
-  @JoinColumn()
   users: Users;
 }
