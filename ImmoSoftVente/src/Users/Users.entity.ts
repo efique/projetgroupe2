@@ -11,8 +11,8 @@ import {
 import { Agence } from '../Agence/Agence.entity';
 import { Annonce } from '../Annonce/Annonce.entity';
 import { DetailsUsers } from '../DetailsUsers/DetailsUsers.entity';
+import { RoleEnum } from '../Enum/Role.enum';
 import { Favoris } from '../Favoris/Favoris.entity';
-import { Role } from '../Role/Role.entity';
 
 @Entity({ name: 'users' })
 export class Users {
@@ -39,7 +39,11 @@ export class Users {
   @Column({ name: 'password', type: 'varchar' })
   public password: string;
 
-  @OneToOne(type => Role)
-  @JoinColumn()
-  role: Role;
+  @Column({
+    name: 'role',
+    type: 'enum',
+    enum: RoleEnum,
+    default: 'Utilisateur',
+  })
+  public role: RoleEnum;
 }

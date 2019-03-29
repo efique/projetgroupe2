@@ -17,8 +17,8 @@ export class Localisation {
   @OneToOne(type => Immobilier)
   immobilier: Immobilier;
 
-  @Column({ name: 'nom', type: 'varchar' })
-  public nom: string;
+  @Column({ name: 'rue', type: 'varchar' })
+  public rue: string;
 
   @Column({ name: 'numero', type: 'int' })
   public numero: number;

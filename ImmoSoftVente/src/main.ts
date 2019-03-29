@@ -2,8 +2,8 @@ import bodyParser from 'body-parser';
 import chalk from 'chalk';
 import express from 'express';
 
-// import { CourseController } from './course/course.controller';
 import { AgenceController } from './Agence/Agence.controller';
+import { InscriptionController } from './inscription/inscription.controller';
 import { LocalisationController } from './Localisation/Localisation.controller';
 import logger from './logger.tools';
 // import { NoteController } from './note/note.controller';
@@ -33,9 +33,9 @@ async function bootstrap() {
     return res.json({ message: 'Hello world !' });
   });
 
-  // use custom controller on '/course' pattern
-  // const coursesRoutes = await new CourseController().getRoutes();
-  // app.use('/course', coursesRoutes);
+  // use custom controller on '/inscription' pattern
+  const inscriptionRoutes = await new InscriptionController().getRoutes();
+  app.use('/inscription', inscriptionRoutes);
 
   const agenceRoutes = await new AgenceController().getRoutes();
   app.use('/agence', agenceRoutes);
