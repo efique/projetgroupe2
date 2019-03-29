@@ -26,7 +26,9 @@ export class InscriptionService {
   private usersRepository: UsersRepository;
 
   public async getInscription(id: string) {
-    const users = await this.usersRepository.findOneOrFail(id);
+    const users = await this.usersRepository.findOneOrFail(id, {
+      relations: ['detailsUsers'],
+    });
     return users;
   }
 
