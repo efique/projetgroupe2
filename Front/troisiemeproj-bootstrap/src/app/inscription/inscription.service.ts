@@ -10,7 +10,7 @@ export class InscriptionService {
 
     constructor(private http: HttpClient) {}
 
-    getInscription() {
+    /* getInscription() {
         return this.http.get<Inscription>(this.configUrl); // this.http.get<Hero>(LIEN BACK);
-    }
+    } */
 }

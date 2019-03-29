@@ -8,6 +8,7 @@ import { Inscription } from '../Inscription';
   templateUrl: './inscription.component.html',
   styleUrls: ['./inscription.component.css']
 })
+
 export class InscriptionComponent implements OnInit {
 
   inscriptionForm = this.fb.group({
@@ -28,17 +29,17 @@ export class InscriptionComponent implements OnInit {
 
   onSubmit() {
     // TODO: Use EventEmitter with form value
-    console.log(this.inscriptionForm.value);
+    console.warn(this.inscriptionForm.value);
   }
 
-  constructor(private fb: FormBuilder, private readonly inscriptionService: InscriptionService) { }
+  constructor(private fb: FormBuilder) { } // , private readonly inscriptionService: InscriptionService
 
   ngOnInit() {
     /* fetchInscriptions(){
       this.inscriptionService.getInscription().subscribe((data: Inscription[]) =>
         this.inscriptions =
       );
-    } */
+    }  */
   }
 
 }
