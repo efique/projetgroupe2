@@ -2,7 +2,25 @@ import { Request, Response, Router } from 'express';
 
 import { IRouteInterface } from './../tools/route.interface';
 import { ConnexionService } from './Connexion.service';
+// import { Users } from './Users.entity';
+// import { UsersRepository } from './Users.repository';
 
+class PasseportController{
+// tslint:disable-next-line:align
+passport; .use(new BearerStrategy (function(token, done) {
+    Users.findOne({ token }, function(err, Users) {
+      if (err) {
+        return done(err);
+      }
+      if (!Users) {
+        return done(null, false);
+      }
+      return done(null, Users, { scope: 'read' });
+    });
+  }),      ;
+)
+}
+// tslint:disable-next-line:max-classes-per-file
 export class ConnexionController {
   constructor() {
     this.router = Router();
@@ -41,37 +59,5 @@ export class ConnexionController {
       ...req.body,
       users: user,
     });
-    var passport = require('passport'),
-      LocalStrategy = require('passport-local').Strategy;
-
-    passport.use(
-      new LocalStrategy(function(username, password, done) {
-        User.findOne({ username: username }, function(err, user) {
-          if (err) {
-            return done(err);
-          }
-          if (!user) {
-            return done(null, false, { message: 'Incorrect username.' });
-          }
-          if (!user.validPassword(password)) {
-            return done(null, false, { message: 'Incorrect password.' });
-          }
-          return done(null, user);
-        });
-      }),
-    );
-    passport.use(
-      new BearerStrategy(function(token, done) {
-        User.findOne({ token: token }, function(err, user) {
-          if (err) {
-            return done(err);
-          }
-          if (!user) {
-            return done(null, false);
-          }
-          return done(null, user, { scope: 'read' });
-        });
-      }),
-    );
   }
 }

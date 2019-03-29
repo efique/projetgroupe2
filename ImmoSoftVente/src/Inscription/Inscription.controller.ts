@@ -30,8 +30,6 @@ export class InscriptionController {
     return this.router;
   }
 
-  // return res.status(500).json(message: 'This mail already exist.');
-
   /**
    * Insert new User in Db
    *

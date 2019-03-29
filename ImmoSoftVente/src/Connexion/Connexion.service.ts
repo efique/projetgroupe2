@@ -32,7 +32,7 @@ export class ConnexionService {
   // }
 
   /**
-   * etablire connexion avec le user et la db
+   * Recuperz les info du user dans la  db
    *
    * @param users
    * @returns Connexion with Users inserted
