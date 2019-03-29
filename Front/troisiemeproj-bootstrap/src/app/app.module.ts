@@ -2,9 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-
 import { Routes, RouterModule } from '@angular/router';
+
+import { HttpClientModule } from '@angular/common/http';
+
+import { HeaderComponent } from './header/header.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { FooterComponent } from './footer/footer.component';
@@ -32,7 +34,8 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   exports: [RouterModule],
   providers: [],
