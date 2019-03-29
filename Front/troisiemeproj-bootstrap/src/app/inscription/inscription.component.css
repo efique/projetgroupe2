@@ -1,0 +1,25 @@
+div.inscription{
+    text-align: center;
+    width: 30%;
+    margin: 0 auto;
+}
+
+h1{
+    margin: 2vh 0;
+}
+
+/* label:not(.localisation label){
+    width: 100%;
+} */
+
+button[type=submit] {
+    background-color: #2700b3;
+    border: none;
+    display: block;
+    margin: 2vh auto;
+    opacity: 1;
+}
+
+button[type=submit]:hover {
+    background-color: #1e008c;
+}

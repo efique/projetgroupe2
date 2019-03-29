@@ -1,31 +1,32 @@
-<div class="recherche-bien">
+<div class="recherche-bien form-group">
   
-  <h2>Recherche-bien works!</h2>
+  <h2>Rechercher un bien</h2>
  
   <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
-    <label>
-      Type de bien: <input type="text" [formControl]="type_bien">
-    </label>
-
-    <div formGroupName="localisation">
       <label>
-      Ville: <input type="text" formControlName="ville">
+        Type: <input class="form-control" type="text" [formControl]="type_bien">
       </label>
-    </div>
+
+      <div formGroupName="localisation" class="localisation">
+        <label>
+        Ville: <input type="text" class="form-control" formControlName="ville">
+        </label>
+      </div>
+      
+      <label>
+        Nombre de pièces: <input type="number" class="form-control" [formControl]="nombre_pieces">
+      </label>
+
+      <label>
+        Superficie: <input type="number" class="form-control" [formControl]="superficie">
+      </label>
+
+      <label>
+        Prix: <input type="number" class="form-control" placeholder="Prix min" [formControl]="prix_minimum">
+              <input type="number" class="form-control" placeholder="Prix max" [formControl]="prix_maximum">
+      </label>
+
+      <button type="submit" class="btn btn-primary" [disabled]="!searchForm.valid">Rechercher</button>
     
-    <label>
-      Nombre de pièces: <input type="number" [formControl]="nombre_pieces">
-    </label>
-
-    <label>
-      Superficie: <input type="number" [formControl]="superficie">
-    </label>
-
-    <label>
-      Prix: <input type="number" placeholder="Prix min" [formControl]="prix_minimum">
-            <input type="number" placeholder="Prix max" [formControl]="prix_maximum">
-    </label>
-
-    <button type="submit" [disabled]="!searchForm.valid">Rechercher</button>
   </form>
 </div>

@@ -1,5 +1,44 @@
 <div class="inscription">
-  <p>
-    inscription works!
-  </p>
+    <h1>Inscription</h1>
+
+    <form [formGroup]="inscriptionForm" (ngSubmit)="onSubmit()">
+        <label>
+          Nom: <input class="form-control" type="text" [formControl]="nom">
+        </label>
+
+        <label>
+          Prénom: <input class="form-control" type="text" [formControl]="prenom">
+        </label>
+
+        <label>
+          Téléphone: <input class="form-control" type="text" [formControl]="telephone">
+        </label>
+
+        <div formGroupName="localisation" class="localisation">
+          <label>
+            Rue: <input type="text" class="form-control" formControlName="rue">
+          </label>
+          <label>
+            Numéro de rue: <input type="text" class="form-control" formControlName="numero">
+          </label>
+          <label>
+            Code postal: <input type="text" class="form-control" formControlName="postal">
+          </label>
+          <label>
+            Ville: <input type="text" class="form-control" formControlName="ville">
+          </label>
+        </div>
+
+        <label>
+          E-Mail: <input class="form-control" type="email" [formControl]="mail">
+        </label>
+
+        <label>
+          Mot de passe: <input class="form-control" type="password" [formControl]="password">
+        </label>
+
+        <button type="submit" class="btn btn-primary disabled" [disabled]="!searchForm.valid">S'inscrire</button>
+
+    </form>
+
 </div>
