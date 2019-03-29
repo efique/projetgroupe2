@@ -4,25 +4,30 @@ div.recherche-bien{
     top: 5vh;
     left: 7vw;
     width: 40vw;
-    height: 40vh;
+    /* height: 40vh; */
     background-color: #ebe6ff;
     padding: 2.8vh;
     box-shadow: 6px 6px 2px 1px rgba(20, 0, 102, 0.2);
     font-size: 1.1em;
     display: inline-block;
+    overflow: hidden;
 }
 
 h2{
     text-align: center;
-    margin-top: 2vh;
-    margin-bottom: 4vh;
+    margin-top: 1vh;
+    margin-bottom: 3vh;
 }
 
-/*Form*/
+/*Form*/ 
+input, div.localisation{
+    display: inline-block;
+    /* font-weight: bold; */
+}
 
-label{
-    display: block;
-    font-weight: bold;
+/* 
+form {
+    max-height: 70%;
 }
 
 input[type=text],input[type=number], select {
@@ -33,11 +38,38 @@ input[type=text],input[type=number], select {
     border-radius: 4px;
     box-sizing: border-box;
 }
-
-input[type=number]{
-    width: 15%;
+*/
+label:not(div.localisation label){
+    width: 50%;
 }
 
+input[type=text]{
+    width: 70%;
+    margin: auto 0.5vw;
+}
+
+input[type=number]{
+    width: 30%;
+    margin: auto 0.5vw;
+}
+
+button[type=submit] {
+    background-color: #2700b3;
+    border: none;
+    /* float: right; */
+    /* display: block; */
+    position: absolute;
+    bottom: 2vh;
+    right: 2vh;
+
+    /* top: -5vh; 
+    font-weight: bold;*/
+}
+
+button[type=submit]:hover {
+    background-color: #1e008c;
+}
+/*
 button[type=submit] {
     background-color: #2700b3;
     color: white;
@@ -56,3 +88,4 @@ button[type=submit] {
 button[type=submit]:hover {
     background-color: #1e008c;
 }
+ */

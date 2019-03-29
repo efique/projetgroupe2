@@ -46,5 +46,9 @@ nav{
 }
 
 li a:hover{
-    text-shadow: 2px 2px 5px #1e008c;
+    text-shadow: 2px 2px 5px #9980ff;
+}
+
+li a {
+    color: #2400b3 !important;
 }
