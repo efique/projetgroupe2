@@ -61,6 +61,8 @@ export class InscriptionService {
     return this.usersRepository.find({ mail });
   }
 
+  // password = new RegExp('^[1-9]d{0,2}$');
+
   /**
    * Insert a localisation in Db
    *
