@@ -1,91 +1,52 @@
 div.recherche-bien{
-    /* border: 2px solid red; *//* border-radius: 10px; */
     position: relative;
-    top: 5vh;
     left: 7vw;
-    width: 40vw;
-    /* height: 40vh; */
+    width: 50vw;
     background-color: #ebe6ff;
     padding: 2.8vh;
     box-shadow: 6px 6px 2px 1px rgba(20, 0, 102, 0.2);
     font-size: 1.1em;
     display: inline-block;
-    overflow: hidden;
 }
 
 h2{
     text-align: center;
-    margin-top: 1vh;
-    margin-bottom: 3vh;
+    margin-top: 2vh;
+    margin-bottom: 4vh;
 }
 
-/*Form*/ 
-input, div.localisation{
-    display: inline-block;
-    /* font-weight: bold; */
-}
+/*Form*/
 
-/* 
-form {
-    max-height: 70%;
+label{
+    font-weight: bold;
 }
 
 input[type=text],input[type=number], select {
-    padding: 6px 10px;
-    margin: 4px 8px;
-    display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-}
-*/
-label:not(div.localisation label){
-    width: 50%;
+    padding: 6px 10px;
 }
 
-input[type=text]{
-    width: 70%;
-    margin: auto 0.5vw;
-}
+button.inlineblocck, div.inlineblocck{
+    display: inline-block;
+} 
 
 input[type=number]{
-    width: 30%;
-    margin: auto 0.5vw;
+    /* width: 15%; */
 }
 
-button[type=submit] {
-    background-color: #2700b3;
-    border: none;
-    /* float: right; */
-    /* display: block; */
-    position: absolute;
-    bottom: 2vh;
-    right: 2vh;
-
-    /* top: -5vh; 
-    font-weight: bold;*/
-}
-
-button[type=submit]:hover {
-    background-color: #1e008c;
-}
-/*
 button[type=submit] {
     background-color: #2700b3;
     color: white;
     padding: 10px 15px;
-    margin: 4px 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    float: right;
-    display: block;
-    position: relative;
-    top: -5vh;
+    /*float: right; */
     font-weight: bold;
 }
 
 button[type=submit]:hover {
     background-color: #1e008c;
 }
- */
