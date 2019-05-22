@@ -1,14 +1,16 @@
 import bodyParser from 'body-parser';
 import chalk from 'chalk';
 import express from 'express';
+import passport from 'passport';
 
 import { AgenceController } from './Agence/Agence.controller';
+import { AuthController } from './Auth/auth.controller';
+import './Auth/auth.strategy';
 import { InscriptionController } from './inscription/inscription.controller';
 import { LocalisationController } from './Localisation/Localisation.controller';
 import logger from './logger.tools';
-// import { NoteController } from './note/note.controller';
-// import { RoomController } from './room/room.controller';
 import { setupDb } from './setup-db';
+import { UsersController } from './Users/Users.contoller';
 
 async function bootstrap() {
   // create db connection
@@ -40,11 +42,15 @@ async function bootstrap() {
   const agenceRoutes = await new AgenceController().getRoutes();
   app.use('/agence', agenceRoutes);
 
-  // const noteRoutes = await new NoteController().getRoutes();
-  // app.use('/note', noteRoutes);
+  const usersRoutes = await new UsersController().getRoutes();
+  app.use(
+    '/users',
+    passport.authenticate('jwt', { session: false }),
+    usersRoutes,
+  );
 
-  // const roomRoutes = await new RoomController().getRoutes();
-  // app.use('/room', roomRoutes);
+  const authRoutes = await new AuthController().getRoutes();
+  app.use('/auth', authRoutes);
 
   const localisationRoutes = await new LocalisationController().getRoutes();
   app.use('/localisation', localisationRoutes);
