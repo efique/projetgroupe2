@@ -1,18 +1,16 @@
 div{
     width: 100%;
-    min-height:75vh; overflow: hidden;
+    height:80vh;
 /*     background-image: url(https://patrimoine.lesechos.fr/medias/2018/10/04/2210889_immobilier-locatif-faut-il-miser-sur-le-neuf-web-tete-0302336209996.jpg) ;
        background-image: url(https://www.washingtonpost.com/resizer/I9IJifRLgy3uHVKcwZlvdjUBirc=/1484x0/arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/ZQIB4NHDUMI6RKZMWMO42U6KNM.jpg) ;
- */ background-image: url(https://www.bouygues-es.co.uk/sites/uk/files/2017-10/asset-management-buildings-web_0.jpg) ;
+ */    background-image: url(https://www.bouygues-es.co.uk/sites/uk/files/2017-10/asset-management-buildings-web_0.jpg) ;
     background-repeat: no-repeat;
     background-size: cover;
     border-bottom: 2px solid black;
-    padding-bottom: 15vh;
-    box-sizing: border-box;
 }
 
 h1{
     text-align: center;
-    padding-top: 2vh;
+    padding: 2.5vh 0;
     text-shadow: 2px 1px 1px rgba(255, 255, 255, 0.8);
 }
