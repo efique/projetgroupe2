@@ -52,6 +52,13 @@ export class UsersService {
     return this.usersRepository.findOne(usersId);
   }
 
+  /**
+   * Find one user by email
+   */
+  public async findOneByEmail(email: string) {
+    return this.usersRepository.findOne({ where: { email } });
+  }
+
   public async update(body: Partial<Users>, usersId: string) {
     const usersToUpdate = await this.usersRepository.findOne(usersId);
     if (!usersToUpdate) {

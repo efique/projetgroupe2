@@ -1,5 +1,4 @@
 import { getCustomRepository } from 'typeorm';
-
 import { DetailsUsers } from '../DetailsUsers/DetailsUsers.entity';
 import { DetailsUsersRepository } from '../DetailsUsers/DetailsUsers.repository';
 import { Localisation } from '../Localisation/Localisation.entity';
@@ -53,15 +52,13 @@ export class InscriptionService {
   }
 
   /**
-   * Retrieve all userss from Db
+   * Retrieve all users from Db
    *
    * @returns Resolves with the list of all users in Db
    */
   public async getAll(mail: string) {
     return this.usersRepository.find({ mail });
   }
-
-  // password = new RegExp('^[1-9]d{0,2}$');
 
   /**
    * Insert a localisation in Db
