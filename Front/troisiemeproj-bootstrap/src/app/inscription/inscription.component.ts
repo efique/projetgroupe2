@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { InscriptionService } from './inscription.service';
-import { Inscription } from '../Inscription';
+import { User } from '../User';
 
 @Component({
   selector: 'app-inscription',
@@ -25,7 +25,7 @@ export class InscriptionComponent implements OnInit {
     password: [''],
   });
 
-  inscriptions: Inscription[];
+  inscriptions: User[];
 
   onSubmit() {
     // TODO: Use EventEmitter with form value

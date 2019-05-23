@@ -1,4 +1,4 @@
-export class Inscription {
+export class User {
     nom: string;
     prenom: string;
     telephone: string;

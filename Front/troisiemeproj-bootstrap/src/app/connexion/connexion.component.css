@@ -1,21 +1,11 @@
-div.inscription{
-    /* text-align: center; */
+div.connexion{
     width: 40%;
-    /* margin: 0 auto; */
 }
 
 h1{
     margin: 2vh 0 5vh 0;
     text-align: center;
 }
-
-div.formrowinterligne {
-    margin-top: 3vh;
-}
-
-/* label:not(.localisation label){
-    width: 100%;
-} */
 
 button[type=submit] {
     background-color: #2700b3;

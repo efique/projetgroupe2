@@ -1,44 +1,49 @@
-<div class="inscription">
-    <h1>Inscription</h1>
+<h1>Inscription</h1>
+<div class="inscription container-fluid">
+  <form [formGroup]="inscriptionForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>Nom</label>
+      <input class="form-control" type="text" [formControl]="nom">
+    </div>
+    <div class="form-group">
+      <label>Prénom</label>
+      <input class="form-control" type="text" [formControl]="prenom">
+    </div>
+    <div class="form-group">
+      <label>Téléphone</label>
+      <input class="form-control" type="text" [formControl]="telephone">
+    </div>
 
-    <form [formGroup]="inscriptionForm" (ngSubmit)="onSubmit()">
-        <label>
-          Nom: <input class="form-control" type="text" [formControl]="nom">
-        </label>
+    <div formGroupName="localisation" class="localisation form-group">
+      <label>Rue</label>
+      <input type="text" class="form-control" formControlName="rue">
 
-        <label>
-          Prénom: <input class="form-control" type="text" [formControl]="prenom">
-        </label>
-
-        <label>
-          Téléphone: <input class="form-control" type="text" [formControl]="telephone">
-        </label>
-
-        <div formGroupName="localisation" class="localisation">
-          <label>
-            Rue: <input type="text" class="form-control" formControlName="rue">
-          </label>
-          <label>
-            Numéro de rue: <input type="text" class="form-control" formControlName="numero">
-          </label>
-          <label>
-            Code postal: <input type="text" class="form-control" formControlName="postal">
-          </label>
-          <label>
-            Ville: <input type="text" class="form-control" formControlName="ville">
-          </label>
+      <div class="form-row formrowinterligne">
+        <div class="form-group col-md-6">  
+          <label>Numéro de rue</label>
+          <input type="number" class="form-control" formControlName="numero">
+        </div>  
+        <div class="form-group col-md-6">  
+          <label>Code postal</label>
+          <input type="number" class="form-control" formControlName="postal">
         </div>
+      </div>
+      <label>Ville</label>
+      <input type="text" class="form-control" formControlName="ville">
+    </div>
 
-        <label>
-          E-Mail: <input class="form-control" type="email" [formControl]="mail">
-        </label>
+    <div class="form-group">
+      <label>E-Mail</label>
+      <input class="form-control" type="email" [formControl]="mail">
+    </div>
 
-        <label>
-          Mot de passe: <input class="form-control" type="password" [formControl]="password">
-        </label>
+    <div class="form-group">
+      <label>Mot de passe</label>
+      <input class="form-control" type="password" [formControl]="password">
+    </div>
 
-        <button type="submit" class="btn btn-primary disabled" [disabled]="!searchForm.valid">S'inscrire</button>
+      <button type="submit" class="btn btn-primary disabled" [disabled]="!searchForm.valid">S'inscrire</button>
 
-    </form>
+  </form>
 
 </div>

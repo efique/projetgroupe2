@@ -1,8 +1,9 @@
 div.lien-vendre-accueil{
     /* border: 1px solid orangered; */
     position: relative;
-    top: 8vh;
-    left: 28vw;
+    /* top: 8vh; 
+    left: 28vw;*/
+    left: 25vw;
     width: 18vw;
     /* height: 48vh; */
     background-color: #ebe6ff;

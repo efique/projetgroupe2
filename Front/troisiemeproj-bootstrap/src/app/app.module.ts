@@ -14,10 +14,12 @@ import { RechercheBienComponent } from './recherche-bien/recherche-bien.componen
 import { ReactiveFormsModule } from '@angular/forms';
 import { LienVendreAccueilComponent } from './lien-vendre-accueil/lien-vendre-accueil.component';
 import { ApercuAnnonceComponent } from './apercu-annonce/apercu-annonce.component';
+import { ConnexionComponent } from './connexion/connexion.component';
 
 const routes: Routes = [
   { path: '', component: AccueilComponent },
   { path: 'inscription', component: InscriptionComponent },
+  { path: 'connexion', component: ConnexionComponent },
 ];
 
 @NgModule({
@@ -29,7 +31,8 @@ const routes: Routes = [
     FooterComponent,
     RechercheBienComponent,
     LienVendreAccueilComponent,
-    ApercuAnnonceComponent
+    ApercuAnnonceComponent,
+    ConnexionComponent
   ],
   imports: [
     BrowserModule,
