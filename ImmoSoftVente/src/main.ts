@@ -30,9 +30,14 @@ async function bootstrap() {
   // call custom middleware for logging globally
   app.use(logger);
 
-  // define a GET route on '/' pattern
-  app.get('/', (req: express.Request, res: express.Response) => {
-    return res.json({ message: 'Hello world !' });
+  // exemple of a GET route on '/' pattern
+  // app.get('/', (req: express.Request, res: express.Response) => {
+  //   return res.json({ message: 'Hello world !' });
+  // });
+
+  // load to Frontend
+  app.get('*', (req, res) => {
+    res.sendFile('http://localhost:4200/');
   });
 
   // use custom controller on '/inscription' pattern
