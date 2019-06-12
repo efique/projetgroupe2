@@ -15,11 +15,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LienVendreAccueilComponent } from './lien-vendre-accueil/lien-vendre-accueil.component';
 import { ApercuAnnonceComponent } from './apercu-annonce/apercu-annonce.component';
 import { ConnexionComponent } from './connexion/connexion.component';
+import { ContactComponent } from './contact/contact.component';
+import { CreerAnnonceComponent } from './creer-annonce/creer-annonce.component';
 
 const routes: Routes = [
   { path: '', component: AccueilComponent },
   { path: 'inscription', component: InscriptionComponent },
   { path: 'connexion', component: ConnexionComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'creer_annonce', component: CreerAnnonceComponent },
 ];
 
 @NgModule({
@@ -32,7 +36,9 @@ const routes: Routes = [
     RechercheBienComponent,
     LienVendreAccueilComponent,
     ApercuAnnonceComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    ContactComponent,
+    CreerAnnonceComponent
   ],
   imports: [
     BrowserModule,

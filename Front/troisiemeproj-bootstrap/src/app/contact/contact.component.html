@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>Contact</h1>
+  <div class="contact container-fluid">
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Nom</label>
+        <input class="form-control" type="text" [formControl]="nom">
+      </div>
+
+      <div class="form-group">
+        <label>Prénom</label>
+        <input class="form-control" type="text" [formControl]="prenom">
+      </div>
+
+      <div class="form-group">
+        <label>Téléphone</label>
+        <input class="form-control" type="number" [formControl]="telephone">
+      </div>
+
+      <div class="form-group">
+        <label>E-Mail</label>
+        <input class="form-control" type="email" [formControl]="mail">
+      </div>
+
+      <div class="form-group">
+        <label>Message</label>
+        <textarea class="form-control " type="text" [formControl]="message"></textarea>
+      </div>
+
+
+      <button type="submit" class="btn btn-primary disabled" [disabled]="!searchForm.valid">Envoyer</button>
+
+    </form>
+
+  </div>
+</div>

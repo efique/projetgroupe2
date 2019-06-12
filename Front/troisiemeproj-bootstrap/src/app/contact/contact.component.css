@@ -1,0 +1,31 @@
+div.container{
+    /*background: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/feac120a-4482-4a91-9cee-fce7fbde0dbe/db0kb4j-f9482fd0-be4b-49e7-85c9-685984d8bb3a.jpg/v1/fill/w_1161,h_688,q_70,strp/mononoke_hime_by_astri_lohne_db0kb4j-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzU5IiwicGF0aCI6IlwvZlwvZmVhYzEyMGEtNDQ4Mi00YTkxLTljZWUtZmNlN2ZiZGUwZGJlXC9kYjBrYjRqLWY5NDgyZmQwLWJlNGItNDllNy04NWM5LTY4NTk4NGQ4YmIzYS5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.TPL9WWCz_-0IHeVu2z6rUx6k_h7NGlrIJJjE9-PWsdY);
+
+    background-color: #d7ccff;*/
+}
+
+div.contact{
+    width: 40%;
+    /* background-color: #d7ccff;
+    padding: 5%;
+    margin-bottom: 1%;
+    border-radius: 10%; */
+}
+
+h1{
+    margin: 2vh 0 5vh 0;
+    text-align: center;
+}
+
+button[type=submit] {
+    background-color: #2700b3;
+    border: none;
+    display: block;
+    margin: 3vh auto;
+    opacity: 1;
+    padding: 1.5vh 2.5vh;
+}
+
+button[type=submit]:hover {
+    background-color: #1e008c;
+}

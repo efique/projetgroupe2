@@ -24,3 +24,7 @@ footer span:first-of-type{
 .conditions a:hover{
     color: #1e008c;
 } */
+
+.a_contact{
+    float: right;
+}
