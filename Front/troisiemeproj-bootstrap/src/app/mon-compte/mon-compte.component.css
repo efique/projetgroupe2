@@ -1,0 +1,40 @@
+.inlinediv{
+    display: inline-block;
+    padding: 0 6vh; 
+    margin-top: 0;
+}
+
+div.moncompte{
+    width: 90%;
+}
+
+h1{
+    margin: 2vh 0 5vh 0;
+    text-align: center;
+}
+
+div.formrowinterligne {
+    margin-top: 3vh;
+}
+
+button[type=submit] {
+    background-color: #2700b3;
+    border: none;
+    display: block;
+    margin: 3vh auto;
+    opacity: 1;
+    padding: 1.5vh 2.5vh;
+}
+
+button[type=submit]:hover {
+    background-color: #1e008c;
+}
+
+img{
+    width: 100%;
+    border-radius: 5vh;
+}
+
+.retourchariot{
+    margin-top: 5vh;
+}
