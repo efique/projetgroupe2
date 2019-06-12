@@ -17,6 +17,7 @@ import { ApercuAnnonceComponent } from './apercu-annonce/apercu-annonce.componen
 import { ConnexionComponent } from './connexion/connexion.component';
 import { ContactComponent } from './contact/contact.component';
 import { CreerAnnonceComponent } from './creer-annonce/creer-annonce.component';
+import { AjouterBienComponent } from './ajouter-bien/ajouter-bien.component';
 
 const routes: Routes = [
   { path: '', component: AccueilComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'connexion', component: ConnexionComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'creer_annonce', component: CreerAnnonceComponent },
+  { path: 'ajouter_bien', component: AjouterBienComponent },
 ];
 
 @NgModule({
@@ -38,7 +40,8 @@ const routes: Routes = [
     ApercuAnnonceComponent,
     ConnexionComponent,
     ContactComponent,
-    CreerAnnonceComponent
+    CreerAnnonceComponent,
+    AjouterBienComponent
   ],
   imports: [
     BrowserModule,

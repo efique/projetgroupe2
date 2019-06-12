@@ -1,5 +1,5 @@
 <h1>Créer une annonce</h1>
-<div class="connexion container-fluid">
+<div class="creerannonce container-fluid">
   <form [formGroup]="creeranonceForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <select class="form-control" id="FormControlSelectBien">
@@ -9,7 +9,7 @@
     </div>
 
     <div class="form-group">
-      <select class="form-control" id="FormControlSelectProprietaire" placerholder="hello Proprietaire">
+      <select class="form-control" id="FormControlSelectProprietaire">
         <option hidden>Selectionner le propriétaire du bien</option>
         <option>2</option>
       </select>

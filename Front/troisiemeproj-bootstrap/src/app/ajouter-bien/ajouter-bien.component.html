@@ -1,0 +1,101 @@
+<h1>Ajouter un bien</h1>
+<div class="ajouterbien container-fluid">
+  <form [formGroup]="ajouterbienForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>Nom</label>
+      <input class="form-control" type="text" [formControl]="libelle">
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-sm-6">
+        <select class="form-control" [formControl]="proprietaire">
+          <option hidden>Selectionner le propriétaire du bien</option>
+          <option>2</option>
+        </select>
+      </div>
+      <div class="form-group col-sm-6">
+        <select class="form-control" [formControl]="type">
+          <option hidden>Type de bien</option>
+          <option>2</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Description</label>
+      <textarea class="form-control " type="text" [formControl]="description"></textarea>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-sm-4">
+          <label>Nombre de pièces</label>
+          <input class="form-control" type="number" [formControl]="nombre_pieces">
+        </div>
+  
+        <div class="form-group col-sm-4">
+          <label>Superficie</label>
+          <input class="form-control" type="number" [formControl]="superficie">
+        </div>
+  
+        <div class="form-group col-sm-4">
+          <label>Étage</label>
+          <input class="form-control" type="number" [formControl]="etage">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="exampleFormControlFile1">Image</label>
+        <input type="file" class="form-control-file" [formControl]="image">
+      </div>
+
+    <!-- checkbox avec le type de dependances dispo en bdd qui genere le html pour les checkbox -->
+    <div class="form-group retourchariot">
+      <h4>Dépendances</h4>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+        <label class="form-check-label" for="inlineCheckbox1">1</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+        <label class="form-check-label" for="inlineCheckbox2">2</label>
+      </div>
+    </div>
+    
+    <div formGroupName="localisation" class="localisation form-group retourchariot">
+      <h4>Localisation</h4>
+      <label>Rue</label>
+      <input type="text" class="form-control" formControlName="rue">
+
+      <div class="form-row formrowinterligne">
+        <div class="form-group col-md-3">
+          <label>Numéro de rue</label>
+          <input type="number" class="form-control" formControlName="numero">
+        </div>
+        <div class="form-group col-md-3">
+          <label>Code postal</label>
+          <input type="number" class="form-control" formControlName="postal">
+        </div>
+        <div class="form-group col-md-6">
+          <label>Ville</label>
+          <input type="text" class="form-control" formControlName="ville">
+        </div>
+      </div>
+    </div>
+
+    <h4 class="retourchariot">Prix</h4>
+    <div class="form-row">
+      <div class="form-group col-sm-4">
+        <label>Prix demandé</label>
+        <input class="form-control" type="number"  [formControl]="prix_demande">
+      </div>
+      <div class="form-group col-sm-4">
+        <label>Prix minimum</label>
+        <input class="form-control" type="number"  [formControl]="prix_mini">
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary disabled retourchariot" [disabled]="!searchForm.valid">Ajouter</button>
+
+  </form>
+
+</div>

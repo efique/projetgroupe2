@@ -1,5 +1,5 @@
-div.creerannonce{
-    width: 60%;
+div.ajouterbien{
+    width: 80%;
 }
 
 h1{
@@ -9,6 +9,17 @@ h1{
 
 select{
     margin: 5vh 0;
+}
+
+div.formrowinterligne {
+    margin-top: 3vh;
+}
+.checklabel{
+    display: block;
+}
+
+.retourchariot{
+    margin-top: 10vh;
 }
 
 button[type=submit] {
