@@ -3,8 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { Routes, RouterModule } from '@angular/router';
-
+import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 
 import { HeaderComponent } from './header/header.component';
 import { InscriptionComponent } from './inscription/inscription.component';
@@ -18,6 +20,8 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { ContactComponent } from './contact/contact.component';
 import { CreerAnnonceComponent } from './creer-annonce/creer-annonce.component';
 import { AjouterBienComponent } from './ajouter-bien/ajouter-bien.component';
+import { InscriptionService } from './inscription/inscription.service';
+import { AjoutInscriptionComponent } from './ajout-inscription/ajout-inscription.component';
 
 const routes: Routes = [
   { path: '', component: AccueilComponent },
@@ -26,6 +30,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'creer_annonce', component: CreerAnnonceComponent },
   { path: 'ajouter_bien', component: AjouterBienComponent },
+  { path: 'ajout-inscription', component: AjoutInscriptionComponent }
 ];
 
 @NgModule({
@@ -41,17 +46,19 @@ const routes: Routes = [
     ConnexionComponent,
     ContactComponent,
     CreerAnnonceComponent,
-    AjouterBienComponent
+    AjouterBienComponent,
+    AjoutInscriptionComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot()
   ],
   exports: [RouterModule],
-  providers: [],
+  providers: [InscriptionService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
-export class AppRoutingModule { }
+export class AppModule {}
+export class AppRoutingModule {}

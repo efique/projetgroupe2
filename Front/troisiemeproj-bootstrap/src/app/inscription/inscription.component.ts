@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { InscriptionService } from './inscription.service';
 import { User } from '../User';
+import { InscriptionService } from './inscription.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inscription',
   templateUrl: './inscription.component.html',
   styleUrls: ['./inscription.component.css']
 })
-
 export class InscriptionComponent implements OnInit {
-
   inscriptionForm = this.fb.group({
     nom: [''],
     prenom: [''],
@@ -19,10 +18,10 @@ export class InscriptionComponent implements OnInit {
       rue: [''],
       numero: [''],
       postal: [''],
-      ville: [''],
+      ville: ['']
     }),
     mail: [''],
-    password: [''],
+    password: ['']
   });
 
   inscriptions: User[];
@@ -32,14 +31,19 @@ export class InscriptionComponent implements OnInit {
     console.warn(this.inscriptionForm.value);
   }
 
-  constructor(private fb: FormBuilder) { } // , private readonly inscriptionService: InscriptionService
+  constructor(
+    private fb: FormBuilder,
+    private inscriptionService: InscriptionService,
+    private router: Router
+  ) {} // , private readonly inscriptionService: InscriptionService
 
   ngOnInit() {
-    /* fetchInscriptions(){
-      this.inscriptionService.getInscription().subscribe((data: Inscription[]) =>
-        this.inscriptions =
-      );
-    }  */
+    this.inscriptionService.getInscription().subscribe((data: User[]) => {
+      this.inscriptions = data;
+    });
   }
 
+  goToAddInscription() {
+    this.router.navigateByUrl('/ajout-inscription');
+  }
 }
