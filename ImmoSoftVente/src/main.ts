@@ -37,7 +37,7 @@ async function bootstrap() {
 
   // load to Frontend
   app.get('*', (req, res) => {
-    res.sendFile('http://localhost:4200/');
+    res.sendFile('http://localhost:4200');
   });
 
   // use custom controller on '/inscription' pattern

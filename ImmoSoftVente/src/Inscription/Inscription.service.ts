@@ -51,12 +51,23 @@ export class InscriptionService {
     return this.usersRepository.save(usersToInsert);
   }
 
+    /**
+   * Retrieve all users from Db
+   *
+   * @returns Resolves with the list of all users in Db
+   */
+  public async getAll() {
+    const inscription[] = [this.detailsUsersRepository.find(), this.usersRepository.find(), this.localisationRepository.find()];
+    return inscription;
+  }
+
+
   /**
    * Retrieve all users from Db
    *
    * @returns Resolves with the list of all users in Db
    */
-  public async getAll(mail: string) {
+  public async getAllWithMail(mail: string) {
     return this.usersRepository.find({ mail });
   }
 

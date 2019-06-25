@@ -81,13 +81,12 @@ export class AuthController {
         token,
         users,
       });
-      const createUser = await this.authService().createUsers(req.body);
       const localisation = await this.authService().createLocalisation(
         req.body,
       );
       await this.authService().createDetailsUsers({
         ...req.body,
-        users: createUser,
+        users: user,
         localisation,
       });
       return res.json();
