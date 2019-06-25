@@ -56,11 +56,27 @@ export class InscriptionService {
    *
    * @returns Resolves with the list of all users in Db
    */
-  public async getAll() {
-    const inscription[] = [this.detailsUsersRepository.find(), this.usersRepository.find(), this.localisationRepository.find()];
-    return inscription;
+  public async getAllDetails() {
+    return this.detailsUsersRepository.find();
   }
 
+      /**
+   * Retrieve all users from Db
+   *
+   * @returns Resolves with the list of all users in Db
+   */
+  public async getAllUsers() {
+    return this.usersRepository.find();
+  }
+
+      /**
+   * Retrieve all users from Db
+   *
+   * @returns Resolves with the list of all users in Db
+   */
+  public async getAllLocalisations() {
+    return this.localisationRepository.find();
+  }
 
   /**
    * Retrieve all users from Db

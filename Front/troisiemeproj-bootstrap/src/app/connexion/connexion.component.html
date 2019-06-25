@@ -3,15 +3,27 @@
   <form [formGroup]="connexionForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label>E-Mail</label>
-      <input class="form-control" type="email" [formControl]="mail">
+      <input name="email" id="email" class="form-control" type="email" formControlName="mail" [ngClass]="{ 'is-invalid': submitted && formControls.mail.errors }"/>
+      <div *ngIf="submitted && formControls.mail.errors" class="invalid-feedback">
+          <div *ngIf="formControls.mail.errors.required">
+            Le mail est requis!
+          </div>
+          <div *ngIf="formControls.mail.errors.email">Email must be a valid email address</div>
+      </div>
     </div>
 
     <div class="form-group">
       <label>Mot de passe</label>
-      <input class="form-control" type="password" [formControl]="password">
+      <input name="password" id="password" class="form-control" type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && formControls.password.errors }"/>
+      <div *ngIf="submitted && formControls.password.errors" class="invalid-feedback">
+          <div *ngIf="formControls.password.errors.required">
+            Le mot de passe est requis!
+          </div>
+          <div *ngIf="formControls.password.errors.minlength">Password must be at least 6 characters</div>
+      </div>
     </div>
 
-      <button type="submit" class="btn btn-primary disabled" [disabled]="!searchForm.valid">Se connecter</button>
+      <button type="submit" class="btn btn-primary button">Se connecter</button>
 
   </form>
 

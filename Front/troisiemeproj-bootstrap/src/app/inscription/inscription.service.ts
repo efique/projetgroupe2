@@ -10,10 +10,10 @@ export class InscriptionService {
     private toastr: ToastrService,
     private router: Router
   ) {}
-  url = 'http://localhost:3015';
+  url = 'localhost:3015';
 
   getInscription() {
-    return this.http.get(`${this.url}/inscription`);
+    return this.http.get(`${this.url}/inscription/get`);
   }
 
   createInscription(data) {

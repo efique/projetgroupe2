@@ -1,4 +1,5 @@
-export class User {
+export interface Connexion {
     mail: string;
     password: string;
-}
+  }
+  

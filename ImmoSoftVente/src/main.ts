@@ -19,6 +19,11 @@ async function bootstrap() {
   // initialize express app
   const app = express();
 
+  const cors = require('cors');
+  app.use(cors({
+    origin: '*'
+  }));
+
   // set the body parser
   app.use(
     bodyParser.urlencoded({
@@ -36,9 +41,9 @@ async function bootstrap() {
   // });
 
   // load to Frontend
-  app.get('*', (req, res) => {
-    res.sendFile('http://localhost:4200');
-  });
+  // app.get('*', (req, res) => {
+  //   res.sendFile('localhost:4200');
+  // });
 
   // use custom controller on '/inscription' pattern
   const inscriptionRoutes = await new InscriptionController().getRoutes();

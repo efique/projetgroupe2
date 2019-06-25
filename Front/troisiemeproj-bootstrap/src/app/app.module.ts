@@ -21,8 +21,8 @@ import { ContactComponent } from './contact/contact.component';
 import { CreerAnnonceComponent } from './creer-annonce/creer-annonce.component';
 import { AjouterBienComponent } from './ajouter-bien/ajouter-bien.component';
 import { InscriptionService } from './inscription/inscription.service';
-import { AjoutInscriptionComponent } from './ajout-inscription/ajout-inscription.component';
-
+import { ConnexionService } from './connexion/connexion.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 const routes: Routes = [
   { path: '', component: AccueilComponent },
   { path: 'inscription', component: InscriptionComponent },
@@ -30,7 +30,6 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'creer_annonce', component: CreerAnnonceComponent },
   { path: 'ajouter_bien', component: AjouterBienComponent },
-  { path: 'ajout-inscription', component: AjoutInscriptionComponent }
 ];
 
 @NgModule({
@@ -38,6 +37,7 @@ const routes: Routes = [
     AppComponent,
     HeaderComponent,
     InscriptionComponent,
+    ConnexionComponent,
     AccueilComponent,
     FooterComponent,
     RechercheBienComponent,
@@ -47,17 +47,21 @@ const routes: Routes = [
     ContactComponent,
     CreerAnnonceComponent,
     AjouterBienComponent,
-    AjoutInscriptionComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     RouterModule.forRoot(routes),
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    ConfirmationPopoverModule.forRoot({
+      confirmButtonType: 'danger' // set defaults here
+    })
   ],
   exports: [RouterModule],
-  providers: [InscriptionService],
+  providers: [InscriptionService, ConnexionService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

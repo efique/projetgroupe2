@@ -1,57 +1,117 @@
 <h1>Inscription</h1>
 <div class="inscription container-fluid">
-  <form [formGroup]="inscriptionForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
+  <!-- <form [formGroup]="inscriptionForm" (ngSubmit)="onSubmit()"> -->
+    <form [formGroup]="inscriptionForm" #ajoutMatiereForm="ngForm">
+    <div formGroupName="details" class="details form-group">
+
       <label>Nom</label>
-      <input class="form-control" type="text" [formControl]="nom" />
-    </div>
-    <div class="form-group">
-      <label>Prénom</label>
-      <input class="form-control" type="text" [formControl]="prenom" />
-    </div>
-    <div class="form-group">
-      <label>Téléphone</label>
-      <input class="form-control" type="text" [formControl]="telephone" />
-    </div>
-
-    <div formGroupName="localisation" class="localisation form-group">
-      <label>Rue</label>
-      <input type="text" class="form-control" formControlName="rue" />
-
-      <div class="form-row formrowinterligne">
-        <div class="form-group col-md-6">
-          <label>Numéro de rue</label>
-          <input type="number" class="form-control" formControlName="numero" />
-        </div>
-        <div class="form-group col-md-6">
-          <label>Code postal</label>
-          <input type="number" class="form-control" formControlName="postal" />
+      <input name="nom" id="nom" class="form-control" type="text" #nom="ngModel" [(ngModel)]="inscription.nom" [formGroup]="inscriptionForm" required/>
+      <div *ngIf="nom.errors && (nom.dirty || nom.touched)" class="alert alert-danger">
+        <div [hidden]="!nom.errors.required">
+          Le nom est requis!
         </div>
       </div>
+
+      <label>Prénom</label>
+      <input name="prenom" id="prenom" class="form-control" type="text" [formControl]="prenom" required/>
+      <div *ngIf="prenom.errors && (prenom.dirty || prenom.touched)" class="alert alert-danger">
+        <div [hidden]="!prenom.errors.required">
+          Le prénom est requis!
+        </div>
+      </div>
+
+      <label>Téléphone</label>
+      <input name="telephone" id="telephone" class="form-control" type="text" [formControl]="telephone" required/>
+      <div *ngIf="telephone.errors && (telephone.dirty || telephone.touched)" class="alert alert-danger">
+        <div [hidden]="!telephone.errors.required">
+          Le téléphone est requis!
+        </div>
+      </div>
+    </div>
+
+    <div formGroupName="localisations" class="localisations form-group">
+
+      <label>Rue</label>
+      <input name="rue" id="rue" class="form-control" type="text" formControlName="rue" required/>
+      <div *ngIf="rue.errors && (rue.dirty || rue.touched)" class="alert alert-danger">
+        <div [hidden]="!rue.errors.required">
+          La rue est requise!
+        </div>
+      </div>
+
+      <div class="form-row formrowinterligne">
+
+        <div class="form-group col-md-6">
+          <label>Numéro de rue</label>
+          <input name="numero" id="numero" class="form-control" type="number" formControlName="numero" required/>
+          <div *ngIf="numero.errors && (numero.dirty || numero.touched)" class="alert alert-danger">
+            <div [hidden]="!numero.errors.required">
+              Le numéro de rue est requis!
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label>Code postal</label>
+          <input name="postal" id="postal" class="form-control" type="number" formControlName="postal" required/>
+          <div *ngIf="postal.errors && (postal.dirty || postal.touched)" class="alert alert-danger">
+            <div [hidden]="!postal.errors.required">
+              Le code postal est requis!
+            </div>
+          </div>
+        </div>
+      </div>
+
       <label>Ville</label>
-      <input type="text" class="form-control" formControlName="ville" />
+      <input name="ville" id="ville" class="form-control" type="text" formControlName="ville" required/>
+      <div *ngIf="ville.errors && (ville.dirty || ville.touched)" class="alert alert-danger">
+        <div [hidden]="!ville.errors.required">
+          La ville est requise!
+        </div>
+      </div>
     </div>
 
-    <div class="form-group">
+    <div formGroupName="localisations" class="localisations form-group">
+
       <label>E-Mail</label>
-      <input class="form-control" type="email" [formControl]="mail" />
-    </div>
+      <input name="mail" id="mail" class="form-control" type="email" [formControl]="mail" required/>
+      <div *ngIf="mail.errors && (mail.dirty || mail.touched)" class="alert alert-danger">
+        <div [hidden]="!mail.errors.required">
+          Le mail est requis!
+        </div>
+      </div>
 
-    <div class="form-group">
       <label>Mot de passe</label>
-      <input class="form-control" type="password" [formControl]="password" />
-    </div>
-    <div class="form-group">
+      <input name="password" id="password" class="form-control" type="password" [formControl]="password" required/>
+      <div *ngIf="password.errors && (password.dirty || password.touched)" class="alert alert-danger">
+        <div [hidden]="!password.errors.required">
+          Le mot de passe est requis!
+        </div>
+      </div>
+
       <label>Confirmation mot de passe</label>
-      <input class="form-control" type="password" />
+      <input name="confirmation" id="confirmation" class="form-control" type="password" required/>
+      <div *ngIf="confirmation.errors && (confirmation.dirty || confirmation.touched)" class="alert alert-danger">
+        <div [hidden]="!confirmation.errors.required">
+          La confirmation du mot de passe est requise!
+        </div>
+      </div>
     </div>
 
-    <button
+    <!-- <button
       type="submit"
       class="btn btn-primary disabled"
       [disabled]="!searchForm.valid"
     >
       S'inscrire
-    </button>
+    </button> -->
+    <button mwlConfirmationPopover
+              [popoverTitle]="'Confirmation'"
+              [popoverMessage]="'êtes-vous sûr?'"
+              placement="top"
+              (confirm)="createInscription(inscription)"
+              type="submit" class="btn btn-save btn-primary disabled" [disabled]="!inscriptionForm.valid">
+        <span class="glyphicon glyphicon-floppy-disk"></span> S'inscrire
+      </button>
   </form>
 </div>

@@ -56,7 +56,7 @@ export class InscriptionController {
     }
   }
 
-      /**
+   /**
    * Retrieve all users from Db
    *
    * @param req
@@ -64,6 +64,10 @@ export class InscriptionController {
    * @returns Resolves with the list of all Users
    */
   private async getInscription(req: Request, res: Response) {
-    res.json({ results: await this.inscriptionService().getAll() });
+    res.json({ 
+      details: await this.inscriptionService().getAllDetails(),
+      users: await this.inscriptionService().getAllUsers(),
+      localisations: await this.inscriptionService().getAllLocalisations()
+    });
   }
 }

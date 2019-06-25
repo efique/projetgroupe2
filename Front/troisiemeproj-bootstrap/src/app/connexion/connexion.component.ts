@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { ConnexionService } from './connexion.service';
+import { User } from '../User';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-connexion',
@@ -7,20 +10,31 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./connexion.component.css']
 })
 export class ConnexionComponent implements OnInit {
+  connexionForm: FormGroup;
+  submitted = false;
 
-  connexionForm = this.fb.group({
-    mail: [''],
-    password: [''],
-  });
-
-  onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.connexionForm.value);
-  }
-
-  constructor(private fb: FormBuilder) { }
+  constructor(
+      private formBuilder: FormBuilder,  
+      private toastr: ToastrService,
+      private connexionService: ConnexionService) { }
 
   ngOnInit() {
+    this.connexionForm = this.formBuilder.group({
+      mail:  ['', [Validators.required, Validators.email]],
+      password:  ['', Validators.required]
+    });
   }
 
+  get formControls() { return this.connexionForm.controls}
+
+  onSubmit() {
+    this.submitted = true;
+
+    if(this.connexionForm.valid){
+      this.connexionService.createConnexion(this.connexionForm.value);
+    } else {
+       this.toastr.error('Veuillez completez le formulaire correctement', "Error");
+    }
+
+  }
 }
