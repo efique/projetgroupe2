@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from '../User';
 import { InscriptionService } from './inscription.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-inscription',
@@ -9,37 +10,47 @@ import { InscriptionService } from './inscription.service';
   styleUrls: ['./inscription.component.css']
 })
 export class InscriptionComponent implements OnInit {
-  inscriptionForm = this.fb.group({
-    details: this.fb.group({
-      id: '',
-      nom: '',
-      prenom: '',
-      telephone: ''
-  }),
-    users: this.fb.group({
-      id: '',
-      mail: '',
-      password: ''
-  }),
-    localisations: this.fb.group({
-      id: '',
-      rue: '',
-      numero: '',
-      postal: '',
-      ville: ''
-    }),
-  });
-
-  inscriptions: User[];
+  inscriptionForm: FormGroup;
+  submitted = false;
 
   constructor(
-    private fb: FormBuilder,
-    private inscriptionService: InscriptionService
-  ) {} // , private readonly inscriptionService: InscriptionService
+    private formBuilder: FormBuilder,  
+    private toastr: ToastrService,
+    private inscriptionService: InscriptionService) {}
 
   ngOnInit() {
-    this.inscriptionService.getInscription().subscribe((data: User[]) => {
-      this.inscriptions = data;
+    this.inscriptionForm = this.formBuilder.group({
+      details: this.formBuilder.group({
+        nom: ['', [Validators.required]],
+        prenom: ['', [Validators.required]],
+        telephone: ['', [Validators.required]]
+    }),
+      localisations: this.formBuilder.group({
+        rue: ['', [Validators.required]],
+        numero: ['', [Validators.required]],
+        postal: ['', [Validators.required]],
+        ville: ['', [Validators.required]]
+      }),
+      users: this.formBuilder.group({
+        mail: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.minLength(6)]],
+        confirmPassword: ['', Validators.required]
+      }),
+    }, {
+    validator: MustMatch('password', 'confirmPassword')
     });
+  }
+
+  get formControls() { return this.inscriptionForm.controls}
+
+  onSubmit() {
+    this.submitted = true;
+
+    if(this.inscriptionForm.valid){
+      this.inscriptionService.createInscription(this.inscriptionForm.value);
+    } else {
+       this.toastr.error('Veuillez completez le formulaire correctement', "Error");
+    }
+
   }
 }

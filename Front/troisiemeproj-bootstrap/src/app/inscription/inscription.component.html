@@ -4,113 +4,103 @@
     <div formGroupName="details" class="details form-group">
 
       <label>Nom</label>
-      <input name="nom" id="nom" class="form-control" type="text" [formGroup]="inscriptionForm" required/>
-      <div *ngIf="nom.errors && (nom.dirty || nom.touched)" class="alert alert-danger">
-        <div [hidden]="!nom.errors.required">
+      <input name="nom" id="nom" class="form-control" type="text" formControlName="inscriptionForm" [ngClass]="{ 'is-invalid': submitted && formControls.nom.errors }"/>
+      <div *ngIf="submitted && formControls.nom.errors" class="invalid-feedback">
+        <div *ngIf="formControls.nom.errors.required">
           Le nom est requis!
         </div>
-      </div>
+    </div>
 
       <label>Prénom</label>
-      <input name="prenom" id="prenom" class="form-control" type="text" [formControl]="prenom" required/>
-      <div *ngIf="prenom.errors && (prenom.dirty || prenom.touched)" class="alert alert-danger">
-        <div [hidden]="!prenom.errors.required">
-          Le prénom est requis!
+      <input name="prenom" id="prenom" class="form-control" type="text" formControlName="prenom" [ngClass]="{ 'is-invalid': submitted && formControls.prenom.errors }"/>
+      <div *ngIf="submitted && formControls.prenom.errors" class="invalid-feedback">
+        <div *ngIf="formControls.prenom.errors.required">
+          Le prenom est requis!
         </div>
-      </div>
+    </div>
 
       <label>Téléphone</label>
-      <input name="telephone" id="telephone" class="form-control" type="text" [formControl]="telephone" required/>
-      <div *ngIf="telephone.errors && (telephone.dirty || telephone.touched)" class="alert alert-danger">
-        <div [hidden]="!telephone.errors.required">
-          Le téléphone est requis!
+      <input name="telephone" id="telephone" class="form-control" type="text" formControlName="telephone" [ngClass]="{ 'is-invalid': submitted && formControls.telephone.errors }"/>
+      <div *ngIf="submitted && formControls.telephone.errors" class="invalid-feedback">
+        <div *ngIf="formControls.telephone.errors.required">
+          Le numéro de téléphone est requis!
         </div>
-      </div>
+        <div *ngIf="formControls.telephone.errors.telephone">Le numéro de téléphone doit avoir un format valide</div>
+    </div>
     </div>
 
     <div formGroupName="localisations" class="localisations form-group">
 
       <label>Rue</label>
-      <input name="rue" id="rue" class="form-control" type="text" formControlName="rue" required/>
-      <div *ngIf="rue.errors && (rue.dirty || rue.touched)" class="alert alert-danger">
-        <div [hidden]="!rue.errors.required">
+      <input name="rue" id="rue" class="form-control" type="text" formControlName="rue" [ngClass]="{ 'is-invalid': submitted && formControls.rue.errors }"/>
+      <div *ngIf="submitted && formControls.rue.errors" class="invalid-feedback">
+        <div *ngIf="formControls.rue.errors.required">
           La rue est requise!
         </div>
-      </div>
+    </div>
 
       <div class="form-row formrowinterligne">
 
         <div class="form-group col-md-6">
           <label>Numéro de rue</label>
-          <input name="numero" id="numero" class="form-control" type="number" formControlName="numero" required/>
-          <div *ngIf="numero.errors && (numero.dirty || numero.touched)" class="alert alert-danger">
-            <div [hidden]="!numero.errors.required">
-              Le numéro de rue est requis!
+          <input name="numero" id="numero" class="form-control" type="number" formControlName="numero" [ngClass]="{ 'is-invalid': submitted && formControls.numero.errors }"/>
+          <div *ngIf="submitted && formControls.numero.errors" class="invalid-feedback">
+            <div *ngIf="formControls.numero.errors.required">
+              Le numéro de la rue est requis!
             </div>
           </div>
         </div>
 
         <div class="form-group col-md-6">
           <label>Code postal</label>
-          <input name="postal" id="postal" class="form-control" type="number" formControlName="postal" required/>
-          <div *ngIf="postal.errors && (postal.dirty || postal.touched)" class="alert alert-danger">
-            <div [hidden]="!postal.errors.required">
+          <input name="postal" id="postal" class="form-control" type="number" formControlName="postal" [ngClass]="{ 'is-invalid': submitted && formControls.postal.errors }"/>
+          <div *ngIf="submitted && formControls.postal.errors" class="invalid-feedback">
+            <div *ngIf="formControls.postal.errors.required">
               Le code postal est requis!
             </div>
-          </div>
+        </div>
         </div>
       </div>
 
       <label>Ville</label>
-      <input name="ville" id="ville" class="form-control" type="text" formControlName="ville" required/>
-      <div *ngIf="ville.errors && (ville.dirty || ville.touched)" class="alert alert-danger">
-        <div [hidden]="!ville.errors.required">
+      <input name="ville" id="ville" class="form-control" type="text" formControlName="ville" [ngClass]="{ 'is-invalid': submitted && formControls.ville.errors }"/>
+      <div *ngIf="submitted && formControls.ville.errors" class="invalid-feedback">
+        <div *ngIf="formControls.ville.errors.required">
           La ville est requise!
         </div>
-      </div>
+    </div>
     </div>
 
     <div formGroupName="localisations" class="localisations form-group">
 
       <label>E-Mail</label>
-      <input name="mail" id="mail" class="form-control" type="email" [formControl]="mail" required/>
-      <div *ngIf="mail.errors && (mail.dirty || mail.touched)" class="alert alert-danger">
-        <div [hidden]="!mail.errors.required">
+      <input name="mail" id="mail" class="form-control" type="email" formControlName="mail" [ngClass]="{ 'is-invalid': submitted && formControls.mail.errors }"/>
+      <div *ngIf="submitted && formControls.mail.errors" class="invalid-feedback">
+        <div *ngIf="formControls.mail.errors.required">
           Le mail est requis!
         </div>
-      </div>
+        <div *ngIf="formControls.mail.errors.email">Le mail doit être un mail valide</div>
+    </div>
 
       <label>Mot de passe</label>
-      <input name="password" id="password" class="form-control" type="password" [formControl]="password" required/>
-      <div *ngIf="password.errors && (password.dirty || password.touched)" class="alert alert-danger">
-        <div [hidden]="!password.errors.required">
+      <input name="password" id="password" class="form-control" type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && formControls.password.errors }"/>
+      <div *ngIf="submitted && formControls.password.errors" class="invalid-feedback">
+        <div *ngIf="formControls.password.errors.required">
           Le mot de passe est requis!
         </div>
-      </div>
+        <div *ngIf="formControls.password.errors.minlength">Le mot de passe doit être d'au moins 6 caractères</div>
+    </div>
 
       <label>Confirmation mot de passe</label>
-      <input name="confirmation" id="confirmation" class="form-control" type="password" required/>
-      <div *ngIf="confirmation.errors && (confirmation.dirty || confirmation.touched)" class="alert alert-danger">
-        <div [hidden]="!confirmation.errors.required">
+      <input name="confirmation" id="confirmation" class="form-control" type="password" [ngClass]="{ 'is-invalid': submitted && formControls.confirmation.errors }"/>
+      <div *ngIf="submitted && formControls.password.errors" class="invalid-feedback">
+        <div *ngIf="formControls.password.errors.required">
           La confirmation du mot de passe est requise!
         </div>
+        <div *ngIf="formControls.password.errors.minlength">Le mot de passe doit être d'au moins 6 caractères</div>
       </div>
     </div>
 
-    <!-- <button
-      type="submit"
-      class="btn btn-primary disabled"
-      [disabled]="!searchForm.valid"
-    >
-      S'inscrire
-    </button> -->
-    <button mwlConfirmationPopover
-              [popoverTitle]="'Confirmation'"
-              [popoverMessage]="'êtes-vous sûr?'"
-              placement="top"
-              (confirm)="createInscription(inscription)"
-              type="submit" class="btn btn-save btn-primary disabled" [disabled]="!inscriptionForm.valid">
-        <span class="glyphicon glyphicon-floppy-disk"></span> S'inscrire
-      </button>
+    <button type="submit" class="btn btn-primary button">S'inscrire</button>
   </form>
 </div>
