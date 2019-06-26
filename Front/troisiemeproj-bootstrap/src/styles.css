@@ -2,6 +2,19 @@
 @import url("../node_modules/bootswatch/dist/lumen/bootstrap.min.css");
 @import url("../node_modules/bootswatch/dist/lumen/bootstrap.css");
 
+@font-face {
+    font-family: 'adam.cg';
+    src: url('./assets/font/ADAMCGPRO.otf') format('truetype');
+}
+/* @font-face {
+    font-family: 'reef';
+    src: url('./assets/font/Reef.otf') format('truetype');
+} */
+@font-face {
+    font-family: 'publica sans';
+    src: url('./assets/font/PublicaSans-Regular.otf') format('truetype');
+}
+
 /* 
 *{
     margin: 0;

@@ -12,7 +12,7 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-  
+
     <div class="container-fluid collapse navbar-collapse" id="navbarColor03">
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -21,8 +21,17 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Vendre</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/ajouter_bien']">Ajouter un bien</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/creer_annonce']">Créer une annonce</a>
+        </li>
       </ul>
       <ul class="navbar-nav navbar-right">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/mon_compte']">Mon compte</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/connexion']">Connexion</a>
         </li>

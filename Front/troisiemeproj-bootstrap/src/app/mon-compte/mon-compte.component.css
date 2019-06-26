@@ -1,0 +1,53 @@
+.inlinediv{
+    display: inline-block;
+    padding: 0 6vh; 
+    margin-top: 0;
+}
+
+div.moncompte{
+    width: 90%;
+}
+
+h1{
+    padding: 2vh 0 7vh 0;
+    text-align: center;
+    font-family: 'adam.cg', serif;
+    font-size: 8vh; 
+    
+    text-shadow: -0.05em 0.05em 0.1em white, 0.05em 0.05em 0.1em  #3a4f78; 
+    /* text-shadow: -0.05em 0.05em 0.1em #4b669d, 0.1em 0.1em 0.2em #3a4f78;*/
+/*
+    color: white; */
+    min-height: 20vh;
+}
+
+h2{
+    margin-bottom: 2vh;
+    font-family: 'adam.cg', serif;
+}
+
+div.formrowinterligne {
+    margin-top: 3vh;
+}
+
+button[type=submit] {
+    background-color: #2700b3;
+    border: none;
+    display: block;
+    margin: 3vh auto;
+    opacity: 1;
+    padding: 1.5vh 2.5vh;
+}
+
+button[type=submit]:hover {
+    background-color: #1e008c;
+}
+
+img{
+    width: 100%;
+    border-radius: 5vh;
+}
+
+.retourchariot{
+    margin-top: 5vh;
+}

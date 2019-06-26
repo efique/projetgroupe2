@@ -1,4 +1,4 @@
-div{
+div.firstpart{
     width: 100%;
     min-height:80vh;
     padding-bottom: 2vh;
@@ -10,11 +10,19 @@ div{
     border-bottom: 2px solid black;
 }
 
-h1{
+/* h1{
     text-align: center;
     padding: 2.5vh 0;
     /* text-shadow: 2px 1px 1px rgba(255, 255, 255, 0.8); */
-    text-shadow: 3px 2px 2px white;
+    /* text-shadow: 3px 2px 2px white;
     font-weight: bold;
     color: black;
+    font-family: 'reef', serif;
+    font-size: 7vh;
+}  */
+
+img{
+    margin: 0 27.5%;
+    /* padding: 2.5vh 0; */
+    width: 45%;
 }

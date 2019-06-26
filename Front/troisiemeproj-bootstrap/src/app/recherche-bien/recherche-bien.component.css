@@ -13,6 +13,8 @@ h2{
     text-align: center;
     margin-top: 2vh;
     margin-bottom: 4vh;
+    text-shadow: -0.05em 0.05em 0.1em #fff, 0.05em 0.05em 0.1em  #3a4f78; 
+    font-family: "publica sans";
 }
 
 /*Form*/
@@ -32,9 +34,9 @@ button.inlineblocck, div.inlineblocck{
     display: inline-block;
 } 
 
-input[type=number]{
-    /* width: 15%; */
-}
+/* input[type=number]{
+    /* width: 15%; *//*
+} */
 
 button[type=submit] {
     background-color: #2700b3;

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
 import { ConnexionService } from './connexion.service';
 import { User } from '../User';
 import { ToastrService } from 'ngx-toastr';
@@ -14,9 +14,9 @@ export class ConnexionComponent implements OnInit {
   submitted = false;
 
   constructor(
-      private formBuilder: FormBuilder,  
-      private toastr: ToastrService,
-      private connexionService: ConnexionService) { }
+    private formBuilder: FormBuilder,
+    private toastr: ToastrService,
+    private connexionService: ConnexionService) { }
 
   ngOnInit() {
     this.connexionForm = this.formBuilder.group({
@@ -25,16 +25,16 @@ export class ConnexionComponent implements OnInit {
     });
   }
 
-  get formControls() { return this.connexionForm.controls}
+  get formControls() { return this.connexionForm.controls; }
 
   onSubmit() {
     this.submitted = true;
 
-    if(this.connexionForm.valid){
+    if (this.connexionForm.valid) {
       this.connexionService.createConnexion(this.connexionForm.value);
+      console.log(this.connexionForm.value);
     } else {
-       this.toastr.error('Veuillez completez le formulaire correctement', "Error");
+       this.toastr.error('Veuillez completez le formulaire correctement', 'Error');
     }
-
   }
 }

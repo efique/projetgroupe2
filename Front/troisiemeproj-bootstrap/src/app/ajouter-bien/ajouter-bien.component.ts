@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Bien } from '../Bien';
 
 @Component({
   selector: 'app-ajouter-bien',
@@ -7,6 +8,8 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./ajouter-bien.component.css']
 })
 export class AjouterBienComponent implements OnInit {
+
+  private bien: Bien;
 
   ajouterbienForm = this.fb.group({
     libelle: [''],
@@ -28,12 +31,14 @@ export class AjouterBienComponent implements OnInit {
     dependances: [''],
   });
 
-  onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.ajouterbienForm.value);
-  }
-
   constructor(private fb: FormBuilder) { }
+
+  onSubmit() {
+    if (this.ajouterbienForm.valid) {
+      this.bien = this.ajouterbienForm.value;
+      console.log(this.ajouterbienForm.value);
+    }
+  }
 
   ngOnInit() {
   }

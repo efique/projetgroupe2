@@ -1,0 +1,69 @@
+<h1>Mon compte</h1>
+<div class="moncompte container-fluid">
+  <div class="inlinediv col-sm-6">
+    <h2>Informations personelles</h2>
+    <div class="form-group">
+        <label>Nom</label>
+        <input class="form-control" type="text" [formControl]="nom">
+      </div>
+      <div class="form-group">
+        <label>Prénom</label>
+        <input class="form-control" type="text" [formControl]="prenom">
+      </div>
+
+      <div class="form-group">
+          <label>E-Mail</label>
+          <input class="form-control" type="email" [formControl]="mail">
+      </div>
+
+      <div class="form-group">
+        <label>Téléphone</label>
+        <input class="form-control" type="text" [formControl]="telephone">
+      </div>
+  
+      <div formGroupName="localisation" class="localisation form-group">
+        <label>Rue</label>
+        <input type="text" class="form-control" formControlName="rue">
+  
+        <div class="form-row formrowinterligne">
+          <div class="form-group col-md-6">
+            <label>Numéro de rue</label>
+            <input type="number" class="form-control" formControlName="numero">
+          </div>
+          <div class="form-group col-md-6">
+            <label>Code postal</label>
+            <input type="number" class="form-control" formControlName="postal">
+          </div>
+        </div>
+        <label>Ville</label>
+        <input type="text" class="form-control" formControlName="ville">
+      </div>
+  
+      <button type="submit" class="btn btn-primary disabled" [disabled]="!searchForm.valid">Enregistrer</button>
+      
+  </div>
+ 
+
+  <div class="inlinediv col-sm-6 "> 
+    <img src="../../assets/img/mon_compte_immosoftvente.jpg">
+
+    <h2 class="retourchariot">Modifier mon mot de passe</h2>
+
+    <div class="form-group">
+        <label>Ancien mot de passe</label>
+        <input class="form-control" type="password" [formControl]="password">
+    </div>
+    <div class="form-group">
+        <label>Mot de passe</label>
+        <input class="form-control" type="password" [formControl]="password">
+    </div>
+    <div class="form-group">
+        <label>Confirmation mot de passe</label>
+        <input class="form-control" type="password">
+    </div>
+
+    <button type="submit" class="btn btn-primary disabled" [disabled]="!searchForm.valid">Enregistrer</button>
+
+  </div>
+</div>
+

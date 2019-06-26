@@ -16,12 +16,14 @@ export class ContactComponent implements OnInit {
     message: [''],
   });
 
-  onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.contactForm.value);
-  }
-
   constructor(private fb: FormBuilder) { }
+
+  onSubmit() {
+    if (this.contactForm.valid) {
+      // this.contact = this.contactForm.value;
+      console.log(this.contactForm.value);
+    }
+  }
 
   ngOnInit() {
   }
