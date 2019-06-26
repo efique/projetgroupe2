@@ -13,13 +13,12 @@ export class CreerAnnonceComponent implements OnInit {
     proprietaire: [''],
   });
 
+  constructor(private fb: FormBuilder) { }
+
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.warn(this.creerannonceForm.value);
   }
-
-  constructor(private fb: FormBuilder) { }
-
 
   ngOnInit() {
   }

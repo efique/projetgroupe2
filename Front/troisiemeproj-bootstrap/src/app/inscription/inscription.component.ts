@@ -14,7 +14,7 @@ export class InscriptionComponent implements OnInit {
   submitted = false;
 
   constructor(
-    private formBuilder: FormBuilder,  
+    private formBuilder: FormBuilder,
     private toastr: ToastrService,
     private inscriptionService: InscriptionService) {}
 
@@ -37,19 +37,19 @@ export class InscriptionComponent implements OnInit {
         confirmPassword: ['', Validators.required]
       }),
     }, {
-    validator: MustMatch('password', 'confirmPassword')
+    // validator: MustMatch('password', 'confirmPassword')
     });
   }
 
-  get formControls() { return this.inscriptionForm.controls}
+  get formControls() { return this.inscriptionForm.controls; }
 
   onSubmit() {
     this.submitted = true;
 
-    if(this.inscriptionForm.valid){
+    if (this.inscriptionForm.valid) {
       this.inscriptionService.createInscription(this.inscriptionForm.value);
     } else {
-       this.toastr.error('Veuillez completez le formulaire correctement', "Error");
+       this.toastr.error('Veuillez completez le formulaire correctement', 'Error');
     }
 
   }

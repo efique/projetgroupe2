@@ -8,8 +8,11 @@ export class Bien {
     numero: number;
     postal: number;
     ville: string;
+    // tslint:disable-next-line:variable-name
     prix_demande: number;
+    // tslint:disable-next-line:variable-name
     prix_mini: number;
+    // tslint:disable-next-line:variable-name
     nombre_pieces: number;
     superficie: number;
     etage: number;
