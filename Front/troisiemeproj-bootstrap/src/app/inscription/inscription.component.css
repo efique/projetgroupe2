@@ -30,15 +30,16 @@ label{
     /* color: black; */
     color: #2700b3;
     font-weight: bold;
+    margin-top: 2vh;
 }
+
+/* .form-group label{
+    
+} */
 
 div.formrowinterligne {
     margin-top: 3vh;
 }
-
-/* label:not(.localisation label){
-    width: 100%;
-} */
 
 button[type=submit] {
     background-color: #2700b3;
@@ -52,7 +53,3 @@ button[type=submit] {
 button[type=submit]:hover {
     background-color: #1e008c;
 }
-
-/* label{
-    color: #ffcc00;
-} */

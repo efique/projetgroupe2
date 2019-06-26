@@ -4,7 +4,7 @@
     <div formGroupName="details" class="details form-group">
 
       <label>Nom</label>
-      <input name="nom" id="nom" class="form-control" type="text" [formGroup]="inscriptionForm" required/>
+      <input name="nom" id="nom" class="form-control" type="text" formGroupName="inscriptionForm" required/>
       <div *ngIf="nom.errors && (nom.dirty || nom.touched)" class="alert alert-danger">
         <div [hidden]="!nom.errors.required">
           Le nom est requis!
@@ -12,7 +12,7 @@
       </div>
 
       <label>Prénom</label>
-      <input name="prenom" id="prenom" class="form-control" type="text" [formControl]="prenom" required/>
+      <input name="prenom" id="prenom" class="form-control" type="text" formControlName="prenom" required/>
       <div *ngIf="prenom.errors && (prenom.dirty || prenom.touched)" class="alert alert-danger">
         <div [hidden]="!prenom.errors.required">
           Le prénom est requis!
@@ -20,7 +20,7 @@
       </div>
 
       <label>Téléphone</label>
-      <input name="telephone" id="telephone" class="form-control" type="text" [formControl]="telephone" required/>
+      <input name="telephone" id="telephone" class="form-control" type="text" formControlName="telephone" required/>
       <div *ngIf="telephone.errors && (telephone.dirty || telephone.touched)" class="alert alert-danger">
         <div [hidden]="!telephone.errors.required">
           Le téléphone est requis!
@@ -38,8 +38,7 @@
         </div>
       </div>
 
-      <div class="form-row formrowinterligne">
-
+      <div class="form-row">
         <div class="form-group col-md-6">
           <label>Numéro de rue</label>
           <input name="numero" id="numero" class="form-control" type="number" formControlName="numero" required/>
@@ -73,7 +72,7 @@
     <div formGroupName="localisations" class="localisations form-group">
 
       <label>E-Mail</label>
-      <input name="mail" id="mail" class="form-control" type="email" [formControl]="mail" required/>
+      <input name="mail" id="mail" class="form-control" type="email" formControlName="mail" required/>
       <div *ngIf="mail.errors && (mail.dirty || mail.touched)" class="alert alert-danger">
         <div [hidden]="!mail.errors.required">
           Le mail est requis!
@@ -81,7 +80,7 @@
       </div>  
 
       <label>Mot de passe</label>
-      <input name="password" id="password" class="form-control" type="password" [formControl]="password" required/>
+      <input name="password" id="password" class="form-control" type="password" formControlName="password" required/>
       <div *ngIf="password.errors && (password.dirty || password.touched)" class="alert alert-danger">
         <div [hidden]="!password.errors.required">
           Le mot de passe est requis!
@@ -97,13 +96,6 @@
       </div>
     </div>
 
-    <!-- <button
-      type="submit"
-      class="btn btn-primary disabled"
-      [disabled]="!searchForm.valid"
-    >
-      S'inscrire
-    </button> -->
     <button mwlConfirmationPopover
               [popoverTitle]="'Confirmation'"
               [popoverMessage]="'êtes-vous sûr?'"
