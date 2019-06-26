@@ -32,7 +32,6 @@ export class ConnexionComponent implements OnInit {
 
     if (this.connexionForm.valid) {
       this.connexionService.createConnexion(this.connexionForm.value);
-      console.log(this.connexionForm.value);
     } else {
        this.toastr.error('Veuillez completez le formulaire correctement', 'Error');
     }

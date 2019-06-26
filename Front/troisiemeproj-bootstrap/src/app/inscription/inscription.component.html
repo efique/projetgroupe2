@@ -1,6 +1,7 @@
 <h1>Inscription</h1>
 <div class="inscription container-fluid">
   <form [formGroup]="inscriptionForm" (ngSubmit)="onSubmit()">
+
     <div formGroupName="details" class="details form-group">
 
       <label>Nom</label>
@@ -26,7 +27,7 @@
           Le numéro de téléphone est requis!
         </div>
         <div *ngIf="formControls.telephone.errors.telephone">Le numéro de téléphone doit avoir un format valide</div>
-    </div>
+      </div>
     </div>
 
     <div formGroupName="localisations" class="localisations form-group">
@@ -91,14 +92,14 @@
         <div *ngIf="formControls.password.errors.minlength">Le mot de passe doit être d'au moins 6 caractères</div>
     </div>
 
-      <label>Confirmation mot de passe</label>
+      <!-- <label>Confirmation mot de passe</label>
       <input name="confirmation" id="confirmation" class="form-control" type="password" [ngClass]="{ 'is-invalid': submitted && formControls.confirmation.errors }"/>
       <div *ngIf="submitted && formControls.password.errors" class="invalid-feedback">
-        <div *ngIf="formControls.password.errors.required">
+        <div *ngIf="formControls.confirmation.errors.required">
           La confirmation du mot de passe est requise!
         </div>
-        <div *ngIf="formControls.password.errors.minlength">Le mot de passe doit être d'au moins 6 caractères</div>
-      </div>
+        <div *ngIf="formControls.confirmation.errors.mustMatch">Les mots de passes doivent correspondre</div>
+      </div> -->
     </div>
 
     <button type="submit" class="btn btn-primary button">S'inscrire</button>

@@ -21,10 +21,10 @@ export class InscriptionService {
       res => {
         console.log(res);
         this.toastr.success(
-          'Votre inscription a été crée avec succès.',
+          'Votre compte a été crée avec succès.',
           'Success'
         );
-        this.router.navigateByUrl('/inscription');
+        this.router.navigateByUrl('/');
       },
       err => {
         console.log('Error occured:', err);
