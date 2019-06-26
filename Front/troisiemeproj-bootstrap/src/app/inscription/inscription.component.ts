@@ -10,7 +10,6 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class InscriptionComponent implements OnInit {
   inscriptionForm: FormGroup;
-  details: FormGroup;
   submitted = false;
 
   constructor(

@@ -24,6 +24,7 @@ import { MonCompteComponent } from './mon-compte/mon-compte.component';
 
 import { InscriptionService } from './inscription/inscription.service';
 import { ConnexionService } from './connexion/connexion.service';
+import { AjouterBienService } from './ajouter-bien/ajouter-bien.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -58,7 +59,7 @@ import { AppRoutingModule } from './app-routing.module';
     AppRoutingModule
   ],
   exports: [RouterModule],
-  providers: [InscriptionService, ConnexionService],
+  providers: [InscriptionService, ConnexionService, AjouterBienService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
