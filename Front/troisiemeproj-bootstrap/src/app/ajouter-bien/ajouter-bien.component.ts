@@ -13,7 +13,7 @@ export class AjouterBienComponent implements OnInit {
   submitted = false;
 
   constructor(
-    private formBuilder: FormBuilder,  
+    private formBuilder: FormBuilder,
     private toastr: ToastrService,
     private ajouterBienService: AjouterBienService) {}
 
@@ -42,10 +42,10 @@ export class AjouterBienComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
 
-    if(this.ajouterBienForm.valid){
+    if (this.ajouterBienForm.valid) {
       this.ajouterBienService.createAjouterBien(this.ajouterBienForm.value);
     } else {
-       this.toastr.error('Veuillez completez le formulaire correctement', "Error");
+       this.toastr.error('Veuillez completez le formulaire correctement', 'Error');
     }
   }
 }

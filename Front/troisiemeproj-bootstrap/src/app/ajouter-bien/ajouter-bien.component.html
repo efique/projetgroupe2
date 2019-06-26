@@ -1,5 +1,5 @@
 <h1>Ajouter un bien</h1>
-<div class="ajouterBien container-fluid">
+<div class="ajouterbien container-fluid">
   <form [formGroup]="ajouterBienForm" (ngSubmit)="onSubmit()">
 
     <h2>Bien</h2>
@@ -70,7 +70,7 @@
         <label class="form-check-label" for="inlineCheckbox2">2</label>
       </div> -->
     </div>
-
+    <div class="retourchariot">
       <h2>Localisation</h2>
       <label>Rue</label>
       <input type="text" class="form-control" formControlName="rue">
@@ -89,6 +89,7 @@
           <input type="text" class="form-control" formControlName="ville">
         </div>
       </div>
+    </div>
 
     <h2 class="retourchariot">Prix</h2>
     <div class="form-row">
