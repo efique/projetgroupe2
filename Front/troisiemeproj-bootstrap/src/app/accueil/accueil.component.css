@@ -10,6 +10,13 @@ div.firstpart{
     border-bottom: 2px solid black;
 }
 
+div.secondpart{
+    width: 100%;
+    padding: 4vh 0 2vh 0;
+    background-color: #fff;
+}
+
+
 /* h1{
     text-align: center;
     padding: 2.5vh 0;

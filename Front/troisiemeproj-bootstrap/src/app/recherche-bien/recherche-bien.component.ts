@@ -22,12 +22,14 @@ export class RechercheBienComponent implements OnInit {
     prix_demande: [''],
   });
 
+  constructor(private fb: FormBuilder) { }
+
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.warn(this.searchForm.value);
   }
 
-  constructor(private fb: FormBuilder) { }
+
 
   ngOnInit() {
   }
