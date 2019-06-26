@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
 import { ConnexionService } from './connexion.service';
-import { User } from '../User';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -29,7 +28,7 @@ export class ConnexionComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-
+    
     if (this.connexionForm.valid) {
       this.connexionService.createConnexion(this.connexionForm.value);
     } else {

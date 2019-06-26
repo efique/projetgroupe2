@@ -2,10 +2,8 @@
 <div class="inscription container-fluid">
   <form [formGroup]="inscriptionForm" (ngSubmit)="onSubmit()">
 
-    <div formGroupName="details" class="details form-group">
-
       <label>Nom</label>
-      <input name="nom" id="nom" class="form-control" type="text" formControlName="inscriptionForm" [ngClass]="{ 'is-invalid': submitted && formControls.nom.errors }"/>
+      <input name="nom" id="nom" class="form-control" type="text" formControlName="nom" [ngClass]="{ 'is-invalid': submitted && formControls.nom.errors }"/>
       <div *ngIf="submitted && formControls.nom.errors" class="invalid-feedback">
         <div *ngIf="formControls.nom.errors.required">
           Le nom est requis!
@@ -26,11 +24,7 @@
         <div *ngIf="formControls.telephone.errors.required">
           Le numéro de téléphone est requis!
         </div>
-        <div *ngIf="formControls.telephone.errors.telephone">Le numéro de téléphone doit avoir un format valide</div>
       </div>
-    </div>
-
-    <div formGroupName="localisations" class="localisations form-group">
 
       <label>Rue</label>
       <input name="rue" id="rue" class="form-control" type="text" formControlName="rue" [ngClass]="{ 'is-invalid': submitted && formControls.rue.errors }"/>
@@ -59,7 +53,7 @@
             <div *ngIf="formControls.postal.errors.required">
               Le code postal est requis!
             </div>
-        </div>
+          </div>
         </div>
       </div>
 
@@ -69,10 +63,7 @@
         <div *ngIf="formControls.ville.errors.required">
           La ville est requise!
         </div>
-    </div>
-    </div>
-
-    <div formGroupName="localisations" class="localisations form-group">
+      </div>
 
       <label>E-Mail</label>
       <input name="mail" id="mail" class="form-control" type="email" formControlName="mail" [ngClass]="{ 'is-invalid': submitted && formControls.mail.errors }"/>
@@ -92,15 +83,14 @@
         <div *ngIf="formControls.password.errors.minlength">Le mot de passe doit être d'au moins 6 caractères</div>
     </div>
 
-      <!-- <label>Confirmation mot de passe</label>
-      <input name="confirmation" id="confirmation" class="form-control" type="password" [ngClass]="{ 'is-invalid': submitted && formControls.confirmation.errors }"/>
-      <div *ngIf="submitted && formControls.password.errors" class="invalid-feedback">
+      <label>Confirmation mot de passe</label>
+      <input name="confirmation" id="confirmation" class="form-control" type="password" formControlName="confirmation" [ngClass]="{ 'is-invalid': submitted && formControls.confirmation.errors }"/>
+      <div *ngIf="submitted && formControls.confirmation.errors" class="invalid-feedback">
         <div *ngIf="formControls.confirmation.errors.required">
           La confirmation du mot de passe est requise!
         </div>
-        <div *ngIf="formControls.confirmation.errors.mustMatch">Les mots de passes doivent correspondre</div>
-      </div> -->
-    </div>
+        <div *ngIf="formControls.confirmation.errors.mustMatch">Les mots de passes ne correspondent pas !</div>
+      </div>
 
     <button type="submit" class="btn btn-primary button">S'inscrire</button>
   </form>

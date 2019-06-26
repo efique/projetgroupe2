@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { User } from '../User';
 import { InscriptionService } from './inscription.service';
 import { ToastrService } from 'ngx-toastr';
 
@@ -11,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class InscriptionComponent implements OnInit {
   inscriptionForm: FormGroup;
+  details: FormGroup;
   submitted = false;
 
   constructor(
@@ -20,28 +20,22 @@ export class InscriptionComponent implements OnInit {
 
   ngOnInit() {
     this.inscriptionForm = this.formBuilder.group({
-      details: this.formBuilder.group({
         nom: ['', [Validators.required]],
         prenom: ['', [Validators.required]],
-        telephone: ['', [Validators.required]]
-    }),
-      localisations: this.formBuilder.group({
+        telephone: ['', [Validators.required]],
         rue: ['', [Validators.required]],
         numero: ['', [Validators.required]],
         postal: ['', [Validators.required]],
-        ville: ['', [Validators.required]]
-      }),
-      users: this.formBuilder.group({
+        ville: ['', [Validators.required]],
         mail: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, Validators.minLength(6)]],
-        // confirmPassword: ['', Validators.required]
-      }),
-    }, {
-    // validator: MustMatch('password', 'confirmPassword')
-    });
+        confirmation: ['', [Validators.required]]
+    },  {
+      validator: MustMatch('password', 'confirmation')
+  });
   }
 
-  get formControls() { return this.inscriptionForm.controls}
+  get formControls() { return this.inscriptionForm.controls; }
 
   onSubmit() {
     this.submitted = true;
@@ -54,21 +48,19 @@ export class InscriptionComponent implements OnInit {
   }
 }
 
-// export function MustMatch(controlName: string, matchingControlName: string) {
-//   return (formGroup: FormGroup) => {
-//       const control = formGroup.controls[controlName];
-//       const matchingControl = formGroup.controls[matchingControlName];
+export function MustMatch(password, confirmation) {
+  return (formGroup: FormGroup) => {
+    const control = formGroup.controls[password];
+    const matchingControl = formGroup.controls[confirmation];
 
-//       if (matchingControl.errors && !matchingControl.errors.mustMatch) {
-//           // return if another validator has already found an error on the matchingControl
-//           return;
-//       }
+    if (matchingControl.errors && !matchingControl.errors.mustMatch) {
+      return;
+    }
 
-//       // set error on matchingControl if validation fails
-//       if (control.value !== matchingControl.value) {
-//           matchingControl.setErrors({ mustMatch: true });
-//       } else {
-//           matchingControl.setErrors(null);
-//       }
-//   }
-// }
+    if (control.value !== matchingControl.value) {
+      matchingControl.setErrors({ mustMatch: true });
+    } else {
+      matchingControl.setErrors(null);
+    }
+  }
+}
