@@ -10,21 +10,21 @@ export class InscriptionService {
     private toastr: ToastrService,
     private router: Router
   ) {}
-  url = 'localhost:3015';
+  url = 'http://localhost:3015';
 
   getInscription() {
     return this.http.get(`${this.url}/inscription/get`);
   }
 
   createInscription(data) {
-    this.http.post(`${this.url}/inscription`, data).subscribe(
+    this.http.post(`${this.url}/auth/signup`, data).subscribe(
       res => {
         console.log(res);
         this.toastr.success(
-          'Votre inscription a été crée avec succès.',
+          'Votre compte a été crée avec succès.',
           'Success'
         );
-        this.router.navigateByUrl('/inscription');
+        this.router.navigateByUrl('/');
       },
       err => {
         console.log('Error occured:', err);

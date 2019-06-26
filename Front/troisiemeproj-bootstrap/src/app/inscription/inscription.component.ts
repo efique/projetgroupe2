@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { User } from '../User';
 import { InscriptionService } from './inscription.service';
 import { ToastrService } from 'ngx-toastr';
 
@@ -11,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class InscriptionComponent implements OnInit {
   inscriptionForm: FormGroup;
+  details: FormGroup;
   submitted = false;
 
   constructor(
@@ -20,25 +20,19 @@ export class InscriptionComponent implements OnInit {
 
   ngOnInit() {
     this.inscriptionForm = this.formBuilder.group({
-      details: this.formBuilder.group({
         nom: ['', [Validators.required]],
         prenom: ['', [Validators.required]],
-        telephone: ['', [Validators.required]]
-    }),
-      localisations: this.formBuilder.group({
+        telephone: ['', [Validators.required]],
         rue: ['', [Validators.required]],
         numero: ['', [Validators.required]],
         postal: ['', [Validators.required]],
-        ville: ['', [Validators.required]]
-      }),
-      users: this.formBuilder.group({
+        ville: ['', [Validators.required]],
         mail: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, Validators.minLength(6)]],
-        confirmPassword: ['', Validators.required]
-      }),
-    }, {
-    // validator: MustMatch('password', 'confirmPassword')
-    });
+        confirmation: ['', [Validators.required]]
+    },  {
+      validator: MustMatch('password', 'confirmation')
+  });
   }
 
   get formControls() { return this.inscriptionForm.controls; }
@@ -51,6 +45,22 @@ export class InscriptionComponent implements OnInit {
     } else {
        this.toastr.error('Veuillez completez le formulaire correctement', 'Error');
     }
-
   }
+}
+
+export function MustMatch(password, confirmation) {
+  return (formGroup: FormGroup) => {
+    const control = formGroup.controls[password];
+    const matchingControl = formGroup.controls[confirmation];
+
+    if (matchingControl.errors && !matchingControl.errors.mustMatch) {
+      return;
+    }
+
+    if (control.value !== matchingControl.value) {
+      matchingControl.setErrors({ mustMatch: true });
+    } else {
+      matchingControl.setErrors(null);
+    }
+  };
 }
