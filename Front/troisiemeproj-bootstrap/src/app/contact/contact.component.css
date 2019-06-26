@@ -5,16 +5,37 @@ div.container{
 }
 
 div.contact{
-    width: 40%;
+    width: 60%;
+    /* width: 40%; */
     /* background-color: #d7ccff;
     padding: 5%;
     margin-bottom: 1%;
     border-radius: 10%; */
 }
 
+
 h1{
-    margin: 2vh 0 5vh 0;
+    /* margin: 5vh 0 5vh 0;
+    text-align: center; */
+    /* padding: 2vh 0 7vh 0;
     text-align: center;
+    font-family: 'adam.cg', serif;
+    font-size: 8vh; 
+    text-shadow: -0.05em 0.05em 0.1em white, 0.05em 0.05em 0.1em  #3a4f78; 
+    min-height: 15vh; */
+    padding: 2vh 0 5vh 0;
+    text-align: center;
+    font-family: 'adam.cg', serif;
+    font-size: 10vh; 
+     color: #fff; 
+    background-image: url(../../assets/img/contact-Immobilier.jpg);
+    background-attachment: fixed;
+    background-position: bottom;
+    min-height: 25vh;
+    /* vertical-align: middle; */
+    text-shadow: -0.05em 0.05em 0.1em black, 0.1em 0.1em 0.2em black;
+    margin-bottom: 5vh;
+   
 }
 
 button[type=submit] {
@@ -29,3 +50,29 @@ button[type=submit] {
 button[type=submit]:hover {
     background-color: #1e008c;
 }
+
+.inlineblock{
+    display: inline-block;
+    margin-top: 0;
+}
+
+input{
+    margin-bottom: 2vh;
+}
+
+
+/* .messagediv{
+    padding: 0 15px;
+    margin: 0 auto;
+    width: 80%;
+} */
+/* 
+textarea{
+    min-height: 20vh;
+}
+
+img{
+    width: 60%;
+    border-radius: 5vh;
+    margin: 5vh 20%;
+} */

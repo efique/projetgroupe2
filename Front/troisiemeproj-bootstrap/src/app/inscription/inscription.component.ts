@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { InscriptionService } from './inscription.service';
 import { User } from '../User';
 
@@ -11,9 +11,11 @@ import { User } from '../User';
 
 export class InscriptionComponent implements OnInit {
 
+  private userinscription: User[];
+
   inscriptionForm = this.fb.group({
-    nom: [''],
-    prenom: [''],
+    nom: ['', Validators.required],
+    prenom: ['', Validators.required],
     telephone: [''],
     localisation: this.fb.group({
       rue: [''],
@@ -21,18 +23,18 @@ export class InscriptionComponent implements OnInit {
       postal: [''],
       ville: [''],
     }),
-    mail: [''],
-    password: [''],
+    mail: ['', Validators.required],
+    password: ['', Validators.required],
   });
 
-  inscriptions: User[];
+  constructor(private fb: FormBuilder) { } // , private readonly inscriptionService: InscriptionService
 
   onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.inscriptionForm.value);
+    if (this.inscriptionForm.valid) {
+      this.userinscription = this.inscriptionForm.value;
+      console.log(this.inscriptionForm.value);
+    }
   }
-
-  constructor(private fb: FormBuilder) { } // , private readonly inscriptionService: InscriptionService
 
   ngOnInit() {
     /* fetchInscriptions(){

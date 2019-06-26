@@ -9,8 +9,21 @@ div.moncompte{
 }
 
 h1{
-    margin: 2vh 0 5vh 0;
+    padding: 2vh 0 7vh 0;
     text-align: center;
+    font-family: 'adam.cg', serif;
+    font-size: 8vh; 
+    
+    text-shadow: -0.05em 0.05em 0.1em white, 0.05em 0.05em 0.1em  #3a4f78; 
+    /* text-shadow: -0.05em 0.05em 0.1em #4b669d, 0.1em 0.1em 0.2em #3a4f78;*/
+/*
+    color: white; */
+    min-height: 20vh;
+}
+
+h2{
+    margin-bottom: 2vh;
+    font-family: 'adam.cg', serif;
 }
 
 div.formrowinterligne {

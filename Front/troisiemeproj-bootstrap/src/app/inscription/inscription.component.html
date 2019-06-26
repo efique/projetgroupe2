@@ -3,15 +3,15 @@
   <form [formGroup]="inscriptionForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label>Nom</label>
-      <input class="form-control" type="text" [formControl]="nom">
+      <input class="form-control" type="text" formControlName="nom">  <!-- [formControl]="nom" -->
     </div>
     <div class="form-group">
       <label>Prénom</label>
-      <input class="form-control" type="text" [formControl]="prenom">
+      <input class="form-control" type="text" formControlName="prenom">
     </div>
     <div class="form-group">
       <label>Téléphone</label>
-      <input class="form-control" type="text" [formControl]="telephone">
+      <input class="form-control" type="text" formControlName="telephone">
     </div>
 
     <div formGroupName="localisation" class="localisation form-group">
@@ -34,20 +34,24 @@
 
     <div class="form-group">
       <label>E-Mail</label>
-      <input class="form-control" type="email" [formControl]="mail">
+      <input class="form-control" type="email" formControlName="mail">
     </div>
 
     <div class="form-group">
       <label>Mot de passe</label>
-      <input class="form-control" type="password" [formControl]="password">
+      <input class="form-control" type="password" formControlName="password">
     </div>
     <div class="form-group">
         <label>Confirmation mot de passe</label>
         <input class="form-control" type="password">
     </div>
 
-    <button type="submit" class="btn btn-primary disabled" [disabled]="!searchForm.valid">S'inscrire</button>
+    <button type="submit" class="btn btn-primary disabled"  [disabled]="!inscriptionForm.valid">S'inscrire</button>
+    <!-- <button type="submit" class="btn btn-primary disabled" [disabled]="!searchForm.valid">S'inscrire</button> -->
     
   </form>
+
+  <p>Form value {{ inscriptionForm.value | json }} </p>
+  <p>Form status {{ inscriptionForm.status | json}} </p>
 
 </div>

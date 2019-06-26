@@ -16,7 +16,9 @@ div.lien-vendre-accueil{
 }
 
 h2{
-    text-align: center;
+    text-align: center;    
+    text-shadow: -0.05em 0.05em 0.1em #fff, 0.05em 0.05em 0.1em  #3a4f78; 
+    font-family: "publica sans";
     /* margin-top: 2vh;
     margin-bottom: 4vh; */
 }

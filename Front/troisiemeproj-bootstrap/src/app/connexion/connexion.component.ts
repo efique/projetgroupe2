@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
+import { User } from './../User';
 
 @Component({
   selector: 'app-connexion',
@@ -8,19 +9,29 @@ import { FormBuilder } from '@angular/forms';
 })
 export class ConnexionComponent implements OnInit {
 
-  connexionForm = this.fb.group({
-    mail: [''],
-    password: [''],
-  });
+  // private user: User;
+  // connexionForm: FormGroup;
 
-  onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.connexionForm.value);
-  }
+  connexionForm = this.fb.group({
+      mail: ['', Validators.required],
+      password: ['', Validators.required],
+  });
 
   constructor(private fb: FormBuilder) { }
 
-  ngOnInit() {
+  onSubmit() {
+    if (this.connexionForm.valid) {
+      console.log(this.connexionForm.value);
+      /* Any API call logic via services goes here */
+    }
   }
 
+  ngOnInit() {
+
+  // this.connexionForm = this.fb.group({
+  //   mail: ['', Validators.required],
+  //   password: ['', Validators.required],
+  // });
+
+  }
 }
