@@ -24,15 +24,27 @@ label{
     font-weight: bold;
 }
 
-button[type=submit] {
+.button {
     background-color: #2700b3;
     border: none;
     display: block;
     margin: 3vh auto;
     opacity: 1;
-    padding: 1.5vh 2.5vh;
+    padding: 0.5rem 1.5rem;
+    color: white;
+    border: 1px solid #2700b3;
+    margin: auto;
 }
 
-button[type=submit]:hover {
-    background-color: #1e008c;
+.button:hover {
+    background-color: white;
+    border: 1px solid #2700b3;
+    color: #2700b3; 
+}
+
+.button:disabled{
+    background: #ccc;
+    pointer-events: none;
+    color: black;
+    border: 1px solid #ccc;
 }

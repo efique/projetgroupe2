@@ -3,8 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { Routes, RouterModule } from '@angular/router';
-
+import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 
 import { HeaderComponent } from './header/header.component';
 import { InscriptionComponent } from './inscription/inscription.component';
@@ -20,6 +22,9 @@ import { CreerAnnonceComponent } from './creer-annonce/creer-annonce.component';
 import { AjouterBienComponent } from './ajouter-bien/ajouter-bien.component';
 import { MonCompteComponent } from './mon-compte/mon-compte.component';
 
+import { InscriptionService } from './inscription/inscription.service';
+import { ConnexionService } from './connexion/connexion.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 const routes: Routes = [
   { path: '', component: AccueilComponent },
   { path: 'inscription', component: InscriptionComponent },
@@ -35,6 +40,7 @@ const routes: Routes = [
     AppComponent,
     HeaderComponent,
     InscriptionComponent,
+    ConnexionComponent,
     AccueilComponent,
     FooterComponent,
     RechercheBienComponent,
@@ -47,14 +53,20 @@ const routes: Routes = [
     MonCompteComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     RouterModule.forRoot(routes),
+    FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot(),
+    ConfirmationPopoverModule.forRoot({
+      confirmButtonType: 'danger' // set defaults here
+    })
   ],
   exports: [RouterModule],
-  providers: [],
+  providers: [InscriptionService, ConnexionService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
-export class AppRoutingModule { }
+export class AppModule {}
+export class AppRoutingModule {}

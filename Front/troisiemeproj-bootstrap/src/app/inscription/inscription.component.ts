@@ -8,26 +8,35 @@ import { User } from '../User';
   templateUrl: './inscription.component.html',
   styleUrls: ['./inscription.component.css']
 })
-
 export class InscriptionComponent implements OnInit {
 
   private userinscription: User[];
 
   inscriptionForm = this.fb.group({
-    nom: ['', Validators.required],
-    prenom: ['', Validators.required],
-    telephone: [''],
-    localisation: this.fb.group({
-      rue: [''],
-      numero: [''],
-      postal: [''],
-      ville: [''],
+    details: this.fb.group({
+      id: '',
+      nom: '',
+      prenom: '',
+      telephone: ''
+  }),
+    users: this.fb.group({
+      id: '',
+      mail: '',
+      password: ''
+  }),
+    localisations: this.fb.group({
+      id: '',
+      rue: '',
+      numero: '',
+      postal: '',
+      ville: ''
     }),
-    mail: ['', Validators.required],
-    password: ['', Validators.required],
   });
 
-  constructor(private fb: FormBuilder) { } // , private readonly inscriptionService: InscriptionService
+  constructor(
+    private fb: FormBuilder,
+    private inscriptionService: InscriptionService
+  ) {} // , private readonly inscriptionService: InscriptionService
 
   onSubmit() {
     if (this.inscriptionForm.valid) {
@@ -37,11 +46,8 @@ export class InscriptionComponent implements OnInit {
   }
 
   ngOnInit() {
-    /* fetchInscriptions(){
-      this.inscriptionService.getInscription().subscribe((data: Inscription[]) =>
-        this.inscriptions =
-      );
-    }  */
+    this.inscriptionService.getInscription().subscribe((data: User[]) => {
+      this.userinscription = data;
+    });
   }
-
 }

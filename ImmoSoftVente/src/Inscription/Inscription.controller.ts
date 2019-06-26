@@ -19,7 +19,8 @@ export class InscriptionController {
    */
   async getRoutes() {
     const routes: IRouteInterface[] = [
-      { path: '/', method: 'post', actions: [this.create] },
+      { path: '/', method: 'post', actions: [this.create]},
+      { path: '/get', method: 'get', actions: [this.getInscription]}
     ];
 
     routes.forEach(item => {
@@ -38,7 +39,7 @@ export class InscriptionController {
    * @returns with the created Inscription
    */
   private async create(req: Request, res: Response) {
-    const users = await this.inscriptionService().getAll(req.body.mail);
+    const users = await this.inscriptionService().getAllWithMail(req.body.mail);
     if (users.length === 0) {
       const user = await this.inscriptionService().createUsers(req.body);
       const localisation = await this.inscriptionService().createLocalisation(
@@ -53,5 +54,20 @@ export class InscriptionController {
     } else {
       return res.status(500).json({ message: 'This mail already exist.' });
     }
+  }
+
+   /**
+   * Retrieve all users from Db
+   *
+   * @param req
+   * @param res
+   * @returns Resolves with the list of all Users
+   */
+  private async getInscription(req: Request, res: Response) {
+    res.json({ 
+      details: await this.inscriptionService().getAllDetails(),
+      users: await this.inscriptionService().getAllUsers(),
+      localisations: await this.inscriptionService().getAllLocalisations()
+    });
   }
 }
