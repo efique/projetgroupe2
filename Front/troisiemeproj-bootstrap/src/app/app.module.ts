@@ -25,15 +25,8 @@ import { MonCompteComponent } from './mon-compte/mon-compte.component';
 import { InscriptionService } from './inscription/inscription.service';
 import { ConnexionService } from './connexion/connexion.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-const routes: Routes = [
-  { path: '', component: AccueilComponent },
-  { path: 'inscription', component: InscriptionComponent },
-  { path: 'connexion', component: ConnexionComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'creer_annonce', component: CreerAnnonceComponent },
-  { path: 'ajouter_bien', component: AjouterBienComponent },
-  { path: 'mon_compte', component: MonCompteComponent },
-];
+import { AppRoutingModule } from './app-routing.module';
+
 
 @NgModule({
   declarations: [
@@ -55,18 +48,17 @@ const routes: Routes = [
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
-    RouterModule.forRoot(routes),
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     ToastrModule.forRoot(),
     ConfirmationPopoverModule.forRoot({
       confirmButtonType: 'danger' // set defaults here
-    })
+    }),
+    AppRoutingModule
   ],
   exports: [RouterModule],
   providers: [InscriptionService, ConnexionService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
-export class AppRoutingModule {}
