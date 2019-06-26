@@ -1,11 +1,10 @@
 <h1>Inscription</h1>
 <div class="inscription container-fluid">
-  <!-- <form [formGroup]="inscriptionForm" (ngSubmit)="onSubmit()"> -->
-    <form [formGroup]="inscriptionForm" #ajoutMatiereForm="ngForm">
+  <form [formGroup]="inscriptionForm" (ngSubmit)="onSubmit()">
     <div formGroupName="details" class="details form-group">
 
       <label>Nom</label>
-      <input name="nom" id="nom" class="form-control" type="text" #nom="ngModel" [(ngModel)]="inscription.nom" [formGroup]="inscriptionForm" required/>
+      <input name="nom" id="nom" class="form-control" type="text" [formGroup]="inscriptionForm" required/>
       <div *ngIf="nom.errors && (nom.dirty || nom.touched)" class="alert alert-danger">
         <div [hidden]="!nom.errors.required">
           Le nom est requis!
