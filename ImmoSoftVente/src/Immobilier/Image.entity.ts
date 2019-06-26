@@ -4,7 +4,7 @@ import { Immobilier } from './Immobilier.entity';
 @Entity({ name: 'image' })
 export class Image {
   @Column({ name: 'image', type: 'blob' })
-  public description: string;
+  public image: string;
 
   @PrimaryGeneratedColumn('uuid', { name: 'image_id' })
   public id: number;

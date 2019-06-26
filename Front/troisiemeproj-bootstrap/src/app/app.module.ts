@@ -25,6 +25,7 @@ import { MonCompteComponent } from './mon-compte/mon-compte.component';
 import { InscriptionService } from './inscription/inscription.service';
 import { ConnexionService } from './connexion/connexion.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AjouterBienService } from './ajouter-bien/ajouter-bien.service';
 const routes: Routes = [
   { path: '', component: AccueilComponent },
   { path: 'inscription', component: InscriptionComponent },
@@ -65,7 +66,7 @@ const routes: Routes = [
     })
   ],
   exports: [RouterModule],
-  providers: [InscriptionService, ConnexionService],
+  providers: [InscriptionService, ConnexionService, AjouterBienService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

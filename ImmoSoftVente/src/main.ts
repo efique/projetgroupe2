@@ -11,6 +11,7 @@ import { LocalisationController } from './Localisation/Localisation.controller';
 import logger from './logger.tools';
 import { setupDb } from './setup-db';
 import { UsersController } from './Users/Users.contoller';
+import { ImmobilierController } from './Immobilier/Immobilier.controller';
 
 async function bootstrap() {
   // create db connection
@@ -48,6 +49,9 @@ async function bootstrap() {
   // use custom controller on '/inscription' pattern
   const inscriptionRoutes = await new InscriptionController().getRoutes();
   app.use('/inscription', inscriptionRoutes);
+
+  const immobilierRoutes = await new ImmobilierController().getRoutes();
+  app.use('/immobilier', immobilierRoutes);
 
   const agenceRoutes = await new AgenceController().getRoutes();
   app.use('/agence', agenceRoutes);

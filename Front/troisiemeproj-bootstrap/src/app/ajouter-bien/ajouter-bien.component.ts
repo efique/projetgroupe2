@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { Bien } from '../Bien';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AjouterBienService } from './ajouter-bien.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-ajouter-bien',
@@ -8,39 +9,43 @@ import { Bien } from '../Bien';
   styleUrls: ['./ajouter-bien.component.css']
 })
 export class AjouterBienComponent implements OnInit {
+  ajouterBienForm: FormGroup;
+  submitted = false;
 
-  private bien: Bien;
-
-  ajouterbienForm = this.fb.group({
-    libelle: [''],
-    type: [''],
-    proprietaire: [''],
-    image: [''],
-    description: [''],
-    localisation: this.fb.group({
-      rue: [''],
-      numero: [''],
-      postal: [''],
-      ville: [''],
-    }),
-    prix_demande: [''],
-    prix_mini: [''],
-    nombre_pieces: [''],
-    superficie: [''],
-    etage: [''],
-    dependances: [''],
-  });
-
-  constructor(private fb: FormBuilder) { }
-
-  onSubmit() {
-    if (this.ajouterbienForm.valid) {
-      this.bien = this.ajouterbienForm.value;
-      console.log(this.ajouterbienForm.value);
-    }
-  }
+  constructor(
+    private formBuilder: FormBuilder,  
+    private toastr: ToastrService,
+    private ajouterBienService: AjouterBienService) {}
 
   ngOnInit() {
+    this.ajouterBienForm = this.formBuilder.group({
+      libelle: ['', [Validators.required]],
+      type: ['', [Validators.required]],
+      proprietaire: ['', [Validators.required]],
+      image: ['', [Validators.required]],
+      description: ['', [Validators.required]],
+      rue: ['', [Validators.required]],
+      numero: ['', [Validators.required]],
+      postal: ['', [Validators.required]],
+      ville: ['', [Validators.required]],
+      prix_demande: ['', [Validators.required]],
+      prix_mini: ['', [Validators.required]],
+      nombre_pieces: ['', [Validators.required]],
+      superficie: ['', [Validators.required]],
+      etage: ['', [Validators.required]],
+      dependances: ['', [Validators.required]],
+    });
   }
 
+  get formControls() { return this.ajouterBienForm.controls; }
+
+  onSubmit() {
+    this.submitted = true;
+
+    if(this.ajouterBienForm.valid){
+      this.ajouterBienService.createAjouterBien(this.ajouterBienForm.value);
+    } else {
+       this.toastr.error('Veuillez completez le formulaire correctement', "Error");
+    }
+  }
 }

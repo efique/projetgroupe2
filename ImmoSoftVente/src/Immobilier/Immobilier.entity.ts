@@ -65,6 +65,6 @@ export class Immobilier {
   @Column({ name: 'type', type: 'varchar' })
   public type: string;
 
-  @Column({ name: 'vendu', type: 'int' })
-  public vendu: number;
+  @Column({ name: 'vendu', type: 'boolean', default: false})
+  public vendu: boolean;
 }
