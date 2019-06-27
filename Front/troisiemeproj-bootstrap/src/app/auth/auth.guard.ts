@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { CanActivate, CanActivateChild, CanLoad, Route, Router, UrlSegment } from '@angular/router';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private http: HttpClient) { }
 
   canActivate(
     next: ActivatedRouteSnapshot,
@@ -17,6 +18,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
     return true;
     // this.router.navigate(['/connexion']);
     // return false;
+
   }
   canActivateChild(
     next: ActivatedRouteSnapshot,
