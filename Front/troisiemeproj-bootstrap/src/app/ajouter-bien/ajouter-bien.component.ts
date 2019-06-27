@@ -15,29 +15,25 @@ export class AjouterBienComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
-    private ajouterBienService: AjouterBienService) {}
+    private ajouterBienService: AjouterBienService
+  ) {}
 
   ngOnInit() {
     this.ajouterBienForm = this.formBuilder.group({
       libelle: ['', [Validators.required]],
       type: ['', [Validators.required]],
-      proprietaire: ['', [Validators.required]],
-      image: ['', [Validators.required]],
       description: ['', [Validators.required]],
-      rue: ['', [Validators.required]],
-      numero: ['', [Validators.required]],
-      postal: ['', [Validators.required]],
-      ville: ['', [Validators.required]],
       prix_demande: ['', [Validators.required]],
       prix_mini: ['', [Validators.required]],
-      nombre_pieces: ['', [Validators.required]],
+      nombre_pièces: ['', [Validators.required]],
       superficie: ['', [Validators.required]],
-      etage: ['', [Validators.required]],
-      dependances: ['', [Validators.required]],
+      etage: ['', [Validators.required]]
     });
   }
 
-  get formControls() { return this.ajouterBienForm.controls; }
+  get formControls() {
+    return this.ajouterBienForm.controls;
+  }
 
   onSubmit() {
     this.submitted = true;
@@ -45,7 +41,10 @@ export class AjouterBienComponent implements OnInit {
     if (this.ajouterBienForm.valid) {
       this.ajouterBienService.createAjouterBien(this.ajouterBienForm.value);
     } else {
-       this.toastr.error('Veuillez completez le formulaire correctement', 'Error');
+      this.toastr.error(
+        'Veuillez completez le formulaire correctement',
+        'Error'
+      );
     }
   }
 }
