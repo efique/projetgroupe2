@@ -1,4 +1,4 @@
-div.recherche-bien{
+/* div.recherche-bien{
     position: relative;
     left: 7vw;
     width: 50vw;
@@ -7,15 +7,15 @@ div.recherche-bien{
     box-shadow: 6px 6px 2px 1px rgba(20, 0, 102, 0.2);
     font-size: 1.1em;
     display: inline-block;
-}
+} */
 
-h2{
+/* h2{
     text-align: center;
     margin-top: 2vh;
     margin-bottom: 4vh;
     text-shadow: -0.05em 0.05em 0.1em #fff, 0.05em 0.05em 0.1em  #3a4f78; 
     font-family: "publica sans";
-}
+} */
 
 /*Form*/
 

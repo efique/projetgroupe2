@@ -27,6 +27,10 @@ import { ConnexionService } from './connexion/connexion.service';
 import { AjouterBienService } from './ajouter-bien/ajouter-bien.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
+import { MesBiensComponent } from './mes-biens/mes-biens.component';
+import { ListeAnnoncesComponent } from './liste-annonces/liste-annonces.component';
+import { ListeUtilisateursComponent } from './liste-utilisateurs/liste-utilisateurs.component';
+import { ListeAgencesComponent } from './liste-agences/liste-agences.component';
 
 
 @NgModule({
@@ -44,7 +48,11 @@ import { AppRoutingModule } from './app-routing.module';
     ContactComponent,
     CreerAnnonceComponent,
     AjouterBienComponent,
-    MonCompteComponent
+    MonCompteComponent,
+    MesBiensComponent,
+    ListeAnnoncesComponent,
+    ListeUtilisateursComponent,
+    ListeAgencesComponent
   ],
   imports: [
     BrowserAnimationsModule,

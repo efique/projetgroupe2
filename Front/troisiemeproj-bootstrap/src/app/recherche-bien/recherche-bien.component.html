@@ -1,7 +1,7 @@
-<div class="recherche-bien container">
-  
-  <h2>Rechercher un bien immobilier</h2>
- 
+<!-- <div class="recherche-bien container"> -->
+
+  <!-- <h2>Rechercher un bien immobilier</h2> -->
+
   <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
     <div class="form-row">
       <div class="form-group col-sm-6">
@@ -9,9 +9,9 @@
         <input class="form-control" type="text" [formControl]="type_bien">
       </div>
       <div class="form-group col-sm-6" formGroupName="localisation">
-        <label>Ville</label> 
+        <label>Ville</label>
         <input class="form-control" type="text" formControlName="ville">
-      </div>      
+      </div>
     </div>
 
     <div class="form-row">
@@ -21,9 +21,9 @@
       </div>
 
       <div class="form-group col-sm-6">
-        <label>Superficie</label>  
+        <label>Superficie</label>
         <input class="form-control" type="number" [formControl]="superficie">
-      </div> 
+      </div>
     </div>
 
     <div class="form-row">
@@ -37,6 +37,6 @@
       </div>
     </div>
     <button class="btn btn-success" type="submit" [disabled]="!searchForm.valid">Rechercher</button>
-    
+
   </form>
-</div>
+<!-- </div> -->
