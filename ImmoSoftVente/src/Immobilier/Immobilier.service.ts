@@ -1,12 +1,7 @@
 import { getCustomRepository } from 'typeorm';
 import { DetailsUsers } from '../DetailsUsers/DetailsUsers.entity';
 import { DetailsUsersRepository } from '../DetailsUsers/DetailsUsers.repository';
-<<<<<<< HEAD
-import { AgenceRepository } from '../Agence/Agence.repository';
-import { ImmobilierRepository } from './Immobilier.repository';
-=======
 import { Localisation } from '../Localisation/Localisation.entity';
->>>>>>> f93a8cd4025dd768146e5896aca899b739980a06
 import { LocalisationRepository } from '../Localisation/Localisation.repository';
 import { Image } from './Image.entity';
 import { ImageRepository } from './Image.repository';
@@ -28,7 +23,6 @@ export class ImmobilierService {
   }
 
   constructor() {
-    this.agenceRepository = getCustomRepository(AgenceRepository);
     this.detailsUsersRepository = getCustomRepository(DetailsUsersRepository);
     this.immobilierRepository = getCustomRepository(ImmobilierRepository);
     this.localisationRepository = getCustomRepository(LocalisationRepository);
@@ -37,7 +31,6 @@ export class ImmobilierService {
 
   private static instance: ImmobilierService;
 
-  private agenceRepository: AgenceRepository;
   private detailsUsersRepository: DetailsUsersRepository;
   private immobilierRepository: ImmobilierRepository;
   private localisationRepository: LocalisationRepository;
@@ -70,24 +63,8 @@ export class ImmobilierService {
    *
    * @returns Resolves with the list of all users in Db
    */
-<<<<<<< HEAD
-  public async getLocalisationId(postal: string) {
-    const localisation = await this.localisationRepository.findOneOrFail(postal);
-    return localisation.id;
-  }
-
-        /**
-   * Retrieve all immobilier from Db
-   *
-   * @returns Resolves with the list of all users in Db
-   */
-  public async getAgenceId(localisation: number) {
-    const agence = await this.agenceRepository.findOneOrFail(localisation);
-    return agence.id;
-=======
   public async getAllAgence(postal: string) {
     return this.localisationRepository.find({ postal });
->>>>>>> f93a8cd4025dd768146e5896aca899b739980a06
   }
 
   /**

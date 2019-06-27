@@ -31,14 +31,11 @@ import { MesBiensComponent } from './mes-biens/mes-biens.component';
 import { ListeAnnoncesComponent } from './liste-annonces/liste-annonces.component';
 import { ListeUtilisateursComponent } from './liste-utilisateurs/liste-utilisateurs.component';
 import { ListeAgencesComponent } from './liste-agences/liste-agences.component';
-<<<<<<< HEAD
-import { CreerAnnonceService } from './creer-annonce/creer-annonce.service';
-=======
 import { DetailsBienComponent } from './details-bien/details-bien.component';
 import { AnnonceComponent } from './annonce/annonce.component';
 import { BienComponent } from './bien/bien.component';
+import { CreerAnnonceService } from './creer-annonce/creer-annonce.service';
 
->>>>>>> b658b06cef7e68afe06b4d1f545542410331f32e
 
 @NgModule({
   declarations: [
