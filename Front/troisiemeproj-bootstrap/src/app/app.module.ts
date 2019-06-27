@@ -31,6 +31,9 @@ import { MesBiensComponent } from './mes-biens/mes-biens.component';
 import { ListeAnnoncesComponent } from './liste-annonces/liste-annonces.component';
 import { ListeUtilisateursComponent } from './liste-utilisateurs/liste-utilisateurs.component';
 import { ListeAgencesComponent } from './liste-agences/liste-agences.component';
+import { DetailsBienComponent } from './details-bien/details-bien.component';
+import { AnnonceComponent } from './annonce/annonce.component';
+import { BienComponent } from './bien/bien.component';
 
 
 @NgModule({
@@ -52,7 +55,10 @@ import { ListeAgencesComponent } from './liste-agences/liste-agences.component';
     MesBiensComponent,
     ListeAnnoncesComponent,
     ListeUtilisateursComponent,
-    ListeAgencesComponent
+    ListeAgencesComponent,
+    DetailsBienComponent,
+    AnnonceComponent,
+    BienComponent
   ],
   imports: [
     BrowserAnimationsModule,

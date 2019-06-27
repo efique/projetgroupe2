@@ -11,6 +11,7 @@
       <th>Adresse mail</th>
       <th>Agence</th>
       <th>Rôle</th>
+      <th> </th>
     </tr>
 
     <tr>
@@ -21,6 +22,7 @@
       <td>clavebrown@gmail.com</td>
       <td>Nice</td>
       <td>Acheteur</td>
+      <td><img src="../../assets/img/garbage.png"></td> <!-- *ngIf="estSysadmin" -->
     </tr>
     <tr>
       <td>Cleveland</td>
@@ -30,6 +32,7 @@
       <td>clavebrown@gmail.com</td>
       <td>Nice</td>
       <td>Acheteur</td>
+      <td><img src="../../assets/img/garbage.png"></td>
     </tr>
 
     <!-- <tr>
@@ -40,6 +43,7 @@
       <td>{{mail}}</td>
       <td>{{agence}}</td>
       <td>{{role}}</td>
+      <td *ngIf="estSysadmin"><img src="../../assets/img/garbage.png"></td>
     </tr> -->
 
   </table>
