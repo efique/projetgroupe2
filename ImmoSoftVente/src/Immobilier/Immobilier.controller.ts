@@ -41,16 +41,21 @@ export class ImmobilierController {
    */
   private async create(req: Request, res: Response) {
     const immobiliers = await this.immobilierService().getAll();
-    const agences = await this.immobilierService().getAllAgence(req.body.postal);
+    const localisation = await this.immobilierService().getLocalisationId(req.params)
+    const agences = await this.immobilierService().getAgenceId(req.params);
+    const detailsUsers = await this.immobilierService().getDetailsId();
+
     if (immobiliers.length === 0) {
-      const detailsUsers = await this.immobilierService().createDetailsUsers(req.body);
-      const localisation = await this.immobilierService().createImage(
+      
+      const image = await this.immobilierService().createImage(
         req.body,
       );
       await this.immobilierService().createImmobilier({
         ...req.body,
         detailsUsers,
         localisation,
+        agences,
+        image,
       });
       return res.json();
     } else {
@@ -74,7 +79,7 @@ export class ImmobilierController {
 
   private async getLocalisation(req: Request, res: Response) {
     res.json({ 
-      localisation: await this.immobilierService().getAllAgence(req.body.postal)
+      localisation: await this.immobilierService().getLocalisationId(req.params)
     });
   }
 }

@@ -1,8 +1,7 @@
 import { getCustomRepository } from 'typeorm';
 import { DetailsUsers } from '../DetailsUsers/DetailsUsers.entity';
 import { DetailsUsersRepository } from '../DetailsUsers/DetailsUsers.repository';
-// import { Agence } from '../Agence/Agence.entity';
-// import { AgenceRepository } from '../Agence/Agence.repository';
+import { AgenceRepository } from '../Agence/Agence.repository';
 import { ImmobilierRepository } from './Immobilier.repository';
 import { LocalisationRepository } from '../Localisation/Localisation.repository';
 import { ImageRepository } from './Image.repository';
@@ -23,7 +22,7 @@ export class ImmobilierService {
   }
 
   constructor() {
-    // this.agenceRepository = getCustomRepository(AgenceRepository);
+    this.agenceRepository = getCustomRepository(AgenceRepository);
     this.detailsUsersRepository = getCustomRepository(DetailsUsersRepository);
     this.immobilierRepository = getCustomRepository(ImmobilierRepository);
     this.localisationRepository = getCustomRepository(LocalisationRepository);
@@ -32,7 +31,7 @@ export class ImmobilierService {
 
   private static instance: ImmobilierService;
 
-  // private agenceRepository: AgenceRepository;
+  private agenceRepository: AgenceRepository;
   private detailsUsersRepository: DetailsUsersRepository;
   private immobilierRepository: ImmobilierRepository;  
   private localisationRepository: LocalisationRepository;
@@ -65,8 +64,19 @@ export class ImmobilierService {
    *
    * @returns Resolves with the list of all users in Db
    */
-  public async getAllAgence(postal: string) {
-    return this.localisationRepository.find({postal});
+  public async getLocalisationId(postal: string) {
+    const localisation = await this.localisationRepository.findOneOrFail(postal);
+    return localisation.id;
+  }
+
+        /**
+   * Retrieve all immobilier from Db
+   *
+   * @returns Resolves with the list of all users in Db
+   */
+  public async getAgenceId(localisation: number) {
+    const agence = await this.agenceRepository.findOneOrFail(localisation);
+    return agence.id;
   }
 
         /**
@@ -74,8 +84,9 @@ export class ImmobilierService {
    *
    * @returns Resolves with the list of all users in Db
    */
-  public async getAllDetails() {
-    return this.detailsUsersRepository.find();
+  public async getDetailsId() {
+    const details = await this.detailsUsersRepository.findOneOrFail();
+    return details.id;
   }
 
       /**
