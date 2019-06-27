@@ -53,3 +53,8 @@ button[type=submit] {
 button[type=submit]:hover {
     background-color: #1e008c;
 }
+
+a{
+    float: right;
+    color: #af99ff;
+}
