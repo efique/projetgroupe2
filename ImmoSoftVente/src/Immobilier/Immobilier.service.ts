@@ -1,14 +1,14 @@
 import { getCustomRepository } from 'typeorm';
 import { DetailsUsers } from '../DetailsUsers/DetailsUsers.entity';
 import { DetailsUsersRepository } from '../DetailsUsers/DetailsUsers.repository';
+import { Localisation } from '../Localisation/Localisation.entity';
+import { LocalisationRepository } from '../Localisation/Localisation.repository';
+import { Image } from './Image.entity';
+import { ImageRepository } from './Image.repository';
+import { Immobilier } from './Immobilier.entity';
 // import { Agence } from '../Agence/Agence.entity';
 // import { AgenceRepository } from '../Agence/Agence.repository';
 import { ImmobilierRepository } from './Immobilier.repository';
-import { LocalisationRepository } from '../Localisation/Localisation.repository';
-import { ImageRepository } from './Image.repository';
-import { Immobilier } from './Immobilier.entity';
-import { Localisation } from '../Localisation/Localisation.entity';
-import { Image } from './Image.entity';
 
 export class ImmobilierService {
   /**
@@ -34,7 +34,7 @@ export class ImmobilierService {
 
   // private agenceRepository: AgenceRepository;
   private detailsUsersRepository: DetailsUsersRepository;
-  private immobilierRepository: ImmobilierRepository;  
+  private immobilierRepository: ImmobilierRepository;
   private localisationRepository: LocalisationRepository;
   private imageRepository: ImageRepository;
 
@@ -51,7 +51,7 @@ export class ImmobilierService {
     return this.immobilierRepository.save(immobilierToInsert);
   }
 
-    /**
+  /**
    * Retrieve all immobilier from Db
    *
    * @returns Resolves with the list of all users in Db
@@ -60,16 +60,16 @@ export class ImmobilierService {
     return this.immobilierRepository.find();
   }
 
-      /**
+  /**
    * Retrieve all immobilier from Db
    *
    * @returns Resolves with the list of all users in Db
    */
   public async getAllAgence(postal: string) {
-    return this.localisationRepository.find({postal});
+    return this.localisationRepository.find({ postal });
   }
 
-        /**
+  /**
    * Retrieve all localisations from Db
    *
    * @returns Resolves with the list of all users in Db
@@ -78,7 +78,7 @@ export class ImmobilierService {
     return this.detailsUsersRepository.find();
   }
 
-      /**
+  /**
    * Retrieve all localisations from Db
    *
    * @returns Resolves with the list of all users in Db
@@ -122,7 +122,7 @@ export class ImmobilierService {
     return this.detailsUsersRepository.save(detailsUsersToInsert);
   }
 
-    /**
+  /**
    * Insert an image in Db
    *
    * @param image
@@ -133,5 +133,13 @@ export class ImmobilierService {
       ...image,
     };
     return this.imageRepository.save(imageToInsert);
+  }
+
+  public async loggedIn(req: any, res: any, next: any) {
+    if (req.user) {
+      next();
+    } else {
+      res.redirect('/login');
+    }
   }
 }

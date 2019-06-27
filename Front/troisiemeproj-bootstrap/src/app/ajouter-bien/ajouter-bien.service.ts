@@ -10,17 +10,14 @@ export class AjouterBienService {
     private toastr: ToastrService,
     private router: Router
   ) {}
-  
+
   url = 'http://localhost:3015';
 
   createAjouterBien(data) {
-    this.http.post(`${this.url}/auth/signup`, data).subscribe(
+    this.http.post(`${this.url}/immobilier`, data).subscribe(
       res => {
         console.log(res);
-        this.toastr.success(
-          'Votre compte a été crée avec succès.',
-          'Success'
-        );
+        this.toastr.success('Votre compte a été crée avec succès.', 'Success');
         this.router.navigateByUrl('/');
       },
       err => {

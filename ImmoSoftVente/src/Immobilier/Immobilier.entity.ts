@@ -35,7 +35,7 @@ export class Immobilier {
   @Column({ name: 'etage', type: 'int' })
   public etage: number;
 
-  @Column({ name: 'frais_agence', type: 'int' })
+  @Column({ name: 'frais_agence', type: 'int', default: '5000' })
   public frais_agence: number;
 
   @PrimaryGeneratedColumn('uuid', { name: 'immobilier_id' })
@@ -44,7 +44,7 @@ export class Immobilier {
   @OneToMany(type => Image, image => image.immobilier, { nullable: true })
   image?: Image[];
 
-  @Column({ name: 'libelle', type: 'enum', enum: ImmobilierEnum })
+  @Column({ name: 'libelle', type: 'varchar' })
   public libelle: ImmobilierEnum;
 
   @OneToOne(type => Localisation)
@@ -62,9 +62,9 @@ export class Immobilier {
   @Column({ name: 'superficie', type: 'float' })
   public superficie: number;
 
-  @Column({ name: 'type', type: 'varchar' })
+  @Column({ name: 'type', type: 'enum', enum: ImmobilierEnum })
   public type: string;
 
-  @Column({ name: 'vendu', type: 'boolean', default: false})
+  @Column({ name: 'vendu', type: 'boolean', default: false })
   public vendu: boolean;
 }
