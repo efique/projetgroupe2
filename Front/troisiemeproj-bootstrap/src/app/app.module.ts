@@ -31,7 +31,7 @@ import { MesBiensComponent } from './mes-biens/mes-biens.component';
 import { ListeAnnoncesComponent } from './liste-annonces/liste-annonces.component';
 import { ListeUtilisateursComponent } from './liste-utilisateurs/liste-utilisateurs.component';
 import { ListeAgencesComponent } from './liste-agences/liste-agences.component';
-
+import { CreerAnnonceService } from './creer-annonce/creer-annonce.service';
 
 @NgModule({
   declarations: [
@@ -67,7 +67,12 @@ import { ListeAgencesComponent } from './liste-agences/liste-agences.component';
     AppRoutingModule
   ],
   exports: [RouterModule],
-  providers: [InscriptionService, ConnexionService, AjouterBienService],
+  providers: [
+    InscriptionService,
+    ConnexionService,
+    AjouterBienService,
+    CreerAnnonceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

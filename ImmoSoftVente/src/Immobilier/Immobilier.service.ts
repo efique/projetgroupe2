@@ -134,12 +134,4 @@ export class ImmobilierService {
     };
     return this.imageRepository.save(imageToInsert);
   }
-
-  public async loggedIn(req: any, res: any, next: any) {
-    if (req.user) {
-      next();
-    } else {
-      res.redirect('/login');
-    }
-  }
 }

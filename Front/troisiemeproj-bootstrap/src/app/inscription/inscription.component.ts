@@ -15,10 +15,12 @@ export class InscriptionComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
-    private inscriptionService: InscriptionService) {}
+    private inscriptionService: InscriptionService
+  ) {}
 
   ngOnInit() {
-    this.inscriptionForm = this.formBuilder.group({
+    this.inscriptionForm = this.formBuilder.group(
+      {
         nom: ['', [Validators.required]],
         prenom: ['', [Validators.required]],
         telephone: ['', [Validators.required]],
@@ -29,12 +31,16 @@ export class InscriptionComponent implements OnInit {
         mail: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, Validators.minLength(6)]],
         confirmation: ['', [Validators.required]]
-    },  {
-      validator: MustMatch('password', 'confirmation')
-  });
+      },
+      {
+        validator: MustMatch('password', 'confirmation')
+      }
+    );
   }
 
-  get formControls() { return this.inscriptionForm.controls; }
+  get formControls() {
+    return this.inscriptionForm.controls;
+  }
 
   onSubmit() {
     this.submitted = true;
@@ -42,7 +48,10 @@ export class InscriptionComponent implements OnInit {
     if (this.inscriptionForm.valid) {
       this.inscriptionService.createInscription(this.inscriptionForm.value);
     } else {
-       this.toastr.error('Veuillez completez le formulaire correctement', 'Error');
+      this.toastr.error(
+        'Veuillez completez le formulaire correctement',
+        'Error'
+      );
     }
   }
 }

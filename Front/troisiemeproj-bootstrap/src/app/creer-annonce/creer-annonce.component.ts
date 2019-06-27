@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CreerAnnonceService } from './creer-annonce.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-creer-annonce',
@@ -7,20 +9,39 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./creer-annonce.component.css']
 })
 export class CreerAnnonceComponent implements OnInit {
+  creerannonceForm: FormGroup;
+  submitted = false;
 
-  creerannonceForm = this.fb.group({
-    bien: [''],
-    proprietaire: [''],
-  });
-
-  constructor(private fb: FormBuilder) { }
-
-  onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.creerannonceForm.value);
-  }
+  constructor(
+    private formBuilder: FormBuilder,
+    private toastr: ToastrService,
+    private creerAnnonceService: CreerAnnonceService
+  ) {}
 
   ngOnInit() {
+    this.creerannonceForm = this.formBuilder.group({
+      bien: '',
+      mail: '',
+      proprietaire: ''
+    });
   }
 
+  get formControls() {
+    return this.creerannonceForm.controls;
+  }
+
+  onSubmit() {
+    this.submitted = true;
+
+    if (this.creerannonceForm.valid) {
+      this.creerAnnonceService.getCreerAnnonce(
+        this.creerannonceForm.value.mail
+      );
+    } else {
+      this.toastr.error(
+        'Veuillez completez le formulaire correctement',
+        'Error'
+      );
+    }
+  }
 }
