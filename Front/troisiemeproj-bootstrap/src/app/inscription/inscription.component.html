@@ -2,6 +2,7 @@
 <div class="inscription container-fluid">
   <form [formGroup]="inscriptionForm" (ngSubmit)="onSubmit()">
 
+      <a [routerLink]="['/connexion']">Déja inscrit ?</a>
       <label>Nom</label>
       <input name="nom" id="nom" class="form-control" type="text" formControlName="nom" [ngClass]="{ 'is-invalid': submitted && formControls.nom.errors }"/>
       <div *ngIf="submitted && formControls.nom.errors" class="invalid-feedback">
@@ -91,6 +92,8 @@
         </div>
         <div *ngIf="formControls.confirmation.errors.mustMatch">Les mots de passes ne correspondent pas !</div>
       </div>
+
+    
 
     <button type="submit" class="btn btn-primary button">S'inscrire</button>
   </form>

@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
+import { AuthGuard } from './auth/auth.guard';
+
 import { InscriptionComponent } from './inscription/inscription.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { ConnexionComponent } from './connexion/connexion.component';
@@ -14,6 +16,7 @@ import { ListeAnnoncesComponent } from './liste-annonces/liste-annonces.componen
 import { ListeUtilisateursComponent } from './liste-utilisateurs/liste-utilisateurs.component';
 import { ListeAgencesComponent } from './liste-agences/liste-agences.component';
 
+
 const routes: Routes = [
   { path: '', component: AccueilComponent },
   { path: 'inscription', component: InscriptionComponent },
@@ -21,7 +24,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'creer_annonce', component: CreerAnnonceComponent },
   { path: 'ajouter_bien', component: AjouterBienComponent },
-  { path: 'mon_compte', component: MonCompteComponent },
+  { path: 'mon_compte', canActivate: [AuthGuard], component: MonCompteComponent },
   { path: 'mes_biens', component: MesBiensComponent },
   { path: 'annonces', component: ListeAnnoncesComponent },
   { path: 'utilisateurs', component: ListeUtilisateursComponent },
