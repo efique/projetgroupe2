@@ -15,6 +15,9 @@ import { MesBiensComponent } from './mes-biens/mes-biens.component';
 import { ListeAnnoncesComponent } from './liste-annonces/liste-annonces.component';
 import { ListeUtilisateursComponent } from './liste-utilisateurs/liste-utilisateurs.component';
 import { ListeAgencesComponent } from './liste-agences/liste-agences.component';
+import { DetailsBienComponent } from './details-bien/details-bien.component';
+import { AnnonceComponent } from './annonce/annonce.component';
+import { BienComponent } from './bien/bien.component';
 
 
 const routes: Routes = [
@@ -29,6 +32,8 @@ const routes: Routes = [
   { path: 'annonces', component: ListeAnnoncesComponent },
   { path: 'utilisateurs', component: ListeUtilisateursComponent },
   { path: 'agences', component: ListeAgencesComponent },
+  { path: 'bien', component: BienComponent },
+  { path: 'annonce', component: AnnonceComponent },
 ];
 
 @NgModule({

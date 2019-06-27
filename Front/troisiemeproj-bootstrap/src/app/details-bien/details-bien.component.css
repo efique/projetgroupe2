@@ -1,0 +1,66 @@
+.details{
+    /* border: 1px solid yellowgreen; */
+    height: 70vh;
+}
+
+.inline *{
+    display: inline-block;
+}
+
+.image{
+    height: 80%;
+    width: 40vw;
+    overflow: hidden;
+    margin: 10vh;
+    /* border: 1px solid red; */
+}
+
+.image img{
+    /* max-height:100%; */
+    /* width: 100%; */
+    max-width: 100%;
+}
+
+.infos{
+    margin-top: 10vh;
+}
+
+h4{
+    font-family: 'adam.cg';
+    font-weight: bold;
+    font-size: large;
+    margin-bottom: 1vh;
+}
+.type{
+    font-size: large;
+    margin: 0 0 1vh 0;
+}
+
+.prix{
+    font-size: large;
+    margin: 0 0 18vh 0;
+}
+
+.autresinfos{
+    font-size: large;
+    margin: 4vh 0;
+}
+
+.autresinfos span{
+    margin: 0 2vw 1vh 0;
+}
+
+.description{
+    width: 35vw;
+    max-height: 80%;
+    margin-right: 5vh;
+    overflow: auto;
+    /* border: 1px solid blue; */
+    margin-top: 10vh;
+    box-sizing: border-box;
+}
+
+
+/* .description p{
+    width: 100%;
+} */

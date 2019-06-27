@@ -56,4 +56,5 @@ th {
     color: white;
     font-family: "adam.cg";
     font-size: smaller;
+    text-shadow: -0.05em 0.05em 0.1em black, 0.1em 0.1em 0.2em black;
 }
