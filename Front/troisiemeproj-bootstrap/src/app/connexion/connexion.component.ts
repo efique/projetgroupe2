@@ -28,7 +28,7 @@ export class ConnexionComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    
+
     if (this.connexionForm.valid) {
       this.connexionService.createConnexion(this.connexionForm.value);
     } else {

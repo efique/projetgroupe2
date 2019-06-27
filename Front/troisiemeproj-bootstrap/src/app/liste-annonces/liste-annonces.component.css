@@ -1,0 +1,28 @@
+div.recherche{
+    /* position: relative;
+    left: 7vw; */
+    width: 100%;
+    background-color: #f1eeff;
+    padding: 2.8vh;
+    box-shadow: 6px 6px 2px 1px rgba(20, 0, 102, 0.2);
+    font-size: 1.1em;
+    /* display: inline-block; */
+    margin: 0 auto 4vh auto;
+}
+
+.annonces{
+    width: 100%;
+    padding: 4vh 0 2vh 0;
+}
+
+h2{
+    font-size: large;
+    font-family: "adam.cg";
+    text-shadow: -0.05em 0.05em 0.1em #fff, 0.05em 0.05em 0.1em  #758dbd; 
+    margin-bottom: 1vh;
+}
+
+h3{
+    font-size: large;
+    margin: 0 0 3vh 0;
+}

@@ -1,13 +1,19 @@
 import { getCustomRepository } from 'typeorm';
 import { DetailsUsers } from '../DetailsUsers/DetailsUsers.entity';
 import { DetailsUsersRepository } from '../DetailsUsers/DetailsUsers.repository';
+<<<<<<< HEAD
 import { AgenceRepository } from '../Agence/Agence.repository';
 import { ImmobilierRepository } from './Immobilier.repository';
+=======
+import { Localisation } from '../Localisation/Localisation.entity';
+>>>>>>> f93a8cd4025dd768146e5896aca899b739980a06
 import { LocalisationRepository } from '../Localisation/Localisation.repository';
+import { Image } from './Image.entity';
 import { ImageRepository } from './Image.repository';
 import { Immobilier } from './Immobilier.entity';
-import { Localisation } from '../Localisation/Localisation.entity';
-import { Image } from './Image.entity';
+// import { Agence } from '../Agence/Agence.entity';
+// import { AgenceRepository } from '../Agence/Agence.repository';
+import { ImmobilierRepository } from './Immobilier.repository';
 
 export class ImmobilierService {
   /**
@@ -33,7 +39,7 @@ export class ImmobilierService {
 
   private agenceRepository: AgenceRepository;
   private detailsUsersRepository: DetailsUsersRepository;
-  private immobilierRepository: ImmobilierRepository;  
+  private immobilierRepository: ImmobilierRepository;
   private localisationRepository: LocalisationRepository;
   private imageRepository: ImageRepository;
 
@@ -50,7 +56,7 @@ export class ImmobilierService {
     return this.immobilierRepository.save(immobilierToInsert);
   }
 
-    /**
+  /**
    * Retrieve all immobilier from Db
    *
    * @returns Resolves with the list of all users in Db
@@ -59,11 +65,12 @@ export class ImmobilierService {
     return this.immobilierRepository.find();
   }
 
-      /**
+  /**
    * Retrieve all immobilier from Db
    *
    * @returns Resolves with the list of all users in Db
    */
+<<<<<<< HEAD
   public async getLocalisationId(postal: string) {
     const localisation = await this.localisationRepository.findOneOrFail(postal);
     return localisation.id;
@@ -77,9 +84,13 @@ export class ImmobilierService {
   public async getAgenceId(localisation: number) {
     const agence = await this.agenceRepository.findOneOrFail(localisation);
     return agence.id;
+=======
+  public async getAllAgence(postal: string) {
+    return this.localisationRepository.find({ postal });
+>>>>>>> f93a8cd4025dd768146e5896aca899b739980a06
   }
 
-        /**
+  /**
    * Retrieve all localisations from Db
    *
    * @returns Resolves with the list of all users in Db
@@ -89,7 +100,7 @@ export class ImmobilierService {
     return details.id;
   }
 
-      /**
+  /**
    * Retrieve all localisations from Db
    *
    * @returns Resolves with the list of all users in Db
@@ -133,7 +144,7 @@ export class ImmobilierService {
     return this.detailsUsersRepository.save(detailsUsersToInsert);
   }
 
-    /**
+  /**
    * Insert an image in Db
    *
    * @param image

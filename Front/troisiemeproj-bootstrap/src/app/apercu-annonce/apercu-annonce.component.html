@@ -9,7 +9,7 @@
       <p>nb pièces</p><p> surface m²</p><p><img src="./../../assets/img/locate-places-on-maps.png">  Ville</p>
     </div>
   </div>
-  <button class="btn btn-primary inline">Voir l'annonce</button>
+  <button class="btn btn-primary inline" [routerLink]="['/annonce']">Voir plus</button>
 </div>
 
 <div class="apercu d-flex align-items-center">
@@ -23,7 +23,7 @@
         <p>nb pièces</p><p> surface m²</p><p><img src="./../../assets/img/locate-places-on-maps.png">  Ville</p>
       </div>
     </div>
-    <button class="btn btn-primary inline">Voir l'annonce</button>
+    <button class="btn btn-primary inline" [routerLink]="['/bien']">Voir plus</button>
   </div>
 
 <!-- <div class="apercu d-flex align-items-center">
@@ -37,5 +37,5 @@
       <p>{{ nombre_pieces }} pièces</p><p>{{ superficie }} m²</p><p><img src="./../../assets/img/locate-places-on-maps.png">  {{ ville }}</p>
     </div>
   </div>
-  <button class="btn btn-primary inline">Voir l'annonce</button>
+  <button class="btn btn-primary inline" [routerLink]="['/bien/id_bien']">Voir l'annonce</button>
 </div> -->

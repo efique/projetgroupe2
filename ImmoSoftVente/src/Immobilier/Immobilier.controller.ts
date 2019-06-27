@@ -19,9 +19,9 @@ export class ImmobilierController {
    */
   async getRoutes() {
     const routes: IRouteInterface[] = [
-      { path: '/', method: 'post', actions: [this.create]},
-      { path: '/get', method: 'get', actions: [this.getImmobilier]},
-      { path: '/getLoca', method: 'get', actions: [this.getLocalisation]}
+      { path: '/', method: 'post', actions: [this.create] },
+      { path: '/get', method: 'get', actions: [this.getImmobilier] },
+      { path: '/getLoca', method: 'get', actions: [this.getLocalisation] },
     ];
 
     routes.forEach(item => {
@@ -41,6 +41,7 @@ export class ImmobilierController {
    */
   private async create(req: Request, res: Response) {
     const immobiliers = await this.immobilierService().getAll();
+<<<<<<< HEAD
     const localisation = await this.immobilierService().getLocalisationId(req.params)
     const agences = await this.immobilierService().getAgenceId(req.params);
     const detailsUsers = await this.immobilierService().getDetailsId();
@@ -56,14 +57,21 @@ export class ImmobilierController {
         localisation,
         agences,
         image,
+=======
+    if (immobiliers.length === 0) {
+      await this.immobilierService().createImmobilier({
+        ...req.body,
+>>>>>>> f93a8cd4025dd768146e5896aca899b739980a06
       });
       return res.json();
     } else {
-      return res.status(500).json({ message: 'This mail already exist.' });
+      return res
+        .status(500)
+        .json({ message: 'This immobilier already exist.' });
     }
   }
 
-   /**
+  /**
    * Retrieve all users from Db
    *
    * @param req
@@ -71,15 +79,22 @@ export class ImmobilierController {
    * @returns Resolves with the list of all Users
    */
   private async getImmobilier(req: Request, res: Response) {
-    res.json({ 
+    res.json({
       details: await this.immobilierService().getAllDetails(),
-      localisations: await this.immobilierService().getAllLocalisations()
+      localisations: await this.immobilierService().getAllLocalisations(),
     });
   }
 
   private async getLocalisation(req: Request, res: Response) {
+<<<<<<< HEAD
     res.json({ 
       localisation: await this.immobilierService().getLocalisationId(req.params)
+=======
+    res.json({
+      localisation: await this.immobilierService().getAllAgence(
+        req.body.postal,
+      ),
+>>>>>>> f93a8cd4025dd768146e5896aca899b739980a06
     });
   }
 }

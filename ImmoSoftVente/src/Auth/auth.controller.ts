@@ -22,6 +22,7 @@ export class AuthController {
     const routes: IRouteInterface[] = [
       { path: '/signin', method: 'post', actions: [this.signIn] },
       { path: '/signup', method: 'post', actions: [this.signUp] },
+      { path: '/loggedIn', method: 'get', actions: [this.loggedIn] },
     ];
 
     routes.forEach(item => {
@@ -92,6 +93,27 @@ export class AuthController {
       return res.json();
     } else {
       return res.status(500).json({ message: 'This mail already exist.' });
+    }
+  }
+
+  public async loggedIn(req: any, res: any, next: any) {
+    const users = await this.authService().getAll(req.body.mail);
+    // const token =
+    //   req.body.token || req.query.token || req.headers['x-access-token'];
+    // tslint:disable-next-line:no-console
+    console.log(req.body.token);
+    // tslint:disable-next-line:no-console
+    console.log(req.query.token);
+    // tslint:disable-next-line:no-console
+    console.log(req.headers['x-access-token']);
+    if (req.body.length !== 0) {
+      if (users) {
+        // tslint:disable-next-line:no-console
+        console.log(users);
+      }
+      next();
+    } else {
+      res.redirect('http://localhost4200/connexion');
     }
   }
 }

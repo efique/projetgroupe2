@@ -24,17 +24,21 @@ import { MonCompteComponent } from './mon-compte/mon-compte.component';
 
 import { InscriptionService } from './inscription/inscription.service';
 import { ConnexionService } from './connexion/connexion.service';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AjouterBienService } from './ajouter-bien/ajouter-bien.service';
-const routes: Routes = [
-  { path: '', component: AccueilComponent },
-  { path: 'inscription', component: InscriptionComponent },
-  { path: 'connexion', component: ConnexionComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'creer_annonce', component: CreerAnnonceComponent },
-  { path: 'ajouter_bien', component: AjouterBienComponent },
-  { path: 'mon_compte', component: MonCompteComponent },
-];
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from './app-routing.module';
+import { MesBiensComponent } from './mes-biens/mes-biens.component';
+import { ListeAnnoncesComponent } from './liste-annonces/liste-annonces.component';
+import { ListeUtilisateursComponent } from './liste-utilisateurs/liste-utilisateurs.component';
+import { ListeAgencesComponent } from './liste-agences/liste-agences.component';
+<<<<<<< HEAD
+import { CreerAnnonceService } from './creer-annonce/creer-annonce.service';
+=======
+import { DetailsBienComponent } from './details-bien/details-bien.component';
+import { AnnonceComponent } from './annonce/annonce.component';
+import { BienComponent } from './bien/bien.component';
+
+>>>>>>> b658b06cef7e68afe06b4d1f545542410331f32e
 
 @NgModule({
   declarations: [
@@ -51,23 +55,34 @@ const routes: Routes = [
     ContactComponent,
     CreerAnnonceComponent,
     AjouterBienComponent,
-    MonCompteComponent
+    MonCompteComponent,
+    MesBiensComponent,
+    ListeAnnoncesComponent,
+    ListeUtilisateursComponent,
+    ListeAgencesComponent,
+    DetailsBienComponent,
+    AnnonceComponent,
+    BienComponent
   ],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
-    RouterModule.forRoot(routes),
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     ToastrModule.forRoot(),
     ConfirmationPopoverModule.forRoot({
       confirmButtonType: 'danger' // set defaults here
-    })
+    }),
+    AppRoutingModule
   ],
   exports: [RouterModule],
-  providers: [InscriptionService, ConnexionService, AjouterBienService],
+  providers: [
+    InscriptionService,
+    ConnexionService,
+    AjouterBienService,
+    CreerAnnonceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
-export class AppRoutingModule {}
