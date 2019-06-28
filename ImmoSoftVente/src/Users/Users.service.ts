@@ -40,9 +40,9 @@ export class UsersService {
   }
 
   /**
-   * Retrieve all userss from Db
+   * Retrieve all users from Db
    *
-   * @returns Resolves with the list of all userss in Db
+   * @returns Resolves with the list of all users in Db
    */
   public async getAll() {
     return this.usersRepository.find();

@@ -34,6 +34,7 @@ import { ListeAgencesComponent } from './liste-agences/liste-agences.component';
 import { DetailsBienComponent } from './details-bien/details-bien.component';
 import { AnnonceComponent } from './annonce/annonce.component';
 import { BienComponent } from './bien/bien.component';
+import { CreerAnnonceService } from './creer-annonce/creer-annonce.service';
 
 
 @NgModule({
@@ -73,7 +74,12 @@ import { BienComponent } from './bien/bien.component';
     AppRoutingModule
   ],
   exports: [RouterModule],
-  providers: [InscriptionService, ConnexionService, AjouterBienService],
+  providers: [
+    InscriptionService,
+    ConnexionService,
+    AjouterBienService,
+    CreerAnnonceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -1,11 +1,19 @@
 <h1>Créer une annonce</h1>
 <div class="creerannonce container-fluid">
-  <form [formGroup]="creeranonceForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="creerannonceForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <select class="form-control" id="FormControlSelectBien">
-        <option hidden>Selectionner le bien pour lequel vous voulez créer une annonce</option>
+        <option hidden
+          >Selectionner le bien pour lequel vous voulez créer une
+          annonce</option
+        >
         <option>2</option>
       </select>
+    </div>
+
+    <div class="form-group">
+      <label>Mail</label>
+      <input class="form-control" type="text" formControlName="mail" />
     </div>
 
     <div class="form-group">
@@ -15,8 +23,6 @@
       </select>
     </div>
 
-      <button type="submit" class="btn btn-primary disabled" [disabled]="!creeranonceForm.valid">Créer l'annonce</button>
-
+    <button type="submit" class="btn btn-primary">Créer l'annonce</button>
   </form>
-
 </div>

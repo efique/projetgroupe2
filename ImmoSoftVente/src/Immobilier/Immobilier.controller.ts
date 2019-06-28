@@ -41,6 +41,7 @@ export class ImmobilierController {
    */
   private async create(req: Request, res: Response) {
     const immobiliers = await this.immobilierService().getAll();
+
     if (immobiliers.length === 0) {
       await this.immobilierService().createImmobilier({
         ...req.body,
@@ -62,16 +63,14 @@ export class ImmobilierController {
    */
   private async getImmobilier(req: Request, res: Response) {
     res.json({
-      details: await this.immobilierService().getAllDetails(),
+      details: await this.immobilierService().getDetailsId(),
       localisations: await this.immobilierService().getAllLocalisations(),
     });
   }
 
   private async getLocalisation(req: Request, res: Response) {
-    res.json({
-      localisation: await this.immobilierService().getAllAgence(
-        req.body.postal,
-      ),
+    res.json({ 
+      localisation: await this.immobilierService().getAllLocalisations()
     });
   }
 }
