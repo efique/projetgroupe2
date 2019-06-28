@@ -9,15 +9,19 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
 
-  constructor(private router: Router, private http: HttpClient) { }
+  constructor(private router: Router, private http: HttpClient ) { }
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     console.log('AuthGuard#canActivate called');
-    return true;
+    // if () {
+    //   return true;
+    // } else {
+    //   this.router.navigate(['/connexion']);
+    // }
     // this.router.navigate(['/connexion']);
-    // return false;
+    return true;
 
   }
   canActivateChild(

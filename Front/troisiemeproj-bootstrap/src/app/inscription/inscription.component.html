@@ -9,7 +9,7 @@
         <div *ngIf="formControls.nom.errors.required">
           Le nom est requis!
         </div>
-    </div>
+      </div>
 
       <label>Prénom</label>
       <input name="prenom" id="prenom" class="form-control" type="text" formControlName="prenom" [ngClass]="{ 'is-invalid': submitted && formControls.prenom.errors }"/>
@@ -17,7 +17,7 @@
         <div *ngIf="formControls.prenom.errors.required">
           Le prenom est requis!
         </div>
-    </div>
+      </div>
 
       <label>Téléphone</label>
       <input name="telephone" id="telephone" class="form-control" type="text" formControlName="telephone" [ngClass]="{ 'is-invalid': submitted && formControls.telephone.errors }"/>

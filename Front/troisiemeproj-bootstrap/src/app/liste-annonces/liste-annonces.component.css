@@ -15,6 +15,22 @@ div.recherche{
     padding: 4vh 0 2vh 0;
 }
 
+h1{
+    margin-bottom: 4vh;
+    padding: 2vh 0 7vh 0;
+    text-align: center;
+    font-family: 'adam.cg', serif;
+    font-size: 10vh; 
+     color: #fff; 
+    background-image: url(https://st.hzcdn.com/simgs/d541c37e045a58a9_4-7085/home-design.jpg);
+    background-attachment: fixed;
+    background-position: top right;
+    min-height: 25vh;
+    text-align: center;
+    text-shadow: -0.05em 0.05em 0.1em black, 0.1em 0.1em 0.2em black;
+}
+
+
 h2{
     font-size: large;
     font-family: "adam.cg";
