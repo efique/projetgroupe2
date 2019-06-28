@@ -1,14 +1,15 @@
-// import { Injectable } from '@angular/core';
-// import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { User } from '../interfaces/user.interface';
 
-// @Injectable({providedIn: 'root'})
-// export class UserService {
+@Injectable({providedIn: 'root'})
+export class UserService {
   
-//     constructor(private http: HttpClient){}
+    constructor(private http: HttpClient){}
 
-//     url = 'http://localhost:3015';
+    url = 'http://localhost:3015';
 
-// getAll(){
-//     return this.http.get<User[]>(`${this.url}/users`)
-//   }
-// }
+getAll(){
+    return this.http.get<User[]>(`${this.url}/users/get`)
+  }
+}

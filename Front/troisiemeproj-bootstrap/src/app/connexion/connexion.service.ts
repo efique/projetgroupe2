@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpRequest, HttpResponse } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { request } from 'http';
+import { of, throwError } from 'rxjs';
 
 @Injectable()
 export class ConnexionService {
@@ -24,6 +26,8 @@ export class ConnexionService {
         );
         user = JSON.stringify(user);
         localStorage.setItem(`currentUser`, user);
+        // this.newResponse(data);
+        // this.authorization(data);
         this.loggedIn(data);
         // this.router.navigateByUrl('./');
       },
@@ -33,16 +37,36 @@ export class ConnexionService {
     );
   }
 
-  public async loggedIn(data) {
+  // public async newResponse(data){
+  //   let body = data;
+  //   return of(new HttpResponse({status: 200, body}))
+  // }
+
+  // public async authorization(data){
+  //   if(request.headers.get('Authorization') === data.token){
+  //     let body = data;
+  //   return of(new HttpResponse({status: 200, body}))
+  //   } else{
+  //     return throwError({
+  //       error : {
+  //         message: 'Unauthorized'
+  //       }
+  //     })
+  //   }
+  // }
+
+  public async logOut() {
+    return console.log('test');
+  }
+
+  public async loggedIn() {
     let currentUser = JSON.parse(localStorage.getItem(`currentUser`));
     if (currentUser && currentUser.token){
-      console.log(data)
-      data = data.clone({
+      request = request.clone({
         setHeaders: {
           Authorization: `Bearer ${currentUser.token}`
         }
       });
-      console.log(data);
       this.router.navigateByUrl('./');
     }
   }
