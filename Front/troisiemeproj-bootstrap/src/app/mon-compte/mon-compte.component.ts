@@ -17,7 +17,7 @@ export class MonCompteComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private toastr: ToastrService,
-    private moncompteService: MonCompteService
+    // private moncompteService: MonCompteService
   ) {}
 
   ngOnInit() {
