@@ -22,11 +22,28 @@ export class ConnexionService {
           `Bienvenue ${user.mail}`,
           'Success'
         );
-        this.router.navigateByUrl('/');
+        user = JSON.stringify(user);
+        localStorage.setItem(`currentUser`, user);
+        this.loggedIn(data);
+        // this.router.navigateByUrl('./');
       },
       err => {
         this.toastr.error("Une erreur est survenue lors de la connexion, veuillez verifier vos login et mot de passe", 'Error occured');
       }
     );
+  }
+
+  public async loggedIn(data) {
+    let currentUser = JSON.parse(localStorage.getItem(`currentUser`));
+    if (currentUser && currentUser.token){
+      console.log(data)
+      data = data.clone({
+        setHeaders: {
+          Authorization: `Bearer ${currentUser.token}`
+        }
+      });
+      console.log(data);
+      this.router.navigateByUrl('./');
+    }
   }
 }
