@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpRequest, HttpResponse } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { request } from 'http';
-import { of, throwError } from 'rxjs';
 
 @Injectable()
 export class ConnexionService {
@@ -28,7 +26,7 @@ export class ConnexionService {
         localStorage.setItem(`currentUser`, user);
         // this.newResponse(data);
         // this.authorization(data);
-        this.loggedIn(data);
+        this.loggedIn();
         // this.router.navigateByUrl('./');
       },
       err => {
@@ -62,11 +60,14 @@ export class ConnexionService {
   public async loggedIn() {
     let currentUser = JSON.parse(localStorage.getItem(`currentUser`));
     if (currentUser && currentUser.token){
-      request = request.clone({
-        setHeaders: {
-          Authorization: `Bearer ${currentUser.token}`
-        }
-      });
+      let headers = new Headers();
+      headers.append("Authorization", `Bearer ${currentUser.token}`);
+      // request.clone({
+      //   setHeaders: {
+      //     Authorization: `Bearer ${currentUser.token}`
+      //   }
+      // });
+      
       this.router.navigateByUrl('./');
     }
   }
