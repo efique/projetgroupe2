@@ -1,69 +1,88 @@
 <h1>Mon compte</h1>
 <div class="moncompte container-fluid">
   <div class="inlinediv col-sm-6">
-    <h2>Informations personelles</h2>
-    <div class="form-group">
-        <label>Nom</label>
-        <input class="form-control" type="text" [formControl]="nom">
-      </div>
+    <form [formGroup]="moncompteForm" (ngSubmit)="onSubmit()">
+      <h2>Informations personelles</h2>
       <div class="form-group">
-        <label>Prénom</label>
-        <input class="form-control" type="text" [formControl]="prenom">
+          <label>Nom</label>
+          <input name="nom" id="nom" class="form-control" type="text" formControlName="nom" [ngClass]="{ 'is-invalid': submitted && formControls.nom.errors }"/>
       </div>
 
       <div class="form-group">
-          <label>E-Mail</label>
-          <input class="form-control" type="email" [formControl]="mail">
+        <label>Prénom</label>
+        <input name="prenom" id="prenom" class="form-control" type="text" formControlName="prenom" [ngClass]="{ 'is-invalid': submitted && formControls.prenom.errors }"/>
+      </div>
+
+      <div class="form-group">
+        <label>E-Mail</label>
+        <input name="mail" id="mail" class="form-control" type="email" formControlName="mail" [ngClass]="{ 'is-invalid': submitted && formControls.mail.errors }"/>
       </div>
 
       <div class="form-group">
         <label>Téléphone</label>
-        <input class="form-control" type="text" [formControl]="telephone">
+        <input name="telephone" id="telephone" class="form-control" type="text" formControlName="telephone" [ngClass]="{ 'is-invalid': submitted && formControls.telephone.errors }"/>
       </div>
-  
+
       <div formGroupName="localisation" class="localisation form-group">
         <label>Rue</label>
-        <input type="text" class="form-control" formControlName="rue">
-  
+        <input name="rue" id="rue" class="form-control" type="text" formControlName="rue" [ngClass]="{ 'is-invalid': submitted && formControls.rue.errors }"/>
+
         <div class="form-row formrowinterligne">
           <div class="form-group col-md-6">
             <label>Numéro de rue</label>
-            <input type="number" class="form-control" formControlName="numero">
+            <input name="numero" id="numero" class="form-control" type="number" formControlName="numero" [ngClass]="{ 'is-invalid': submitted && formControls.numero.errors }"/>
           </div>
           <div class="form-group col-md-6">
             <label>Code postal</label>
-            <input type="number" class="form-control" formControlName="postal">
+            <input name="postal" id="postal" class="form-control" type="number" formControlName="postal" [ngClass]="{ 'is-invalid': submitted && formControls.postal.errors }"/>
           </div>
         </div>
+        
         <label>Ville</label>
-        <input type="text" class="form-control" formControlName="ville">
+        <input name="ville" id="ville" class="form-control" type="text" formControlName="ville" [ngClass]="{ 'is-invalid': submitted && formControls.ville.errors }"/>
       </div>
-  
-      <button type="submit" class="btn btn-primary disabled" [disabled]="!searchForm.valid">Enregistrer</button>
-      
+
+      <button type="submit" class="btn btn-primary disabled">Enregistrer</button>    
+    
+    </form>
   </div>
  
 
+ 
   <div class="inlinediv col-sm-6 "> 
-    <img src="../../assets/img/mon_compte_immosoftvente.jpg">
+    <form [formGroup]="changermdpForm" (ngSubmit)="onSubmitMdp()">
+      <img src="../../assets/img/mon_compte_immosoftvente.jpg">
 
-    <h2 class="retourchariot">Modifier mon mot de passe</h2>
+      <h2 class="retourchariot">Modifier mon mot de passe</h2>
 
-    <div class="form-group">
-        <label>Ancien mot de passe</label>
-        <input class="form-control" type="password" [formControl]="password">
-    </div>
-    <div class="form-group">
+      <div class="form-group">
+          <label>Ancien mot de passe</label>
+          <input name="ancienpassword" id="ancienpassword" class="form-control" type="password" formControlName="ancienpassword"/>
+        </div>
+
+      <div class="form-group">
         <label>Mot de passe</label>
-        <input class="form-control" type="password" [formControl]="password">
-    </div>
-    <div class="form-group">
-        <label>Confirmation mot de passe</label>
-        <input class="form-control" type="password">
-    </div>
+        <input name="password" id="password" class="form-control" type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && formControls.password.errors }"/>
+        <div *ngIf="submitted && formControls.password.errors" class="invalid-feedback">
+          <div *ngIf="formControls.password.errors.required">
+            Le mot de passe est requis!
+          </div>
+          <div *ngIf="formControls.password.errors.minlength">Le mot de passe doit être d'au moins 6 caractères</div>
+      </div>
 
-    <button type="submit" class="btn btn-primary disabled" [disabled]="!searchForm.valid">Enregistrer</button>
+      <div class="form-group">
+          <label>Confirmation mot de passe</label>
+        <input name="confirmation" id="confirmation" class="form-control" type="password" formControlName="confirmation" [ngClass]="{ 'is-invalid': submitted && formControls.confirmation.errors }"/>
+        <div *ngIf="submitted && formControls.confirmation.errors" class="invalid-feedback">
+          <div *ngIf="formControls.confirmation.errors.required">
+            La confirmation du mot de passe est requise!
+          </div>
+          <div *ngIf="formControls.confirmation.errors.mustMatch">Les mots de passes ne correspondent pas !</div>
+      </div>
 
+      <button type="submit" class="btn btn-primary disabled">Enregistrer</button>
+
+    <!-- </form> -->
   </div>
 </div>
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpRequest, HttpResponse } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 
@@ -22,11 +22,53 @@ export class ConnexionService {
           `Bienvenue ${user.mail}`,
           'Success'
         );
-        this.router.navigateByUrl('/');
+        user = JSON.stringify(user);
+        localStorage.setItem(`currentUser`, user);
+        // this.newResponse(data);
+        // this.authorization(data);
+        this.loggedIn();
+        // this.router.navigateByUrl('./');
       },
       err => {
         this.toastr.error("Une erreur est survenue lors de la connexion, veuillez verifier vos login et mot de passe", 'Error occured');
       }
     );
+  }
+
+  // public async newResponse(data){
+  //   let body = data;
+  //   return of(new HttpResponse({status: 200, body}))
+  // }
+
+  // public async authorization(data){
+  //   if(request.headers.get('Authorization') === data.token){
+  //     let body = data;
+  //   return of(new HttpResponse({status: 200, body}))
+  //   } else{
+  //     return throwError({
+  //       error : {
+  //         message: 'Unauthorized'
+  //       }
+  //     })
+  //   }
+  // }
+
+  public async logOut() {
+    return console.log('test');
+  }
+
+  public async loggedIn() {
+    let currentUser = JSON.parse(localStorage.getItem(`currentUser`));
+    if (currentUser && currentUser.token){
+      let headers = new Headers();
+      headers.append("Authorization", `Bearer ${currentUser.token}`);
+      // request.clone({
+      //   setHeaders: {
+      //     Authorization: `Bearer ${currentUser.token}`
+      //   }
+      // });
+      
+      this.router.navigateByUrl('./');
+    }
   }
 }

@@ -1,0 +1,23 @@
+.faireproposition{
+    border: 1px solid #1e008c;
+    border-radius: 2vh;
+    text-align: center;
+    padding: 3vh 8vh;
+    font-size: large;
+    width: fit-content;
+    margin: 2vh auto;
+}
+
+
+button {
+    background-color: #2700b3;
+    border: none;
+    display: block;
+    margin: 3vh auto;
+    opacity: 1;
+    padding: 1.5vh 2.5vh;
+}
+
+button:hover {
+    background-color: #1e008c;
+}

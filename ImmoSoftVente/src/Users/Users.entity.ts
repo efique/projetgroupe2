@@ -46,4 +46,7 @@ export class Users {
     default: 'Utilisateur',
   })
   public role: RoleEnum;
+
+  @Column({ name: 'token', type: 'varchar', default: null})
+  public token: string;
 }
