@@ -4,12 +4,12 @@ import { User } from '../interfaces/user.interface';
 
 @Injectable({providedIn: 'root'})
 export class UserService {
-  
-    constructor(private http: HttpClient){}
+
+    constructor(private http: HttpClient) {}
 
     url = 'http://localhost:3015';
 
-getAll(){
-    return this.http.get<User[]>(`${this.url}/users/get`)
+getAll() {
+    return this.http.get<User[]>(`${this.url}/users/get`);
   }
 }

@@ -1,22 +1,17 @@
 
 div.inscription{
-    /* text-align: center; */
     width: 40%;
-    /* margin: 0 auto; */
     padding: 2vh;
     border-radius: 2vh;
-    /* background: #e6fff2; */
     margin-bottom: 2vh;
 }
 
 h1{
-    /* margin: 2vh 0 5vh 0; */
     padding: 5vh 0 5vh 0;
     text-align: center;
     font-family: 'adam.cg', serif;
     font-size: 10vh; 
      color: #fff; 
-    /*color:white;*/
     background-image: url(https://www.soleil-immobilier.net/images/cover.jpg);
     background-attachment: fixed;
     background-position: bottom;
@@ -27,15 +22,10 @@ h1{
 }
 
 label{
-    /* color: black; */
     color: #2700b3;
     font-weight: bold;
     margin-top: 2vh;
 }
-
-/* .form-group label{
-    
-} */
 
 div.formrowinterligne {
     margin-top: 3vh;

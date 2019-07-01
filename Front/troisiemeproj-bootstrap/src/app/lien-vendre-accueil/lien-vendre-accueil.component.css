@@ -1,11 +1,7 @@
 div.lien-vendre-accueil{
-    /* border: 1px solid orangered; */
     position: relative;
-    /* top: 8vh; 
-    left: 28vw;*/
     left: 25vw;
     width: 18vw;
-    /* height: 48vh; */
     background-color: #ebe6ff;
     padding: 2.8vh;
     box-shadow: 6px 6px 2px 1px rgba(20, 0, 102, 0.2);
@@ -19,8 +15,6 @@ h2{
     text-align: center;    
     text-shadow: -0.05em 0.05em 0.1em #fff, 0.05em 0.05em 0.1em  #3a4f78; 
     font-family: "publica sans";
-    /* margin-top: 2vh;
-    margin-bottom: 4vh; */
 }
 
 p{
@@ -33,11 +27,6 @@ button {
     margin: 2vh 0; 
     border: none;
     opacity: 1 !important;
-    /* color: white;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold; */
 }
 
 button:hover {

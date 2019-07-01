@@ -6,21 +6,15 @@
     display: inline-block;
 }
 
-.infos{
-    margin-top: 10vh;
-    /* margin-left: -3vh; */
-    /* width: 100%; */
+.infos:first-child{
+    margin-top: 6vh;
 }
 
-.infos:first-child{
-    /* margin-left: 10vh; */
-}
 .infos:last-child{
     margin-right: 15vh;
 }
 
 .infos *:not(img){
-    /* margin: 2vh 5vh; */
     font-size: large;
 }
 
@@ -33,7 +27,6 @@ h4{
     height: 80%;
     width: 40vw;
     overflow: hidden;
-    /* margin: 5vh 10vh; */
     margin-top: 5vh;
 }
 
@@ -46,73 +39,5 @@ h4{
     max-height: 80%;
     overflow: auto;
     margin-top: 5vh;
-    /* margin: 5vh 5vh 1vh 0; */
     box-sizing: border-box;
 }
-
-
-/* .description p{
-    width: 100%;
-} */
-/* 
-.details{
-    height: 70vh;
-}
-
-.inline *{
-    display: inline-block;
-}
-
-.image{
-    height: 80%;
-    width: 40vw;
-    overflow: hidden;
-    margin: 10vh;
-}
-
-.image img{
-    max-width: 100%;
-}
-
-.infos{
-    margin-top: 10vh;
-}
-
-h4{
-    font-family: 'adam.cg';
-    font-weight: bold;
-    font-size: large;
-    margin-bottom: 1vh;
-}
-.type{
-    font-size: large;
-    margin: 0 0 1vh 0;
-}
-
-.prix{
-    font-size: large;
-    margin: 0 0 18vh 0;
-}
-
-.autresinfos{
-    font-size: large;
-    margin: 4vh 0;
-}
-
-.autresinfos span{
-    margin: 0 2vw 1vh 0;
-}
-
-.description{
-    width: 35vw;
-    max-height: 80%;
-    margin-right: 5vh;
-    overflow: auto;
-    margin-top: 10vh;
-    box-sizing: border-box;
-} */
-
-
-/* .description p{
-    width: 100%;
-} */
