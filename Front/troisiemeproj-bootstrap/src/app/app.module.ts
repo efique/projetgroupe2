@@ -36,6 +36,7 @@ import { AnnonceComponent } from './annonce/annonce.component';
 import { CreerAnnonceService } from './creer-annonce/creer-annonce.service';
 import { FairePropositionComponent } from './faire-proposition/faire-proposition.component';
 import { PropositionService } from './faire-proposition/faire-proposition.service';
+import { UtilisateursService } from './liste-utilisateurs/liste-utilisateurs.service';
 
 
 @NgModule({
@@ -80,7 +81,8 @@ import { PropositionService } from './faire-proposition/faire-proposition.servic
     ConnexionService,
     AjouterBienService,
     CreerAnnonceService,
-    PropositionService
+    PropositionService,
+    UtilisateursService
   ],
   bootstrap: [AppComponent]
 })

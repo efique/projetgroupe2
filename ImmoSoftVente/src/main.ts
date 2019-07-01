@@ -1,7 +1,7 @@
 import bodyParser from 'body-parser';
 import chalk from 'chalk';
 import express from 'express';
-import passport from 'passport';
+// import passport from 'passport';
 
 import { AgenceController } from './Agence/Agence.controller';
 import { AuthController } from './Auth/auth.controller';
@@ -59,7 +59,7 @@ async function bootstrap() {
   const usersRoutes = await new UsersController().getRoutes();
   app.use(
     '/users',
-    passport.authenticate('jwt', { session: false }),
+    // passport.authenticate('jwt', { session: false }),
     usersRoutes,
   );
 

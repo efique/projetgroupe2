@@ -22,7 +22,7 @@ export class UsersController {
       { path: '/', method: 'post', actions: [this.create] },
       { path: '/update/:usersId', method: 'put', actions: [this.update] },
       { path: '/:usersId', method: 'get', actions: [this.getUsers] },
-      { path: '/', method: 'get', actions: [this.getAll] },
+      { path: '/get', method: 'get', actions: [this.getAll] },
       { path: '/delete/:usersId', method: 'delete', actions: [this.delete] },
     ];
 
