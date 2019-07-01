@@ -1,17 +1,17 @@
 import bodyParser from 'body-parser';
 import chalk from 'chalk';
 import express from 'express';
-import passport from 'passport';
+// import passport from 'passport';
 
 import { AgenceController } from './Agence/Agence.controller';
 import { AuthController } from './Auth/auth.controller';
 import './Auth/auth.strategy';
+import { ImmobilierController } from './Immobilier/Immobilier.controller';
 import { InscriptionController } from './inscription/inscription.controller';
 import { LocalisationController } from './Localisation/Localisation.controller';
 import logger from './logger.tools';
 import { setupDb } from './setup-db';
 import { UsersController } from './Users/Users.contoller';
-import { ImmobilierController } from './Immobilier/Immobilier.controller';
 
 async function bootstrap() {
   // create db connection
@@ -20,10 +20,13 @@ async function bootstrap() {
   // initialize express app
   const app = express();
 
+  // tslint:disable-next-line:no-require-imports
   const cors = require('cors');
-  app.use(cors({
-    origin: '*'
-  }));
+  app.use(
+    cors({
+      origin: '*',
+    }),
+  );
 
   // set the body parser
   app.use(
@@ -59,7 +62,7 @@ async function bootstrap() {
   const usersRoutes = await new UsersController().getRoutes();
   app.use(
     '/users',
-    passport.authenticate('jwt', { session: false }),
+    // passport.authenticate('jwt', { session: false }),
     usersRoutes,
   );
 

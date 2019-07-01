@@ -1,54 +1,53 @@
-div.connexion{
-    width: 40%;
-    padding: 2vh;
+div.connexion {
+  width: 40%;
+  padding: 2vh;
 }
 
-h1{
-    padding: 5vh 0 5vh 0;
-    text-align: center;
-    font-family: 'adam.cg', serif;
-    font-size: 10vh; 
-     color: #fff; 
-    background-image: url(https://www.sarroimmobilier.fr/images/cover.png);
-    background-attachment: fixed;
-    background-position: top;
-    min-height: 35vh;
-    vertical-align: middle;
-    text-shadow: -0.05em 0.05em 0.1em black, 0.1em 0.1em 0.2em black;
-   
+h1 {
+  padding: 5vh 0 5vh 0;
+  text-align: center;
+  font-family: "adam.cg", serif;
+  font-size: 10vh;
+  color: #fff;
+  background-image: url(https://www.sarroimmobilier.fr/images/cover.png);
+  background-attachment: fixed;
+  background-position: top;
+  min-height: 35vh;
+  vertical-align: middle;
+  text-shadow: -0.05em 0.05em 0.1em black, 0.1em 0.1em 0.2em black;
 }
 
-label{
-    /* color: black; */
-    color: #2700b3;
-    font-weight: bold;
+label {
+  /* color: black; */
+  color: #2700b3;
+  font-weight: bold;
 }
 
 .button {
-    background-color: #2700b3;
-    border: none;
-    display: block;
-    margin: 3vh auto;
-    opacity: 1;
-    padding: 0.5rem 1.5rem;
-    color: white;
-    border: 1px solid #2700b3;
-    margin: auto;
+  background-color: #2700b3;
+  border: none;
+  display: block;
+  margin: 3vh auto;
+  opacity: 1;
+  padding: 0.5rem 1.5rem;
+  color: white;
+  border: 1px solid #2700b3;
+  margin: auto;
 }
 
 .button:hover {
-    background-color: white;
-    border: 1px solid #2700b3;
-    color: #2700b3; 
+  background-color: white;
+  border: 1px solid #2700b3;
+  color: #2700b3;
 }
 
-.button:disabled{
-    background: #ccc;
-    pointer-events: none;
-    color: black;
-    border: 1px solid #ccc;
+.button:disabled {
+  background: #ccc;
+  pointer-events: none;
+  color: black;
+  border: 1px solid #ccc;
 }
 
-a{
-    color: #af99ff;
+a {
+  color: #af99ff;
 }

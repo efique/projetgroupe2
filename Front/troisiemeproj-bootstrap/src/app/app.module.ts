@@ -35,7 +35,7 @@ import { DetailsBienComponent } from './details-bien/details-bien.component';
 import { AnnonceComponent } from './annonce/annonce.component';
 import { BienComponent } from './bien/bien.component';
 import { CreerAnnonceService } from './creer-annonce/creer-annonce.service';
-
+import { ListeUtilisateurService } from './liste-utilisateurs/liste-utilisateurs.service';
 
 @NgModule({
   declarations: [
@@ -78,7 +78,8 @@ import { CreerAnnonceService } from './creer-annonce/creer-annonce.service';
     InscriptionService,
     ConnexionService,
     AjouterBienService,
-    CreerAnnonceService
+    CreerAnnonceService,
+    ListeUtilisateurService
   ],
   bootstrap: [AppComponent]
 })

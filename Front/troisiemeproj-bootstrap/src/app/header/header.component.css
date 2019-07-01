@@ -26,31 +26,35 @@ li a:not(.logo) {
 }*/
 
 /* li a:hover:not(.logo) { */
-    /* color: #1e008c;
+/* color: #1e008c;
     text-decoration: underline; */
-    /* background-color: #1e008c;
+/* background-color: #1e008c;
     color: white;
 }  */
 
 /*Navbar*/
 
-img.imglogo{
-    /* text-align: center; */
-    /* padding: 10px 9px 5px 9px; */
-    height: 45px;
+img.imglogo {
+  /* text-align: center; */
+  /* padding: 10px 9px 5px 9px; */
+  height: 45px;
 }
 
-nav{
-    font-weight: bold;
-    font-size: 1.2em;
+nav {
+  font-weight: bold;
+  font-size: 1.2em;
 }
 
-li a:hover{
-    text-shadow: 2px 2px 5px #9980ff;
+li a:hover {
+  text-shadow: 2px 2px 5px #9980ff;
 }
 
 li a {
-    color: #2400b3 !important;
+  color: #2400b3 !important;
+}
+
+.hidden {
+  display: none;
 }
 
 /* .right{

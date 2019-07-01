@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ListeUtilisateurService } from './liste-utilisateurs.service';
 
 @Component({
   selector: 'app-liste-utilisateurs',
@@ -6,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./liste-utilisateurs.component.css']
 })
 export class ListeUtilisateursComponent implements OnInit {
-
-  constructor() { }
+  constructor(private listeUtilisateurService: ListeUtilisateurService) {}
 
   ngOnInit() {
+    this.listeUtilisateurService.recupUser();
+    console.log(this.listeUtilisateurService.recupUser());
   }
-
 }

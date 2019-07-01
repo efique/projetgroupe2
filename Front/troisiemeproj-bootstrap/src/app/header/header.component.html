@@ -1,15 +1,17 @@
 <header>
-<!-- <ul>
-  <li class="lefth"><a [routerLink]="['/']" class="logo"><img src="assets/img/logo_1.png"></a></li>
-  <li class="lefth"><a href="#home">Acheter</a></li>
-  <li class="lefth"><a href="#news">Vendre</a></li>
-  <li class="righth"><a [routerLink]="['/inscription']">Inscription</a></li>
-  <li class="righth"><a href="#contact">Connexion</a></li> 
-</ul> -->
-
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" [routerLink]="['/']"><img class="imglogo" src="assets/img/logo_1.png"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" [routerLink]="['/']"
+      ><img class="imglogo" src="assets/img/logo_1.png"
+    /></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarColor03"
+      aria-controls="navbarColor03"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -18,38 +20,48 @@
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/annonces']">Acheter</a>
         </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="#">Vendre</a>
-        </li> -->
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/ajouter_bien']">Ajouter un bien</a>
+
+        <li *ngIf="this.userRole" class="nav-item">
+          <a class="nav-link" [routerLink]="['/ajouter_bien']"
+            >Ajouter un bien</a
+          >
         </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/creer_annonce']">Créer une annonce</a>
+
+        <li *ngIf="this.userRole" class="nav-item">
+          <a class="nav-link" [routerLink]="['/creer_annonce']"
+            >Créer une annonce</a
+          >
         </li>
-        <li class="nav-item">
+
+        <li *ngIf="this.userRole" class="nav-item">
           <a class="nav-link" [routerLink]="['/utilisateurs']">Utilisateurs</a>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/agences']">Agences</a>
+          <a *ngIf="this.userRole" class="nav-link" [routerLink]="['/agences']"
+            >Agences</a
+          >
         </li>
       </ul>
       <ul class="navbar-nav navbar-right">
-        <li class="nav-item">
+        <li *ngIf="this.userRole" class="nav-item">
           <a class="nav-link" [routerLink]="['/mes_biens']">Mes biens</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/mon_compte']">Mon compte</a> <!-- *ngIf="!estconnecté" -->
+          <a class="nav-link" [routerLink]="['/mon_compte']">Mon compte</a>
+          <!-- *ngIf="!estconnecté" -->
         </li>
-        <li class="nav-item">
+        <li *ngIf="!this.userLogged" class="nav-item">
           <a class="nav-link" [routerLink]="['/connexion']">Connexion</a>
+        </li>
+
+        <li *ngIf="this.userLogged" class="nav-item">
+          <a class="nav-link" [routerLink]="['/deconnexion']">Deconnexion</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/inscription']">Inscription</a>
         </li>
       </ul>
-      
     </div>
   </nav>
-
 </header>
