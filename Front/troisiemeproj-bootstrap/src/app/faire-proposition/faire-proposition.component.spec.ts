@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BienComponent } from './bien.component';
+import { FairePropositionComponent } from './faire-proposition.component';
 
-describe('BienComponent', () => {
-  let component: BienComponent;
-  let fixture: ComponentFixture<BienComponent>;
+describe('FairePropositionComponent', () => {
+  let component: FairePropositionComponent;
+  let fixture: ComponentFixture<FairePropositionComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BienComponent ]
+      declarations: [ FairePropositionComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BienComponent);
+    fixture = TestBed.createComponent(FairePropositionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

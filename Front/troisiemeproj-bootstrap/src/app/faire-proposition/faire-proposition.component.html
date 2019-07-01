@@ -1,0 +1,28 @@
+<h1>Faire une proposition</h1>
+<div class="propositions container-fluid">
+  <table>
+
+    <tr>
+        <th> </th>
+        <th>Prix proposé</th>
+        <th>Prix de départ</th>
+        <th> </th>
+    </tr>
+
+    <tr>
+        <td>1</td>
+        <td><form [formGroup]="propositionForm" (ngSubmit)="onSubmit()"><input name="prix_propose" id="prix_propose" class="form-control" type="number" formControlName="prix_propose" placeholder="Entrez le montant que vous voulez proposer"></form></td>
+        <td>265 000 €</td>
+        <td><button type="submit" class="btn btn-primary">Valider</button></td>
+    </tr>
+
+    <!-- <tr>
+        <td>1</td>
+        <td><form><input class="form-control" type="number" placeholder="Entrez le montant que vous voulez proposer"></form></td>
+        <td>{{prix_demande}}</td>
+        <td><button type="submit" class="btn btn-primary">Valider</button></td>
+    </tr>
+    </tr> -->
+
+  </table>
+</div>

@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class ConnexionService {
-  
+
   constructor(
     private http: HttpClient,
     private toastr: ToastrService,
@@ -17,7 +17,7 @@ export class ConnexionService {
   createConnexion(data) {
     this.http.post(`${this.url}/auth/signin`, data).subscribe(
       res => {
-        let user = (<any>res).user;
+        let user = (res as any).user;
         this.toastr.success(
           `Bienvenue ${user.mail}`,
           'Success'
@@ -30,7 +30,7 @@ export class ConnexionService {
         // this.router.navigateByUrl('./');
       },
       err => {
-        this.toastr.error("Une erreur est survenue lors de la connexion, veuillez verifier vos login et mot de passe", 'Error occured');
+        this.toastr.error('Une erreur est survenue lors de la connexion, veuillez verifier vos login et mot de passe', 'Error occured');
       }
     );
   }
@@ -58,16 +58,16 @@ export class ConnexionService {
   }
 
   public async loggedIn() {
-    let currentUser = JSON.parse(localStorage.getItem(`currentUser`));
-    if (currentUser && currentUser.token){
-      let headers = new Headers();
-      headers.append("Authorization", `Bearer ${currentUser.token}`);
+    const currentUser = JSON.parse(localStorage.getItem(`currentUser`));
+    if (currentUser && currentUser.token) {
+      const headers = new Headers();
+      headers.append('Authorization', `Bearer ${currentUser.token}`);
       // request.clone({
       //   setHeaders: {
       //     Authorization: `Bearer ${currentUser.token}`
       //   }
       // });
-      
+
       this.router.navigateByUrl('./');
     }
   }

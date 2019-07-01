@@ -5,7 +5,7 @@
     padding: 3vh 8vh;
     font-size: large;
     width: fit-content;
-    margin: 2vh auto;
+    margin: 3vh auto;
 }
 
 
@@ -14,6 +14,71 @@ button {
     border: none;
     display: block;
     margin: 3vh auto;
+    opacity: 1;
+    padding: 1.5vh 2.5vh;
+}
+
+button:hover {
+    background-color: #1e008c;
+}
+
+h2{
+    text-align: center;
+    font-family: "adam.cg";
+    margin-top: 10vh;
+}
+
+div.propositions{
+    width: 80%;
+    overflow-x:auto;
+    margin: 5vh auto;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th:first-child{
+    border-radius: 2vh 0 0 0; 
+}
+
+th:last-child{
+    border-radius: 0 2vh 0 0; 
+}
+
+tr:last-child td:last-child{
+    border-radius:  0 0 2vh 0; 
+}
+
+tr:last-child td:first-child{
+    border-radius:  0 0 0 2vh; 
+}
+
+th, td {
+    text-align: left;
+    padding: 2vh;
+    text-align: center;
+}
+
+tr:nth-child(even){
+    background-color: #f2f2f2
+}
+
+th {
+    background-color: #2700b3;
+    color: white;
+    font-family: "adam.cg";
+    font-size: smaller;
+    text-shadow: -0.05em 0.05em 0.1em black, 0.1em 0.1em 0.2em black;
+}
+
+
+button {
+    background-color: #2700b3;
+    border: none;
+    display: block;
+    /* margin: 3vh auto; */
     opacity: 1;
     padding: 1.5vh 2.5vh;
 }
