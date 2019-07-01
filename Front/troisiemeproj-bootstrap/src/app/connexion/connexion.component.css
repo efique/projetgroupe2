@@ -18,9 +18,8 @@ h1 {
 }
 
 label {
-  /* color: black; */
-  color: #2700b3;
-  font-weight: bold;
+    color: #2700b3;
+    font-weight: bold;
 }
 
 .button {

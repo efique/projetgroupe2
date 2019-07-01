@@ -33,9 +33,10 @@ import { ListeUtilisateursComponent } from './liste-utilisateurs/liste-utilisate
 import { ListeAgencesComponent } from './liste-agences/liste-agences.component';
 import { DetailsBienComponent } from './details-bien/details-bien.component';
 import { AnnonceComponent } from './annonce/annonce.component';
-import { BienComponent } from './bien/bien.component';
 import { CreerAnnonceService } from './creer-annonce/creer-annonce.service';
-import { ListeUtilisateurService } from './liste-utilisateurs/liste-utilisateurs.service';
+import { FairePropositionComponent } from './faire-proposition/faire-proposition.component';
+import { PropositionService } from './faire-proposition/faire-proposition.service';
+import { UtilisateursService } from './liste-utilisateurs/liste-utilisateurs.service';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,7 @@ import { ListeUtilisateurService } from './liste-utilisateurs/liste-utilisateurs
     ListeAgencesComponent,
     DetailsBienComponent,
     AnnonceComponent,
-    BienComponent
+    FairePropositionComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -79,7 +80,8 @@ import { ListeUtilisateurService } from './liste-utilisateurs/liste-utilisateurs
     ConnexionService,
     AjouterBienService,
     CreerAnnonceService,
-    ListeUtilisateurService
+    PropositionService,
+    UtilisateursService
   ],
   bootstrap: [AppComponent]
 })

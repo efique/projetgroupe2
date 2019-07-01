@@ -4,7 +4,6 @@
   <table>
 
     <tr>
-      <th>Pseudo</th>
       <th>Nom</th>
       <th>Prénom</th>
       <th>Téléphone</th>
@@ -15,37 +14,35 @@
     </tr>
 
     <tr>
-      <td>Cleveland</td>
       <td>Brown</td>
       <td>Clave</td>
       <td>0600000000</td>
       <td>clavebrown@gmail.com</td>
       <td>Nice</td>
       <td>Acheteur</td>
-      <td><img src="../../assets/img/garbage.png"></td> <!-- *ngIf="estSysadmin" -->
+      <td><button><img src="../../assets/img/garbage.png"></button></td> <!-- *ngIf="estSysadmin" -->
     </tr>
     <tr>
-      <td>Cleveland</td>
       <td>Brown</td>
       <td>Clave</td>
       <td>0600000000</td>
       <td>clavebrown@gmail.com</td>
       <td>Nice</td>
       <td>Acheteur</td>
-      <td><img src="../../assets/img/garbage.png"></td>
+      <td><button><img src="../../assets/img/garbage.png"></button></td>
     </tr>
 
-    <!-- <tr>
-      <td>{{pseudo}}</td>
-      <td>{{nom}}</td>
-      <td>{{prenom}}</td>
-      <td>{{telephone}}</td>
-      <td>{{mail}}</td>
-      <td>{{agence}}</td>
-      <td>{{role}}</td>
-      <td *ngIf="estSysadmin"><img src="../../assets/img/garbage.png"></td>
+    <!-- <tr *ngFor="let user of users">
+      <td>{{ user.nom }}</td>
+      <td>{{ user.prenom }}</td>
+      <td>{{ user.telephone }}</td>
+      <td>{{ user.mail }}</td>
+      <td>{{ user.agence }}</td>
+      <td>{{ user.role }}</td>
+      <td *ngIf="estSysadmin"><button><img src="../../assets/img/garbage.png"></button></td>
     </tr> -->
 
   </table>
+
 </div>
 

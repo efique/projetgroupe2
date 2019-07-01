@@ -58,3 +58,8 @@ th {
     font-size: smaller;
     text-shadow: -0.05em 0.05em 0.1em black, 0.1em 0.1em 0.2em black;
 }
+
+button{
+    border: none;
+    background-color: transparent;
+}
