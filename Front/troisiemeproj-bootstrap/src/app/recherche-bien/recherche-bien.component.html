@@ -2,41 +2,41 @@
 
   <!-- <h2>Rechercher un bien immobilier</h2> -->
 
-  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+  <form (ngSubmit)="onSubmit()">
     <div class="form-row">
       <div class="form-group col-sm-6">
         <label>Type de bien</label>
-        <input class="form-control" type="text" [formControl]="type_bien">
+        <input class="form-control" type="text">
       </div>
-      <div class="form-group col-sm-6" formGroupName="localisation">
+      <div class="form-group col-sm-6">
         <label>Ville</label>
-        <input class="form-control" type="text" formControlName="ville">
+        <input class="form-control" type="text">
       </div>
     </div>
 
     <div class="form-row">
       <div class="form-group col-sm-6">
         <label>Nombre de pièces</label>
-        <input class="form-control" type="number" [formControl]="nombre_pieces">
+        <input class="form-control" type="number">
       </div>
 
       <div class="form-group col-sm-6">
         <label>Superficie</label>
-        <input class="form-control" type="number" [formControl]="superficie">
+        <input class="form-control" type="number">
       </div>
     </div>
 
     <div class="form-row">
       <div class="form-group col-sm-4">
         <label>Prix min</label>
-        <input class="form-control" type="number"  [formControl]="prix_minimum">
+        <input class="form-control" type="number" >
       </div>
       <div class="form-group col-sm-4">
         <label>Prix max</label>
-        <input class="form-control" type="number"  [formControl]="prix_maximum">
+        <input class="form-control" type="number"  >
       </div>
     </div>
-    <button class="btn btn-success" type="submit" [disabled]="!searchForm.valid">Rechercher</button>
+    <button class="btn btn-success" type="submit">Rechercher</button>
 
   </form>
 <!-- </div> -->

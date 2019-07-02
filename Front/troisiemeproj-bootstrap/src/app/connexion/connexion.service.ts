@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import {
   HttpClient,
-  HttpHeaders,
-  HttpRequest,
-  HttpResponse
 } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
@@ -21,12 +18,11 @@ export class ConnexionService {
   createConnexion(data) {
     this.http.post(`${this.url}/auth/signin`, data).subscribe(
       res => {
+        console.log(res)
         let user = (res as any).user;
         this.toastr.success(`Bienvenue ${user.mail}`, 'Success');
         user = JSON.stringify(user);
         localStorage.setItem(`currentUser`, user);
-        // this.newResponse(data);
-        // this.authorization(data);
         this.loggedIn();
       },
       err => {
@@ -38,26 +34,8 @@ export class ConnexionService {
     );
   }
 
-  // public async newResponse(data){
-  //   let body = data;
-  //   return of(new HttpResponse({status: 200, body}))
-  // }
-
-  // public async authorization(data){
-  //   if(request.headers.get('Authorization') === data.token){
-  //     let body = data;
-  //   return of(new HttpResponse({status: 200, body}))
-  //   } else{
-  //     return throwError({
-  //       error : {
-  //         message: 'Unauthorized'
-  //       }
-  //     })
-  //   }
-  // }
-
   public async logOut() {
-    return console.log('test');
+    localStorage.removeItem('currentUser');
   }
 
   public async loggedIn() {
@@ -65,12 +43,6 @@ export class ConnexionService {
     if (currentUser && currentUser.token) {
       const headers = new Headers();
       headers.append('Authorization', `Bearer ${currentUser.token}`);
-      // request.clone({
-      //   setHeaders: {
-      //     Authorization: `Bearer ${currentUser.token}`
-      //   }
-      // });
-
       this.router.navigateByUrl('/');
     }
   }

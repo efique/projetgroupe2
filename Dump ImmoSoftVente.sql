@@ -297,6 +297,7 @@ CREATE TABLE `users` (
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` VALUES ('a23c3eac-b009-4630-862c-4d3c5b1118ea','valentin.barriol@ynov.com','$2b$10$YY/cPuCp5mESatDSMwSjxeysrAOYKKIxrl5x3fkWV5FNeoDTgfBeO','Utilisateur',NULL,NULL);
+INSERT INTO `users` VALUES ('37cb16e5-0898-44ad-9779-a281bb8c0f4a','admin.admin@admin.admin','$2b$10$GjDOvwxWdFgpQqloUwhapOf2V5b9xU2vg5HYUM.0RZ6qr3u80GHDm','Administrateur',NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 

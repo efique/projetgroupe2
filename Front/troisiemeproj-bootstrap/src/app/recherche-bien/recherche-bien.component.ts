@@ -12,21 +12,10 @@ export class RechercheBienComponent implements OnInit {
 
   /* name = new FormControl(''); */
 
-  searchForm = this.fb.group({
-    type_bien: [''],
-    localisation: this.fb.group({
-      ville: [''],
-    }),
-    nombre_pieces: [''],
-    superficie: [''],
-    prix_demande: [''],
-  });
-
   constructor(private fb: FormBuilder) { }
 
   onSubmit() {
     // TODO: Use EventEmitter with form value
-    console.warn(this.searchForm.value);
   }
 
 

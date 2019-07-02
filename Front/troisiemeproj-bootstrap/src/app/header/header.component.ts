@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConnexionService } from '../connexion/connexion.service';
 
 @Component({
   selector: 'app-header',
@@ -11,16 +12,25 @@ export class HeaderComponent implements OnInit {
   parse = JSON.parse(this.localUser);
   userRole = false;
   userLogged = false;
+  submitted = false;
 
-  constructor() {}
+  constructor(private connexionService: ConnexionService) {}
 
   ngOnInit() {
     if (this.parse.role === 'Administrateur') {
       this.userRole = true;
-    }
+    } else {
+    this.userRole = false;
+  }
 
     if (this.parse.token) {
       this.userLogged = true;
     }
+  }
+  
+  onSubmit(){
+    this.submitted = true;
+
+    this.connexionService.logOut();
   }
 }
