@@ -41,7 +41,8 @@ export class AuthService {
    * @returns Resolves with Users inserted
    */
   public async signIn(mail: string, password: string) {
-    const user = await this.userService.findOneByEmail(mail);
+    const findOneByEmail = this.usersRepository.findOne({ where: { mail } });
+    const user = await findOneByEmail;
 
     const isMatched = await bcrypt.compare(
       password,

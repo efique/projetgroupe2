@@ -44,7 +44,7 @@ export class AuthController {
       req.body.mail,
       req.body.password,
     );
-
+    
     if (!user) {
       res.status(401).json({ status: 'Unauthorized' });
     }

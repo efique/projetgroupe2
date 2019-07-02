@@ -18,7 +18,6 @@ export class ConnexionService {
   createConnexion(data) {
     this.http.post(`${this.url}/auth/signin`, data).subscribe(
       res => {
-        console.log(res)
         let user = (res as any).user;
         this.toastr.success(`Bienvenue ${user.mail}`, 'Success');
         user = JSON.stringify(user);
@@ -34,10 +33,6 @@ export class ConnexionService {
     );
   }
 
-  public async logOut() {
-    localStorage.removeItem('currentUser');
-  }
-
   public async loggedIn() {
     const currentUser = JSON.parse(localStorage.getItem(`currentUser`));
     if (currentUser && currentUser.token) {
@@ -45,5 +40,9 @@ export class ConnexionService {
       headers.append('Authorization', `Bearer ${currentUser.token}`);
       this.router.navigateByUrl('/');
     }
+  }
+  
+  public async logOut() {
+    localStorage.removeItem('currentUser');
   }
 }
