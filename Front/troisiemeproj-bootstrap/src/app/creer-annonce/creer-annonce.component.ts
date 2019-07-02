@@ -21,7 +21,6 @@ export class CreerAnnonceComponent implements OnInit {
   ngOnInit() {
     this.creerannonceForm = this.formBuilder.group({
       bien: '',
-      mail: '',
       proprietaire: ''
     });
   }
