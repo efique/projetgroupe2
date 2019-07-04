@@ -20,15 +20,15 @@ export class HeaderComponent implements OnInit {
     if (this.parse.role === 'Administrateur') {
       this.userRole = true;
     } else {
-    this.userRole = false;
-  }
+      this.userRole = false;
+    }
 
     if (this.parse.token) {
       this.userLogged = true;
     }
   }
-  
-  onSubmit(){
+
+  onSubmit() {
     this.submitted = true;
 
     this.connexionService.logOut();
