@@ -21,7 +21,7 @@
     "passport-http-bearer": "^1.0.1",
     "passport-jwt": "^4.0.0",
     "ts-node": "^8.0.3",
-    "typeorm": "^0.2.15",
+    "typeorm": "^0.2.25",
     "typescript": "^3.3.4000"
   },
   "devDependencies": {
